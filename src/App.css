@@ -95,7 +95,7 @@ img {
   }
 
   .second, .third {
-    display: flex;
+    display: block;
   }
 
   .slides {
