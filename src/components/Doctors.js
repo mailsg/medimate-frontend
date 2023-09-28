@@ -33,15 +33,15 @@ function Doctors() {
   };
 
   return (
-    <div>
-      <div>
-        <div>{doctors[currentIndex]}</div>
-        <div>{doctors[currentIndex + 1]}</div>
-        <div>{doctors[currentIndex + 2]}</div>
+    <div className="slideshow-container">
+      <div className="slides">
+        <div className="placeholder">{doctors[currentIndex]}</div>
+        <div className="placeholder">{doctors[currentIndex + 1]}</div>
+        <div className="placeholder">{doctors[currentIndex + 2]}</div>
       </div>
 
-      <button type="button" onClick={prevSlide} style={prevButtonStyle}>&#10094;</button>
-      <button type="button" onClick={nextSlide} style={nextButtonStyle}>&#10095;</button>
+      <button type="button" className="prev" onClick={prevSlide} style={prevButtonStyle}>&#10094;</button>
+      <button type="button" className="next" onClick={nextSlide} style={nextButtonStyle}>&#10095;</button>
     </div>
   );
 }
