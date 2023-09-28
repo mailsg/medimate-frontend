@@ -1,10 +1,28 @@
+:root {
+  --grey: #c3b9b9d3;
+  --green: #8DB600;
+  --ash: #434b54;
+  --black: #555e77;
+  --white: #fff;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: lato, Arial, Helvetica, sans-serif;
+}
+
 body {
   display: flex;
   justify-content: center;
+  background-color: black;
 }
 
 main {
   width: 400px;
+  background-color: var(--white);
+  height: 100vh;
 }
 
 .slideshow-container {
@@ -12,6 +30,8 @@ main {
   position: relative;
   display: flex;
   justify-content: center;
+  flex-direction: column;
+  align-items: center;
 }
 
 .placeholder {
@@ -33,7 +53,7 @@ main {
   top: 50%;
   padding: 16px;
   margin-top: -22px;
-  color: rgb(255, 255, 255);
+  color: var(--white);
   font-weight: bold;
   font-size: 18px;
   border-radius: 0 3px 3px 0;
@@ -43,7 +63,7 @@ main {
 }
 
 .exhaust-img {
-  background-color: grey;
+  background-color: var(--grey);
 }
 
 .prev {
