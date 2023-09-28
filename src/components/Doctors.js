@@ -35,9 +35,9 @@ function Doctors() {
   return (
     <div className="slideshow-container">
       <div className="slides">
-        <div className="placeholder">{doctors[currentIndex]}</div>
-        <div className="placeholder">{doctors[currentIndex + 1]}</div>
-        <div className="placeholder">{doctors[currentIndex + 2]}</div>
+        <div className="placeholder first">{doctors[currentIndex]}</div>
+        <div className="placeholder second">{doctors[currentIndex + 1]}</div>
+        <div className="placeholder third">{doctors[currentIndex + 2]}</div>
       </div>
 
       <button type="button" className="prev" onClick={prevSlide} style={prevButtonStyle}>&#10094;</button>

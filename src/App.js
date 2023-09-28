@@ -3,9 +3,11 @@ import Doctors from './components/Doctors';
 
 function App() {
   return (
-    <div className="App">
-      <Doctors />
-    </div>
+    <body>
+      <main>
+        <Doctors />
+      </main>
+    </body>
   );
 }
 
