@@ -1,5 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import styles from '../css/doctors.module.css';
+import image1 from '../assets/img-1.jpg';
+import image2 from '../assets/img-2.jpg';
+import image3 from '../assets/img-3.jpg';
+import image4 from '../assets/img-4.jpg';
 
 function Doctors() {
   const doctors = [
@@ -10,7 +14,7 @@ function Doctors() {
       city: 'Lagos',
       bio: "I don't need to know (necessarily) which people were involved.",
       fee_per_appointment: '$145',
-      image: 'Image 99',
+      image: image1,
     },
     {
       id: 2,
@@ -19,7 +23,7 @@ function Doctors() {
       city: 'New Delhi',
       bio: "I don't need to know (necessarily) which people were involved.",
       fee_per_appointment: '$200',
-      image: 'Image 78',
+      image: image2,
     },
     {
       id: 3,
@@ -28,7 +32,7 @@ function Doctors() {
       city: 'Johannesburg',
       bio: "I don't need to know (necessarily) which people were involved.",
       fee_per_appointment: '$178',
-      image: 'Image 24',
+      image: image3,
     },
     {
       id: 4,
@@ -37,7 +41,7 @@ function Doctors() {
       city: 'Buenos Ares',
       bio: "I don't need to know (necessarily) which people were involved.",
       fee_per_appointment: '$580',
-      image: 'Image 17',
+      image: image4,
     },
   ];
 
@@ -81,7 +85,7 @@ function Doctors() {
       <div className={styles.slides}>
         {doctors.slice(currentIndex, currentIndex + displayCount).map((doctor) => (
           <div key={doctor.id}>
-            <div className={styles.placeholder}>{doctor.image}</div>
+            <img src={doctor.image} alt={doctor.name} />
             <h3>{doctor.name}</h3>
             <div>
               <p>
