@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 
 function Doctors() {
   const doctors = [
@@ -7,7 +7,7 @@ function Doctors() {
       name: 'Charles',
       specialization: 'Cardiology',
       city: 'Lagos',
-      bio: "I don't need to know (necessarily) which people were involved. If so, how did you approach solving the conflict? If not, what measures did you put in place to prevent conflicts?",
+      bio: "I don't need to know (necessarily) which people were involved.",
       fee_per_appointment: '$145',
       image: 'Image 99',
     },
@@ -16,7 +16,7 @@ function Doctors() {
       name: 'Sandeep',
       specialization: 'Gynaecologist',
       city: 'New Delhi',
-      bio: "I don't need to know (necessarily) which people were involved. If so, how did you approach solving the conflict? If not, what measures did you put in place to prevent conflicts?",
+      bio: "I don't need to know (necessarily) which people were involved.",
       fee_per_appointment: '$200',
       image: 'Image 78',
     },
@@ -25,7 +25,7 @@ function Doctors() {
       name: 'Emmauel',
       specialization: 'Orthopedics',
       city: 'Johannesburg',
-      bio: "I don't need to know (necessarily) which people were involved. If so, how did you approach solving the conflict? If not, what measures did you put in place to prevent conflicts?",
+      bio: "I don't need to know (necessarily) which people were involved.",
       fee_per_appointment: '$178',
       image: 'Image 24',
     },
@@ -34,20 +34,35 @@ function Doctors() {
       name: 'Ariel',
       specialization: 'doctor',
       city: 'Buenos Ares',
-      bio: "I don't need to know (necessarily) which people were involved. If so, how did you approach solving the conflict? If not, what measures did you put in place to prevent conflicts?",
+      bio: "I don't need to know (necessarily) which people were involved.",
       fee_per_appointment: '$580',
       image: 'Image 17',
     },
   ];
 
+  const getDisplayCount = () => (window.matchMedia('(max-width: 768px)').matches ? 1 : 3);
+
   const [currentIndex, setCurrentIndex] = useState(0);
+  const [displayCount, setDisplayCount] = useState(getDisplayCount());
+
+  const handleResize = () => {
+    setDisplayCount(getDisplayCount());
+  };
+
+  useEffect(() => {
+    window.addEventListener('resize', handleResize);
+    return () => {
+      window.removeEventListener('resize', handleResize);
+    };
+  }, []);
 
   const prevSlide = () => {
     setCurrentIndex((prevIndex) => (prevIndex === 0 ? 0 : prevIndex - 1));
   };
 
   const nextSlide = () => {
-    setCurrentIndex((prevIndex) => (prevIndex === doctors.length - 3 ? prevIndex : prevIndex + 1));
+    setCurrentIndex((prevIndex) => (prevIndex === doctors.length - displayCount
+      ? prevIndex : prevIndex + 1));
   };
 
   const prevButtonStyle = {
@@ -55,7 +70,7 @@ function Doctors() {
   };
 
   const nextButtonStyle = {
-    backgroundColor: currentIndex === doctors.length - 3 ? '#c3b9b9d3' : '#8DB600',
+    backgroundColor: currentIndex === doctors.length - displayCount ? '#c3b9b9d3' : '#8DB600',
   };
 
   return (
@@ -63,7 +78,7 @@ function Doctors() {
       <h1>AVAILABLE DOCTORS</h1>
       <small>Please select from our list of doctors</small>
       <div className="slides">
-        {doctors.slice(currentIndex, currentIndex + 3).map((doctor) => (
+        {doctors.slice(currentIndex, currentIndex + displayCount).map((doctor) => (
           <div key={doctor.id}>
             <div className="placeholder">{doctor.image}</div>
             <h3>{doctor.name}</h3>
