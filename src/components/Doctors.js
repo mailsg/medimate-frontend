@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import styles from '../css/doctors.module.css';
 
 function Doctors() {
   const doctors = [
@@ -74,13 +75,13 @@ function Doctors() {
   };
 
   return (
-    <div className="slideshow-container">
+    <div className={styles.slideshowContainer}>
       <h1>AVAILABLE DOCTORS</h1>
       <small>Please select from our list of doctors</small>
-      <div className="slides">
+      <div className={styles.slides}>
         {doctors.slice(currentIndex, currentIndex + displayCount).map((doctor) => (
           <div key={doctor.id}>
-            <div className="placeholder">{doctor.image}</div>
+            <div className={styles.placeholder}>{doctor.image}</div>
             <h3>{doctor.name}</h3>
             <div>
               <p>
@@ -104,8 +105,8 @@ function Doctors() {
         ))}
       </div>
 
-      <button type="button" className="prev" onClick={prevSlide} style={prevButtonStyle}>&#10094;</button>
-      <button type="button" className="next" onClick={nextSlide} style={nextButtonStyle}>&#10095;</button>
+      <button type="button" className={styles.prev} onClick={prevSlide} style={prevButtonStyle}>&#10094;</button>
+      <button type="button" className={styles.next} onClick={nextSlide} style={nextButtonStyle}>&#10095;</button>
     </div>
   );
 }
