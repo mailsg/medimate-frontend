@@ -1,16 +1,24 @@
 import React, { useState, useEffect } from 'react';
-import { FaFacebookF, FaTwitter, FaLinkedinIn } from 'react-icons/fa';
+import {
+  FaFacebookF,
+  FaTwitter,
+  FaLinkedinIn,
+  FaAngleRight,
+  FaAngleLeft,
+} from 'react-icons/fa';
 import styles from '../css/doctors.module.css';
 import image1 from '../assets/img-1.jpg';
 import image2 from '../assets/img-2.jpg';
 import image3 from '../assets/img-3.jpg';
 import image4 from '../assets/img-4.jpg';
+import image5 from '../assets/img-5.jpg';
+import image6 from '../assets/img-6.jpg';
 
 function Doctors() {
   const doctors = [
     {
       id: 1,
-      name: 'Charles',
+      name: 'Laura',
       specialization: 'Cardiology',
       city: 'Lagos',
       bio: "I don't need to know (necessarily) which people were involved.",
@@ -19,7 +27,7 @@ function Doctors() {
     },
     {
       id: 2,
-      name: 'Sandeep',
+      name: 'Condolezza',
       specialization: 'Gynaecologist',
       city: 'New Delhi',
       bio: "I don't need to know (necessarily) which people were involved.",
@@ -28,7 +36,7 @@ function Doctors() {
     },
     {
       id: 3,
-      name: 'Emmauel',
+      name: 'Ruth',
       specialization: 'Orthopedics',
       city: 'Johannesburg',
       bio: "I don't need to know (necessarily) which people were involved.",
@@ -37,12 +45,30 @@ function Doctors() {
     },
     {
       id: 4,
-      name: 'Ariel',
+      name: 'Naomi',
       specialization: 'doctor',
       city: 'Buenos Ares',
       bio: "I don't need to know (necessarily) which people were involved.",
       fee_per_appointment: '$580',
       image: image4,
+    },
+    {
+      id: 4,
+      name: 'Isabella',
+      specialization: 'doctor',
+      city: 'Buenos Ares',
+      bio: "I don't need to know (necessarily) which people were involved.",
+      fee_per_appointment: '$580',
+      image: image5,
+    },
+    {
+      id: 4,
+      name: 'Charles',
+      specialization: 'doctor',
+      city: 'Buenos Ares',
+      bio: "I don't need to know (necessarily) which people were involved.",
+      fee_per_appointment: '$580',
+      image: image6,
     },
   ];
 
@@ -83,7 +109,7 @@ function Doctors() {
     <div className={styles['slideshow-container']}>
       <header>
         <h1>AVAILABLE DOCTORS</h1>
-        <small>Please select from our list of doctors</small>
+        <p>Please select from our list of doctors</p>
       </header>
       <div className={styles.slides}>
         {doctors.slice(currentIndex, currentIndex + displayCount).map((doctor) => (
@@ -107,7 +133,7 @@ function Doctors() {
                 {doctor.specialization}
               </span>
             </div>
-            <small>{doctor.bio}</small>
+            <p>{doctor.bio}</p>
             <div className={styles.socialMedia}>
               <FaFacebookF className={styles['sm-icons']} />
               <FaTwitter className={styles['sm-icons']} />
@@ -118,8 +144,8 @@ function Doctors() {
         ))}
       </div>
 
-      <button type="button" className={styles.prev} onClick={prevSlide} style={prevButtonStyle}>&#10094;</button>
-      <button type="button" className={styles.next} onClick={nextSlide} style={nextButtonStyle}>&#10095;</button>
+      <FaAngleLeft onClick={prevSlide} className={styles['slide-icon-left']} style={prevButtonStyle} />
+      <FaAngleRight onClick={nextSlide} className={styles['slide-icon-right']} style={nextButtonStyle} />
     </div>
   );
 }

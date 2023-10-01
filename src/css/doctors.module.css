@@ -12,22 +12,25 @@
 
 .slideshow-container {
   max-width: 400px;
-  position: relative;
   display: flex;
   justify-content: center;
   flex-direction: column;
   align-items: center;
-  gap: 2rem;
+  gap: 1.5rem;
+  margin: 2rem 0;
+}
+
+p {
+  font-size: 12px;
+  color: rgb(187, 180, 180);
+  font-weight: 800;
+  text-align: center;
+  padding: 0.5rem 20% 0 20%;
 }
 
 h1, h3 {
   color: black;
-}
-
-small {
-  color: rgb(187, 180, 180);
-  font-weight: 800;
-  text-align: center;
+  letter-spacing: 2px;
 }
 
 .sm-icons {
@@ -35,7 +38,7 @@ small {
   border: 2px solid var(--grey);
   border-radius: 50%;
   padding: 5px;
-  margin: 1rem;
+  margin: 0.7rem;
   font-size: 1.5rem;
 }
 
@@ -47,11 +50,13 @@ small {
 .slides {
   display: block;
   text-align: center;
+  gap: 1rem;
 }
 
 .slides span {
   margin: 0.5rem;
   font-size: 0.5rem;
+  color: rgb(187, 180, 180);
 }
 
 .prev, .next {
@@ -73,13 +78,19 @@ small {
   width: 5px;
 }
 
-.prev {
+.slide-icon-left, .slide-icon-right {
+  position: absolute;
   left: 0;
-  border-radius: 3px 0 0 3px;
+  border-radius: 0 50% 50% 0;
+  width: 20px;
+  height: 20px;
 }
 
-.next {
+.slide-icon-right {
+  left: auto;
+  position: absolute;
   right: 0;
+  border-radius: 50% 0 0 50%;
 }
 
 .prev.hidden, .next.hidden {
@@ -87,9 +98,9 @@ small {
 }
 
 img {
-  height: 150px;
-  /* width: 150px; */
-  border-radius: 50%;
+  height: 300px;
+  width: 300px;
+  border-radius: 70%;
 }
 
 @media screen and (min-width: 768px) {
@@ -106,5 +117,11 @@ img {
   .slides {
     display: flex;
     text-align: center;
+  }
+
+  .slide-icon-left, .slide-icon-right {
+    width: 50px;
+    height: 50px;
+    padding: 1rem;
   }
 }
