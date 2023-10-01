@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { FaFacebookF, FaTwitter, FaLinkedinIn } from 'react-icons/fa';
 import styles from '../css/doctors.module.css';
 import image1 from '../assets/img-1.jpg';
 import image2 from '../assets/img-2.jpg';
@@ -79,32 +80,40 @@ function Doctors() {
   };
 
   return (
-    <div className={styles.slideshowContainer}>
-      <h1>AVAILABLE DOCTORS</h1>
-      <small>Please select from our list of doctors</small>
+    <div className={styles['slideshow-container']}>
+      <header>
+        <h1>AVAILABLE DOCTORS</h1>
+        <small>Please select from our list of doctors</small>
+      </header>
       <div className={styles.slides}>
         {doctors.slice(currentIndex, currentIndex + displayCount).map((doctor) => (
           <div key={doctor.id}>
-            <img src={doctor.image} alt={doctor.name} />
+            <img src={doctor.image} alt={doctor.name} className={styles.doctorImages} />
             <h3>{doctor.name}</h3>
             <div>
-              <p>
-                City:
-                {' '}
-                {doctor.city}
-              </p>
-              <p>
-                Specialization:
-                {' '}
-                {doctor.specialization}
-              </p>
-              <p>
+              <span>
                 Fee:
                 {' '}
                 {doctor.fee_per_appointment}
-              </p>
+              </span>
+              <span>
+                City:
+                {' '}
+                {doctor.city}
+              </span>
+              <span>
+                Specialization:
+                {' '}
+                {doctor.specialization}
+              </span>
             </div>
-            <p>{doctor.bio}</p>
+            <small>{doctor.bio}</small>
+            <div className={styles.socialMedia}>
+              <FaFacebookF className={styles['sm-icons']} />
+              <FaTwitter className={styles['sm-icons']} />
+              <FaLinkedinIn className={styles['sm-icons']} />
+              <i className="fa fa-heart" />
+            </div>
           </div>
         ))}
       </div>
