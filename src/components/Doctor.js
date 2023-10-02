@@ -38,7 +38,7 @@ export const Doctor = () => (
         <strong>5.9% APR</strong>
         Repesentative
       </p>
-      <p className={styles['small-fonts']}>DISCOVER MORE DOCTORS</p>
+      <p className={styles['more-doctors']}>DISCOVER MORE DOCTORS</p>
       {/* <img src={image1} alt="laura" /> */}
       <button type="button">
         <GoGear />
