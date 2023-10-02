@@ -1,0 +1,15 @@
+:root {
+  --grey: #c3b9b9d3;
+  --green: #8DB600;
+  --ash: #434b54;
+  --black: #555e77;
+  --white: #fff;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: lato, Arial, Helvetica, sans-serif;
+  color: var(--white);
+}
