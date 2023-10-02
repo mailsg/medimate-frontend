@@ -26,7 +26,7 @@ export default function Header() {
         />
       </div>
       <div
-        className={`menu-icon ${menuVisible ? 'open' : ''}`}
+        className={`menu-icon menu ${menuVisible ? 'open' : ''}`}
         onClick={toggleMenu}
         onKeyPress={handleKeyPress}
         role="button"
