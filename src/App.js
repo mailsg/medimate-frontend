@@ -7,12 +7,14 @@ import {
 } from "react-router-dom";
 
 import Header from "./components/Header";
+import ReservationForm from "./components/ReservationForm";
 
 const router = createBrowserRouter(
   createRoutesFromElements(
-    <Route path="/" element={<Header />}>
-      
-    </Route>
+    <>
+      <Route path="/" element={<Header />} />
+      <Route path="Reserve" element={<ReservationForm />} />    
+    </>
   )
 );
 
