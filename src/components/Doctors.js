@@ -53,7 +53,7 @@ function Doctors() {
       image: image4,
     },
     {
-      id: 4,
+      id: 5,
       name: 'Isabella',
       specialization: 'doctor',
       city: 'Buenos Ares',
@@ -62,7 +62,7 @@ function Doctors() {
       image: image5,
     },
     {
-      id: 4,
+      id: 6,
       name: 'Charles',
       specialization: 'doctor',
       city: 'Buenos Ares',
