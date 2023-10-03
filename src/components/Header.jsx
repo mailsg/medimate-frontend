@@ -1,7 +1,9 @@
 import { useState } from 'react';
 import { Outlet, NavLink } from 'react-router-dom';
-import { BsVimeo, BsFacebook, BsPinterest, BsTwitter } from "react-icons/bs";
-import { BiLogoGooglePlus } from "react-icons/bi";
+import {
+  BsVimeo, BsFacebook, BsPinterest, BsTwitter,
+} from 'react-icons/bs';
+import { BiLogoGooglePlus } from 'react-icons/bi';
 import logo from '../images/Medimate-logo.png';
 
 export default function Header() {
@@ -23,7 +25,7 @@ export default function Header() {
         <img src={logo} alt="logo" className="logo" />
       </div>
       <div
-        className={`menu-icon menu ${menuVisible ? "open" : ""}`}
+        className={`menu-icon menu ${menuVisible ? 'open' : ''}`}
         onClick={toggleMenu}
         onKeyPress={handleKeyPress}
         role="button"
@@ -35,7 +37,7 @@ export default function Header() {
         <div className="bar" />
       </div>
 
-      <nav className={`side-nav ${menuVisible ? "open" : ""}`}>
+      <nav className={`side-nav ${menuVisible ? 'open' : ''}`}>
         <NavLink className="link-item1" to="/" activeClassName="active">
           Doctors
         </NavLink>

@@ -1,8 +1,7 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
-import
 
-export const Reserve = () => (
+const Reserve = () => (
   <section className="container">
     <article>
       <h1>BOOK AN APPOINTMENT WITH OUR DOCTORS</h1>

@@ -41,7 +41,7 @@ function ReservationForm() {
       <h2>Reservation Form</h2>
       <form className="reservation-form form" onSubmit={handleSubmit}>
         <div className="form-group">
-          <label htmlFor="doctorName">Doctor's Name:</label>
+          <label htmlFor="doctorName">Name of Doctor:</label>
           <input
             className="form"
             type="text"
