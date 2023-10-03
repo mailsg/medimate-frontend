@@ -1,5 +1,7 @@
 import { useState } from 'react';
 import { Outlet, NavLink } from 'react-router-dom';
+import { BsVimeo, BsFacebook, BsPinterest, BsTwitter } from "react-icons/bs";
+import { BiLogoGooglePlus } from "react-icons/bi";
 import logo from '../images/Medimate-logo.png';
 
 export default function Header() {
@@ -18,15 +20,10 @@ export default function Header() {
   return (
     <div className="side-panel">
       <div className="logo-div">
-        <img
-          src={logo}
-          alt="logo"
-          className="logo"
-          style={{ width: '150px', height: '150px' }}
-        />
+        <img src={logo} alt="logo" className="logo" />
       </div>
       <div
-        className={`menu-icon menu ${menuVisible ? 'open' : ''}`}
+        className={`menu-icon menu ${menuVisible ? "open" : ""}`}
         onClick={toggleMenu}
         onKeyPress={handleKeyPress}
         role="button"
@@ -38,7 +35,7 @@ export default function Header() {
         <div className="bar" />
       </div>
 
-      <nav className={`side-nav ${menuVisible ? 'open' : ''}`}>
+      <nav className={`side-nav ${menuVisible ? "open" : ""}`}>
         <NavLink className="link-item1" to="/" activeClassName="active">
           Doctors
         </NavLink>
@@ -65,32 +62,33 @@ export default function Header() {
       </nav>
       <footer className="footer">
         <a href="https://twitter.com" target="_blank" rel="noopener noreferrer">
-          <i className="bi bi-twitter" />
+          <BsTwitter />
         </a>
         <a
           href="https://www.facebook.com"
           target="_blank"
           rel="noopener noreferrer"
         >
-          <i className="bi bi-facebook" />
+          <BsFacebook />
         </a>
         <a
           href="https://plus.google.com"
           target="_blank"
           rel="noopener noreferrer"
         >
-          <i className="bi bi-google" />
+          <BiLogoGooglePlus />
         </a>
         <a href="https://vimeo.com" target="_blank" rel="noopener noreferrer">
-          <i className="bi bi-vimeo" />
+          <BsVimeo />
         </a>
         <a
           href="https://www.pinterest.com"
           target="_blank"
           rel="noopener noreferrer"
         >
-          <i className="bi bi-pinterest" />
+          <BsPinterest />
         </a>
+        <p>© 1989 Medimate - All Rights Reserved</p>
       </footer>
       <main className="content">
         <Outlet />
