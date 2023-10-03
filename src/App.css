@@ -1,6 +1,6 @@
 :root {
   --grey: #c3b9b9d3;
-  --green: #8DB600;
+  --green: #8db600;
   --ash: #434b54;
   --black: #555e77;
   --white: #fff;
@@ -23,7 +23,6 @@ main {
   background-color: var(--white);
   height: 100vh;
 }
-
 
 @media screen and (min-width: 768px) {
   body {

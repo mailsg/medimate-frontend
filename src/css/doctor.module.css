@@ -1,6 +1,6 @@
 :root {
   --grey: #c3b9b9d3;
-  --green: #8DB600;
+  --green: #8db600;
   --ash: #434b54;
   --black: #555e77;
   --white: #fff;
@@ -14,14 +14,16 @@
   font-size: 10px;
 }
 
-section, .photo {
+section,
+.photo {
   display: flex;
   padding: 1rem 0.5rem;
   flex-direction: column;
   align-items: center;
 }
 
-p, h1 {
+p,
+h1 {
   text-align: center;
 }
 
@@ -46,10 +48,10 @@ h1 {
 }
 
 .attribute {
- width: 100%;
- display: flex;
- justify-content: space-between;
- padding: 5px;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  padding: 5px;
 }
 
 .dark-bg {
@@ -60,7 +62,9 @@ h1 {
   background-color: var(--white);
 }
 
-.more-doctors, .discount, .icon-container {
+.more-doctors,
+.discount,
+.icon-container {
   display: none;
 }
 
@@ -85,8 +89,8 @@ button:hover {
 }
 
 .reserve-btn {
- margin-top: 2px;
- font-size: 16px;
+  margin-top: 2px;
+  font-size: 16px;
 }
 
 @media screen and (min-width: 768px) {
@@ -94,7 +98,8 @@ button:hover {
     font-size: 13px;
   }
 
-  section, .photo {
+  section,
+  .photo {
     padding: 4rem;
     flex-direction: row;
     position: relative;
@@ -112,7 +117,8 @@ button:hover {
     justify-self: flex-end;
   }
 
-  .extreme-right, .attributes-ls {
+  .extreme-right,
+  .attributes-ls {
     display: flex;
     flex-direction: column;
     align-self: flex-start;
@@ -121,14 +127,17 @@ button:hover {
     flex-grow: 1;
   }
 
-  .small-fonts, .more-doctors, p {
+  .small-fonts,
+  .more-doctors,
+  p {
     font-weight: 800;
     font-size: 11px;
     margin-bottom: 1rem;
     text-align: end;
   }
 
-  .more-doctors, p {
+  .more-doctors,
+  p {
     margin-bottom: 0;
   }
 
@@ -138,13 +147,15 @@ button:hover {
   }
 
   .attribute {
-   width: 100%;
-   display: flex;
-   justify-content: space-between;
-   padding: 0.7rem;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    padding: 0.7rem;
   }
 
-  .more-doctors, .discount, .icon-container {
+  .more-doctors,
+  .discount,
+  .icon-container {
     display: block;
   }
 
@@ -156,7 +167,6 @@ button:hover {
   .icon {
     width: 150px;
     justify-self: flex-end;
-    width: 50%;
   }
 
   button {

@@ -1,6 +1,6 @@
 :root {
   --grey: #c3b9b9d3;
-  --green: #8DB600;
+  --green: #8db600;
   --ash: #434b54;
   --black: #555e77;
   --white: #fff;
@@ -23,7 +23,7 @@
   height: 100vh;
   display: flex;
   justify-content: center;
-  align-items: center
+  align-items: center;
 }
 
 article {
@@ -56,7 +56,8 @@ p {
   gap: 2rem;
 }
 
-select, button {
+select,
+button {
   background: transparent;
   padding: 0.5rem 1.5rem;
   border-radius: 20px;
@@ -72,4 +73,3 @@ button:hover {
   background: transparent;
   color: var(--white);
 }
-

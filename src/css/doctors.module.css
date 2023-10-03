@@ -1,6 +1,6 @@
 :root {
   --grey: #e5ddddd3;
-  --green: #8DB600;
+  --green: #8db600;
   --ash: #434b54;
   --black: #555e77;
   --white: #fff;
@@ -28,7 +28,8 @@ p {
   padding: 0.5rem 20% 0 20%;
 }
 
-h1, h3 {
+h1,
+h3 {
   color: black;
   letter-spacing: 2px;
 }
@@ -59,7 +60,8 @@ h1, h3 {
   color: rgb(187, 180, 180);
 }
 
-.prev, .next {
+.prev,
+.next {
   position: absolute;
   top: 50%;
   padding: 16px;
@@ -78,7 +80,8 @@ h1, h3 {
   width: 5px;
 }
 
-.slide-icon-left, .slide-icon-right {
+.slide-icon-left,
+.slide-icon-right {
   position: absolute;
   left: 0;
   border-radius: 0 50% 50% 0;
@@ -93,7 +96,8 @@ h1, h3 {
   border-radius: 50% 0 0 50%;
 }
 
-.prev.hidden, .next.hidden {
+.prev.hidden,
+.next.hidden {
   display: none;
 }
 
@@ -119,7 +123,8 @@ img {
     text-align: center;
   }
 
-  .slide-icon-left, .slide-icon-right {
+  .slide-icon-left,
+  .slide-icon-right {
     width: 50px;
     height: 50px;
     padding: 1rem;
