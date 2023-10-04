@@ -21,12 +21,13 @@
   margin: 2rem 0;
 }
 
-p {
+.home-paragraph {
   font-size: 12px;
-  color: rgb(187, 180, 180);
+  color: rgb(141, 131, 131);
   font-weight: 800;
   text-align: center;
   padding: 0.5rem 20% 0 20%;
+  text-decoration: none;
 }
 
 h1,
@@ -41,7 +42,7 @@ h3 {
   border-radius: 50%;
   padding: 5px;
   margin: 0.7rem;
-  font-size: 1.5rem;
+  font-size: 2rem;
 }
 
 .sm-icons:hover {
@@ -57,7 +58,7 @@ h3 {
 
 .slides span {
   margin: 0.5rem;
-  font-size: 0.5rem;
+  font-size: 0.7rem;
   color: rgb(187, 180, 180);
 }
 
@@ -87,7 +88,7 @@ h3 {
   display: none;
 }
 
-img {
+.doctor-images {
   height: 300px;
   width: 300px;
   border-radius: 70%;

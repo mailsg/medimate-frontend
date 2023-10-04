@@ -111,42 +111,44 @@ function Doctors() {
     <div className={styles['slideshow-container']}>
       <header>
         <h1>AVAILABLE DOCTORS</h1>
-        <p>Please select from our list of doctors</p>
+        <p className={styles['home-paragraph']}>
+          Please select from our list of doctors
+        </p>
       </header>
       <div className={styles.slides}>
         {doctors
           .slice(currentIndex, currentIndex + displayCount)
           .map((doctor) => (
             <div key={doctor.id}>
+              <img
+                src={doctor.image}
+                alt={doctor.name}
+                className={styles['doctor-images']}
+              />
               <Link to={`/doctors/${doctor.id}`}>
-                <img
-                  src={doctor.image}
-                  alt={doctor.name}
-                  className={styles.doctorImages}
-                />
-                <h3>{doctor.name}</h3>
-                <div>
-                  <span>
-                    Fee:
-                    {doctor.fee_per_appointment}
-                  </span>
-                  <span>
-                    City:
-                    {doctor.city}
-                  </span>
-                  <span>
-                    Specialization:
-                    {doctor.specialization}
-                  </span>
-                </div>
-                <p>{doctor.bio}</p>
-                <div className={styles.socialMedia}>
-                  <FaFacebookF className={styles['sm-icons']} />
-                  <FaTwitter className={styles['sm-icons']} />
-                  <FaLinkedinIn className={styles['sm-icons']} />
-                  <i className="fa fa-heart" />
-                </div>
+                <h2>{doctor.name}</h2>
               </Link>
+              <div>
+                <span>
+                  Fee:
+                  {doctor.fee_per_appointment}
+                </span>
+                <span>
+                  City:
+                  {doctor.city}
+                </span>
+                <span>
+                  Specialization:
+                  {doctor.specialization}
+                </span>
+              </div>
+              <p className={styles['home-paragraph']}>{doctor.bio}</p>
+              <div className={styles.socialMedia}>
+                <FaFacebookF className={styles['sm-icons']} />
+                <FaTwitter className={styles['sm-icons']} />
+                <FaLinkedinIn className={styles['sm-icons']} />
+                <i className="fa fa-heart" />
+              </div>
             </div>
           ))}
       </div>
