@@ -16,7 +16,11 @@ export const Reserve = () => (
           <option>London</option>
           <option>Mumbai</option>
         </select>
-        <button type="button">Book now</button>
+
+        <NavLink to="/Reservation">
+          <button type="button">Book now</button>
+        </NavLink>
+
       </div>
     </article>
   </section>
