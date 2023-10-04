@@ -138,65 +138,7 @@ body {
 
 /* ReservationForm.css */
 
-.reservation-container {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100vh;
-  flex-direction: column;
-  width: 100%;
-  color: white;
-}
 
-.reservation-form {
-  border: 1px solid #ccc;
-  padding: 20px;
-  border-radius: 10px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
-  background-color: #fff;
-  max-width: 500px;
-  width: 100%;
-}
-
-.form-group {
-  margin-bottom: 15px;
-}
-
-label {
-  font-weight: bold;
-}
-
-input[type="text"],
-input[type="date"],
-input[type="time"],
-input[type="number"] {
-  width: 95%;
-  padding: 10px;
-  border: 1px solid #ccc;
-  border-radius: 5px;
-  font-size: 16px;
-  color: white;
-}
-
-.form {
-  background: linear-gradient(rgba(156, 203, 2, 0.8), rgba(156, 203, 2, 0.8)), url('./images/img-6.jpg');
-}
-
-.submit-button {
-  background-color: #fff;
-  color: green;
-  border: 2px solid #fff;
-  border-radius: 20px;
-  padding: 10px 20px;
-  cursor: pointer;
-  font-size: 16px;
-  margin-right: 10px;
-}
-
-.submit-button:hover {
-  background-color: transparent;
-  color: #fff;
-}
 
 /* reservation form end */
 

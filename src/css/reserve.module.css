@@ -15,8 +15,8 @@
 }
 
 .container {
-  background: linear-gradient(rgba(156, 203, 2, 0.8), rgba(156, 203, 2, 0.8)), url('../assets/img-6.jpg');
-  background-position: top;
+  background: linear-gradient(rgba(73, 95, 0, 0.8), rgba(156, 203, 2, 0.8)), url('../assets/img-6.jpg');
+  background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
   background-attachment: scroll;
@@ -33,15 +33,17 @@ article {
   gap: 1.5rem;
 }
 
-h1 {
+.reserve-header {
   letter-spacing: 5px;
   font-weight: 800;
   text-align: center;
+  color: var(--white);
 }
 
-p {
+.reserve-body {
   font-size: 13px;
   text-align: center;
+  color: var(--white);
 }
 
 .thematic {
