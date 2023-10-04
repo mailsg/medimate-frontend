@@ -75,3 +75,38 @@ button:hover {
   background: transparent;
   color: var(--white);
 }
+
+.home {
+  display: block;
+  margin: 0;
+  padding: 0;
+}
+
+/* .first-child {
+  display: none;
+} */
+
+.sec-child {
+  display: block;
+  width: 100%;
+}
+
+@media screen and (min-width: 768px) {
+  .reserve-container {
+    display: flex;
+  }
+
+  .container {
+    width: 90%;
+  }
+
+  .home {
+    display: flex;
+    margin: 0;
+    padding: 0;
+  }
+
+  .first-child {
+    display: block;
+  }
+}

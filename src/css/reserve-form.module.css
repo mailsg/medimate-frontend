@@ -6,6 +6,10 @@
   --white: #fff;
 }
 
+.layout {
+  display: flex;
+}
+
 .reservation-container {
   background: linear-gradient(rgba(73, 95, 0, 0.8), rgba(156, 203, 2, 0.8)), url('../assets/img-1.jpg');
   background-position: center;
@@ -32,7 +36,7 @@
 .reservation-form {
   background: transparent;
   max-width: 500px;
-  width: 100%;
+  width: 70%;
   display: flex;
   flex-direction: column;
   gap: 2rem;

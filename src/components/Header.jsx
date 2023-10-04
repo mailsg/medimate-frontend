@@ -41,7 +41,7 @@ export default function Header() {
         <NavLink className="link-item1" to="/" activeClassName="active">
           Doctors
         </NavLink>
-        <NavLink className="link-item2" to="Reserve" activeClassName="active">
+        <NavLink className="link-item2" to="/reserve" activeClassName="active">
           Reserve
         </NavLink>
         <NavLink
@@ -63,33 +63,39 @@ export default function Header() {
         </NavLink>
       </nav>
       <footer className="footer">
-        <a href="https://twitter.com" target="_blank" rel="noopener noreferrer">
-          <BsTwitter />
-        </a>
-        <a
-          href="https://www.facebook.com"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <BsFacebook />
-        </a>
-        <a
-          href="https://plus.google.com"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <BiLogoGooglePlus />
-        </a>
-        <a href="https://vimeo.com" target="_blank" rel="noopener noreferrer">
-          <BsVimeo />
-        </a>
-        <a
-          href="https://www.pinterest.com"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <BsPinterest />
-        </a>
+        <div className="footer-icons">
+          <a
+            href="https://twitter.com"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <BsTwitter />
+          </a>
+          <a
+            href="https://www.facebook.com"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <BsFacebook />
+          </a>
+          <a
+            href="https://plus.google.com"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <BiLogoGooglePlus />
+          </a>
+          <a href="https://vimeo.com" target="_blank" rel="noopener noreferrer">
+            <BsVimeo />
+          </a>
+          <a
+            href="https://www.pinterest.com"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <BsPinterest />
+          </a>
+        </div>
         <p>© 1989 Medimate - All Rights Reserved</p>
       </footer>
     </div>
