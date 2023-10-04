@@ -60,11 +60,25 @@ button {
   font-size: 20px;
   margin-bottom: 20px;
   margin-right: 20px;
+
+  /* background-color: var(--white);
+  color: var(--green); */
+}
+
+select,
+button {
+  background: transparent;
+  padding: 0.5rem 1.5rem;
+  border-radius: 20px;
+  border: 2px solid var(--white);
 }
 
 button:hover {
   background-color: #ffff;
   color: green;
+
+  /* background: transparent;
+  color: var(--white); */
 }
 
 p.error-message {
@@ -326,15 +340,9 @@ p {
   gap: 2rem;
 }
 
-select,
-button {
-  background: transparent;
-  padding: 0.5rem 1.5rem;
-  border-radius: 20px;
-  border: 2px solid var(--white);
-}
 
-button {
+
+/* button {
   background-color: var(--white);
   color: var(--green);
 }
@@ -342,7 +350,7 @@ button {
 button:hover {
   background: transparent;
   color: var(--white);
-}
+} */
 
 /* reserve css end */
 
