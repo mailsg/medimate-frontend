@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import styles from '../css/reserve.module.css';
 
 export const Reserve = () => (
@@ -17,9 +18,9 @@ export const Reserve = () => (
           <option>Mumbai</option>
         </select>
 
-        <NavLink to="/Reservation">
+        <Link to="/Reservation">
           <button type="button">Book now</button>
-        </NavLink>
+        </Link>
 
       </div>
     </article>
