@@ -86,7 +86,7 @@ function Doctors() {
     return () => {
       window.removeEventListener('resize', handleResize);
     };
-  }, []);
+  });
 
   const prevSlide = () => {
     setCurrentIndex((prevIndex) => (prevIndex === 0 ? 0 : prevIndex - 1));

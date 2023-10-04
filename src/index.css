@@ -34,6 +34,7 @@ label {
   display: block;
   margin-bottom: 10px;
   font-size: 20px;
+  font-weight: bold;
 }
 
 input[type="text"],
@@ -72,8 +73,6 @@ p.error-message {
 }
 
 /* LoginForm end */
-=======
-}
 
 /* Header style start */
 
@@ -234,10 +233,6 @@ p.error-message {
   margin-bottom: 15px;
 }
 
-label {
-  font-weight: bold;
-}
-
 input[type="text"],
 input[type="date"],
 input[type="time"],
@@ -368,4 +363,3 @@ button:hover {
 }
 
 /* footer end */
-
