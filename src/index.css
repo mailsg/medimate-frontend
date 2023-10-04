@@ -3,7 +3,7 @@ body {
   padding: 0;
   box-sizing: border-box;
   color: #fff;
-  font-family: 'lato', Arial, Helvetica, sans-serif;;
+  font-family: 'lato', Arial, Helvetica, sans-serif;
 }
 
 /* LoginForm.css */
@@ -13,17 +13,17 @@ body {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  height: 100vh; 
+  height: 100vh;
   text-align: center;
   background-color: green;
 }
 
 form {
-  width: 500px; 
+  width: 500px;
   margin: 0 auto;
   background-color: darkgreen;
   padding: 20px;
-  border-radius: 5px;  
+  border-radius: 5px;
 }
 
 .heading {
@@ -45,13 +45,12 @@ input[type='password'] {
   border-radius: 5px;
   border: 2px solid #fff;
   color: #fff;
-  background-color: transparent;  
+  background-color: transparent;
 }
 
 button {
   background-color: transparent;
   color: #fff;
-  border: none;
   padding: 10px 20px;
   cursor: pointer;
   width: 200px;
@@ -71,4 +70,5 @@ p.error-message {
   color: red;
   margin-top: 10px;
 }
+
 /* LoginForm end */
