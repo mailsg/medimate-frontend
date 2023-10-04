@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { Outlet, NavLink } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 import {
   BsVimeo, BsFacebook, BsPinterest, BsTwitter,
 } from 'react-icons/bs';
@@ -92,9 +92,6 @@ export default function Header() {
         </a>
         <p>© 1989 Medimate - All Rights Reserved</p>
       </footer>
-      <main className="content">
-        <Outlet />
-      </main>
     </div>
   );
 }

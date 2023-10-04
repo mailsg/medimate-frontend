@@ -11,6 +11,7 @@ import Reserve from "./components/Reserve";
 import ReservationForm from "./components/ReservationForm";
 import Home from './components/Home';
 import Doctors from './components/Doctors';
+import Doctor from './components/Doctor';
 import './App.css'
 
 const router = createBrowserRouter(
@@ -21,6 +22,7 @@ const router = createBrowserRouter(
       <Route path="Reserve" element={<Reserve />} />
       <Route path="Reservation" element={<ReservationForm />} />
       <Route path="/doctors" element={<Doctors />} />
+      <Route path="/doctors/:doctorId" element={<Doctor />} />
     </>
   )
 );

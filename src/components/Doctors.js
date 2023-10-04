@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { Link } from 'react-router-dom';
 import {
   FaFacebookF,
   FaTwitter,
@@ -102,7 +103,8 @@ function Doctors() {
   };
 
   const nextButtonStyle = {
-    backgroundColor: currentIndex === doctors.length - displayCount ? '#c3b9b9d3' : '#8DB600',
+    backgroundColor:
+      currentIndex === doctors.length - displayCount ? '#c3b9b9d3' : '#8DB600',
   };
 
   return (
@@ -112,40 +114,53 @@ function Doctors() {
         <p>Please select from our list of doctors</p>
       </header>
       <div className={styles.slides}>
-        {doctors.slice(currentIndex, currentIndex + displayCount).map((doctor) => (
-          <div key={doctor.id}>
-            <img src={doctor.image} alt={doctor.name} className={styles.doctorImages} />
-            <h3>{doctor.name}</h3>
-            <div>
-              <span>
-                Fee:
-                {' '}
-                {doctor.fee_per_appointment}
-              </span>
-              <span>
-                City:
-                {' '}
-                {doctor.city}
-              </span>
-              <span>
-                Specialization:
-                {' '}
-                {doctor.specialization}
-              </span>
+        {doctors
+          .slice(currentIndex, currentIndex + displayCount)
+          .map((doctor) => (
+            <div key={doctor.id}>
+              <Link to={`/doctors/${doctor.id}`}>
+                <img
+                  src={doctor.image}
+                  alt={doctor.name}
+                  className={styles.doctorImages}
+                />
+                <h3>{doctor.name}</h3>
+                <div>
+                  <span>
+                    Fee:
+                    {doctor.fee_per_appointment}
+                  </span>
+                  <span>
+                    City:
+                    {doctor.city}
+                  </span>
+                  <span>
+                    Specialization:
+                    {doctor.specialization}
+                  </span>
+                </div>
+                <p>{doctor.bio}</p>
+                <div className={styles.socialMedia}>
+                  <FaFacebookF className={styles['sm-icons']} />
+                  <FaTwitter className={styles['sm-icons']} />
+                  <FaLinkedinIn className={styles['sm-icons']} />
+                  <i className="fa fa-heart" />
+                </div>
+              </Link>
             </div>
-            <p>{doctor.bio}</p>
-            <div className={styles.socialMedia}>
-              <FaFacebookF className={styles['sm-icons']} />
-              <FaTwitter className={styles['sm-icons']} />
-              <FaLinkedinIn className={styles['sm-icons']} />
-              <i className="fa fa-heart" />
-            </div>
-          </div>
-        ))}
+          ))}
       </div>
 
-      <FaAngleLeft onClick={prevSlide} className={styles['slide-icon-left']} style={prevButtonStyle} />
-      <FaAngleRight onClick={nextSlide} className={styles['slide-icon-right']} style={nextButtonStyle} />
+      <FaAngleLeft
+        onClick={prevSlide}
+        className={styles['slide-icon-left']}
+        style={prevButtonStyle}
+      />
+      <FaAngleRight
+        onClick={nextSlide}
+        className={styles['slide-icon-right']}
+        style={nextButtonStyle}
+      />
     </div>
   );
 }
