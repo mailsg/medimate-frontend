@@ -7,15 +7,15 @@ function SignUp() {
   const { reset, watch } = useForm();
   const navigate = useNavigate();
   const [data, setData] = useState({
+    username: '',
     email: '',
-    name: '',
     password: '',
-    confirm_password: '',
+    password_confirmation: '',
   });
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    if (watch('password') !== watch('confirm_password')) return toast.warn('Passwords are different');
+    if (watch('password') !== watch('password_confirmation')) return toast.error('Passwords do not match');
     try {
       const response = await fetch('http://localhost:3000/users', {
         method: 'POST',
@@ -24,10 +24,10 @@ function SignUp() {
         },
         body: JSON.stringify({
           user: {
+            username: data.username,
             email: data.email,
-            name: data.name,
             password: data.password,
-            confirm_password: data.confirm_password,
+            password_confirmation: data.password_confirmation,
           },
         }),
       });
@@ -70,9 +70,9 @@ function SignUp() {
           {/* <label>Name:</label> */}
           <input
             type="text"
-            name="name"
+            name="username"
             placeholder="Name"
-            value={data.name}
+            value={data.username}
             onChange={handleInputChange}
           />
         </div>
@@ -100,9 +100,9 @@ function SignUp() {
           {/* <label>Confirm Password:</label> */}
           <input
             type="password"
-            name="confirm_password"
+            name="password_confirmation"
             placeholder="Confirm Password"
-            value={data.confirm_password}
+            value={data.password_confirmation}
             onChange={handleInputChange}
           />
         </div>
