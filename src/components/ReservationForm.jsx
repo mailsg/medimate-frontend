@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { NavLink } from 'react-router-dom';
+import styles from '../css/reserve-form.module.css';
 
 function ReservationForm() {
   const [formData, setFormData] = useState({
@@ -37,13 +38,13 @@ function ReservationForm() {
   };
 
   return (
-    <div className="reservation-container form">
-      <h2>Reservation Form</h2>
-      <form className="reservation-form form" onSubmit={handleSubmit}>
+    <div className={[styles.form, styles['reservation-container']].join(' ')}>
+      <h1 className={styles['reserve-form-header']}>Reservation Form</h1>
+      <form className={[styles.form, styles['reservation-form']].join(' ')} onSubmit={handleSubmit}>
         <div className="form-group">
-          <label htmlFor="doctorName">Name of Doctor:</label>
           <input
             className="form"
+            placeholder="Name of Doctor"
             type="text"
             id="doctorName"
             name="doctorName"
@@ -53,9 +54,9 @@ function ReservationForm() {
           />
         </div>
         <div className="form-group">
-          <label htmlFor="appointmentDate">Date:</label>
           <input
             className="form"
+            placeholder="Date of Appointment"
             type="date"
             id="appointmentDate"
             name="appointmentDate"
@@ -65,9 +66,9 @@ function ReservationForm() {
           />
         </div>
         <div className="form-group">
-          <label htmlFor="appointmentTime">Time:</label>
           <input
             className="form"
+            placeholder="Time of Appointment"
             type="time"
             id="appointmentTime"
             name="appointmentTime"
@@ -77,9 +78,9 @@ function ReservationForm() {
           />
         </div>
         <div className="form-group">
-          <label htmlFor="duration">Duration (in minutes):</label>
           <input
             className="form"
+            placeholder="Duration"
             type="number"
             id="duration"
             name="duration"
@@ -88,14 +89,16 @@ function ReservationForm() {
             required
           />
         </div>
-        <button type="submit" className="submit-button">
-          Make Reservation
-        </button>
-        <NavLink to="/">
-          <button type="submit" className="submit-button">
-            Back
+        <div className={styles['btn-container']}>
+          <NavLink to="/reserve">
+            <button type="submit" className={styles['submit-button']}>
+              Back
+            </button>
+          </NavLink>
+          <button type="submit" className={styles['submit-button']}>
+            Make Reservation
           </button>
-        </NavLink>
+        </div>
       </form>
     </div>
   );
