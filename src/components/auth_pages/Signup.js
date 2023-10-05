@@ -38,7 +38,7 @@ function SignUp() {
         localStorage.setItem('token', response.headers.get('Authorization'));
         reset();
         console.log(response);
-        navigate('/login');
+        navigate('/log_in');
       } else {
         console.log('Unable to fetch');
       }
