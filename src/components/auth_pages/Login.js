@@ -1,10 +1,10 @@
-import React, {useState} from 'react';
-import {useNavigate} from 'react-router-dom';
+import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { toast } from 'react-toastify';
 import { useForm } from 'react-hook-form';
 
-export default function logIn() {
-  const { handleSubmit, register, reset } = useForm();
+function LogIn() {
+  const { handleSubmit, reset } = useForm();
   const navigate = useNavigate();
 
   const [data, setData] = useState({
@@ -56,7 +56,7 @@ export default function logIn() {
   };
 
   const handleInputChange = (e) => {
-    const {name, value} = e.target;
+    const { name, value } = e.target;
     setData({
       ...data,
       [name]: value,
@@ -69,10 +69,9 @@ export default function logIn() {
       <form onSubmit={handleSubmit(onSubmit)}>
         <div>
           <input
-            {...register("email", { required: true })}
-            placeholder='Email'
-            type='email'
-            name='email'
+            placeholder="Email"
+            type="email"
+            name="email"
             value={data.email}
             onChange={handleInputChange}
             required
@@ -80,19 +79,20 @@ export default function logIn() {
         </div>
         <div>
           <input
-            {...register("password", { required: true })}
-            placeholder='Password'
-            type='password'
-            name='password'
+            placeholder="Password"
+            type="password"
+            name="password"
             value={data.password}
             onChange={handleInputChange}
             required
           />
         </div>
-        {error && <p className='error'>{error}</p>}{' '}
-        <button type='submit'>Log In</button>
+        {error && <p className="error">{error}</p>}
+        {' '}
+        <button type="submit">Log In</button>
       </form>
     </div>
   );
 }
 
+export default LogIn;

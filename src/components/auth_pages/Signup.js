@@ -3,7 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import { toast } from 'react-toastify';
 import { useForm } from 'react-hook-form';
 
-function signUp() {
+function SignUp() {
   const { reset } = useForm();
   const navigate = useNavigate();
   const [data, setData] = useState({
@@ -109,4 +109,4 @@ function signUp() {
   );
 }
 
-export default signUp;
+export default SignUp;
