@@ -8,7 +8,7 @@ import image1 from '../assets/doc-details.png';
 import icon from '../assets/icon.png';
 
 export const Doctor = () => (
-  <section>
+  <section className={styles['doctor-details']}>
     <article className={styles.photo}>
       <img className={styles['doctor-img']} src={image1} alt="laura" />
     </article>
@@ -43,7 +43,7 @@ export const Doctor = () => (
       <div className={styles['icon-container']}>
         <img className={styles.icon} src={icon} alt="laura" />
       </div>
-      <button type="button">
+      <button className={styles['reserve-doctor-btn']} type="button">
         <GoGear className={styles['reserve-btn']} />
         Reserve
         <FaAngleRight className={styles['reserve-btn']} />

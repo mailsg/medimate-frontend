@@ -24,6 +24,12 @@ main {
   height: 100vh;
 }
 
+.home {
+  display: flex;
+  margin: 0;
+  padding: 0;
+}
+
 @media screen and (min-width: 768px) {
   body {
     display: block;

@@ -14,7 +14,7 @@
   font-size: 10px;
 }
 
-section,
+.doctor-details,
 .photo {
   display: flex;
   padding: 1rem 0.5rem;
@@ -68,7 +68,7 @@ h1 {
   display: none;
 }
 
-button {
+.reserve-doctor-btn {
   border-radius: 20px;
   color: var(--white);
   background-color: var(--green);
@@ -82,7 +82,7 @@ button {
   align-self: center;
 }
 
-button:hover {
+.reserve-doctor-btn:hover {
   background-color: var(--white);
   border: 2px solid var(--green);
   color: var(--green);
@@ -91,6 +91,7 @@ button:hover {
 .reserve-btn {
   margin-top: 2px;
   font-size: 16px;
+  color: var(--white);
 }
 
 @media screen and (min-width: 768px) {
@@ -98,7 +99,7 @@ button:hover {
     font-size: 13px;
   }
 
-  section,
+  .doctor-details,
   .photo {
     padding: 4rem;
     flex-direction: row;
