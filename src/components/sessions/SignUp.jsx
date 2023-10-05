@@ -24,15 +24,24 @@ class SignUp extends Component {
     e.preventDefault();
     const {
       username, email, password, confirmPassword,
-    } = this.state; if (password !== confirmPassword) {
+    } = this.state;
+
+    if (password !== confirmPassword) {
       this.setState({ error: 'Passwords do not match' });
       return;
-    } try {
+    }
+
+    try {
       await axios.post('http://localhost:3000/users/', {
-        username,
-        email,
-        password,
-      }); // Handle successful registration here
+        user: {
+          username,
+          email,
+          password,
+          password_confirmation: confirmPassword,
+        },
+      });
+
+      // Handle successful registration here
       this.setState({ successMessage: 'Registration successful', error: '' });
     } catch (error) {
       // Handle registration failure
@@ -97,13 +106,13 @@ class SignUp extends Component {
               required
             />
           </div>
-          <p>Already have an account? Login</p>
           <div>
             <button type="submit">Sign Up</button>
-            <NavLink to="/">
-              <button type="submit">Login</button>
-            </NavLink>
           </div>
+          <p>
+            Already have an account?
+            <NavLink to="/">Login</NavLink>
+          </p>
           {error && <p className="error-message">{error}</p>}
           {successMessage && (
             <p className="success-message">{successMessage}</p>
@@ -112,4 +121,6 @@ class SignUp extends Component {
       </div>
     );
   }
-} export default SignUp;
+}
+
+export default SignUp;

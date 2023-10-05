@@ -6,7 +6,8 @@ class Login extends Component {
   constructor() {
     super();
     this.state = {
-      username: '',
+      email: '',
+      password: '',
       error: '',
     };
   }
@@ -18,28 +19,45 @@ class Login extends Component {
 
   handleSubmit = async (e) => {
     e.preventDefault();
-    const { username } = this.state; try {
+    const { email, password } = this.state;
+    try {
       const response = await axios.post('http://localhost:3000/users/sign_in', {
-        username,
-      }); localStorage.setItem('token', response.data.token);
+        email,
+        password,
+      });
+
+      const jtiToken = response.data.jti;
+
+      localStorage.setItem('jtiToken', jtiToken);
     } catch (error) {
-      this.setState({ error: 'Invalid username' });
+      this.setState({ error: 'Invalid email or password' });
     }
   };
 
   render() {
-    const { username, error } = this.state;
+    const { email, password, error } = this.state;
     return (
       <div className="login-container">
         <h2 className="heading">Login</h2>
         <form onSubmit={this.handleSubmit}>
           <div>
-            <label htmlFor="username">Username</label>
+            <label htmlFor="email">Email</label>
             <input
-              type="text"
-              id="username"
-              name="username"
-              value={username}
+              type="email"
+              id="email"
+              name="email"
+              value={email}
+              onChange={this.handleChange}
+              required
+            />
+          </div>
+          <div>
+            <label htmlFor="password">Password</label>
+            <input
+              type="password"
+              id="password"
+              name="password"
+              value={password}
               onChange={this.handleChange}
               required
             />
@@ -47,15 +65,15 @@ class Login extends Component {
           <div>
             <button type="submit">Login</button>
           </div>
-          <p>Dont have an account? Create one below</p>
-          <div>
-            <NavLink to="signup">
-              <button type="submit">Signup</button>
-            </NavLink>
-          </div>
+          <p>
+            Dont have an account?
+            <NavLink to="signup">SignUp</NavLink>
+          </p>
           {error && <p className="error-message">{error}</p>}
         </form>
       </div>
     );
   }
-} export default Login;
+}
+
+export default Login;
