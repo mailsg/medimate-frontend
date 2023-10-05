@@ -4,7 +4,7 @@ import { toast } from 'react-toastify';
 import { useForm } from 'react-hook-form';
 
 function SignUp() {
-  const { reset } = useForm();
+  const { reset, watch } = useForm();
   const navigate = useNavigate();
   const [data, setData] = useState({
     email: '',
@@ -15,6 +15,7 @@ function SignUp() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    if (watch('password') !== watch('confirm_password')) return toast.warn('Passwords are different');
     try {
       const response = await fetch('http://localhost:3000/users', {
         method: 'POST',
@@ -42,6 +43,7 @@ function SignUp() {
       } else {
         console.log('Unable to fetch');
       }
+      return null;
     } catch (error) {
       toast.error(
         'An error occured while creating the account, please try again',
@@ -49,6 +51,7 @@ function SignUp() {
       reset();
       console.error('Error:', error);
     }
+    return null;
   };
 
   const handleInputChange = (e) => {

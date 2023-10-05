@@ -1,5 +1,5 @@
 import React from 'react';
-import {useNavigate} from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import { toast } from 'react-toastify';
 
 function SignOut() {
@@ -17,25 +17,23 @@ function SignOut() {
       localStorage.removeItem('token');
 
       if (response.ok) {
-        toast.success(
-          'Sign out is succesful',
-        );
+        toast.success('Sign out is succesful');
         navigate('/log_in');
       } else {
         console.error('Sign-out failed.');
       }
+      return null;
     } catch (error) {
-      toast.error(
-        `Sign out failed ${error}`,
-      );
+      toast.error(`Sign out failed ${error}`);
       console.error('Error:', error);
     }
+    return null;
   };
 
   return (
     <div>
       <h2>Sign Out</h2>
-      <button onClick={handleSignOut}>Sign Out</button>
+      <button type="button" onClick={handleSignOut}>Sign Out</button>
     </div>
   );
 }
