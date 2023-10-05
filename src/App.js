@@ -1,10 +1,9 @@
-/* eslint-disable */
 import {
   createBrowserRouter,
   RouterProvider,
   Route,
   createRoutesFromElements,
-} from "react-router-dom";
+} from 'react-router-dom';
 
 import Header from "./components/Header";
 import Reserve from "./components/Reserve";
