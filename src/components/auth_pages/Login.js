@@ -47,7 +47,6 @@ function LogIn() {
         setError(errorData.message);
       }
     } catch (error) {
-      console.error('Error:', error);
       toast.error(
         'An error occured while creating the account, please try again',
       );

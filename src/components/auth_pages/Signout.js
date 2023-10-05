@@ -25,7 +25,6 @@ function SignOut() {
       return null;
     } catch (error) {
       toast.error(`Sign out failed ${error}`);
-      console.error('Error:', error);
     }
     return null;
   };
