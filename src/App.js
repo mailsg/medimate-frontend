@@ -24,7 +24,7 @@ const router = createBrowserRouter(
       <Route path="Reservation" element={<ReservationForm />} />
       <Route path="/doctors" element={<Doctors />} />
       <Route path="/doctors/:doctorId" element={<Doctor />} />
-      <Route path="/Signup" element={<SignUp />} />
+      <Route path="/sign_up" element={<SignUp />} />
     </>
   )
 );
