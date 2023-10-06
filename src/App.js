@@ -4,7 +4,11 @@ import {
   Route,
   createRoutesFromElements,
 } from 'react-router-dom';
+} from 'react-router-dom';
 
+import Header from './components/Header';
+import Reserve from './components/Reserve';
+import ReservationForm from './components/ReservationForm';
 import Header from './components/Header';
 import Reserve from './components/Reserve';
 import ReservationForm from './components/ReservationForm';
