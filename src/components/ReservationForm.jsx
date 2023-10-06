@@ -15,7 +15,7 @@ function ReservationForm() {
     e.preventDefault();
 
     try {
-      const response = await fetch('/api/appointments', {
+      const response = await fetch('http://localhost:3000/api/v1/appointments', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

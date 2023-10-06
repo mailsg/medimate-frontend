@@ -38,7 +38,11 @@ export default function Header() {
       </div>
 
       <nav className={`side-nav ${menuVisible ? 'open' : ''}`}>
-        <NavLink className="link-item1" to="/" activeClassName="active">
+        <NavLink
+          className="link-item1"
+          to="/"
+          activeClassName="active"
+        >
           Doctors
         </NavLink>
         <NavLink className="link-item2" to="Reserve" activeClassName="active">
@@ -46,7 +50,7 @@ export default function Header() {
         </NavLink>
         <NavLink
           className="link-item3"
-          to="Myreservations"
+          to="Appointments"
           activeClassName="active"
         >
           My Reservations
