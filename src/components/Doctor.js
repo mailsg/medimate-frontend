@@ -7,7 +7,7 @@ import styles from '../css/doctor.module.css';
 import image1 from '../assets/doc-details.png';
 import icon from '../assets/icon.png';
 
-export const Doctor = () => (
+const Doctor = () => (
   <section className={styles['doctor-details']}>
     <article className={styles.photo}>
       <img className={styles['doctor-img']} src={image1} alt="laura" />

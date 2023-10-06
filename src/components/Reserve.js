@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import styles from '../css/reserve.module.css';
 
-export const Reserve = () => (
+const Reserve = () => (
   <section className={styles.container}>
     <article>
       <h1 className={styles['reserve-header']}>BOOK AN APPOINTMENT WITH OUR DOCTORS</h1>
