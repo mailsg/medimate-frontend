@@ -1,0 +1,46 @@
+/* DeleteDoctor.css */
+
+/* Center the component vertically and horizontally */
+.delete-doctor-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh; /* This ensures the component takes up the entire viewport height */
+}
+
+/* Style the heading */
+.delete-doctor-heading {
+  font-size: 24px;
+  font-weight: bold;
+  margin-bottom: 20px;
+  color: #333; /* Heading color */
+}
+
+/* Style the list of doctors */
+.delete-doctor-list {
+  list-style-type: none;
+  padding: 0;
+  text-align: center;
+}
+
+/* Style the list items */
+.delete-doctor-list li {
+  margin-bottom: 10px;
+}
+
+/* Style the delete button */
+.delete-doctor-button {
+  background-color: #ff4444; /* Button background color */
+  color: #fff; /* Button text color */
+  border: none;
+  border-radius: 4px;
+  padding: 8px 16px;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+/* Hover state for the delete button */
+.delete-doctor-button:hover {
+  background-color: #ff0000; /* Hover state background color */
+}
