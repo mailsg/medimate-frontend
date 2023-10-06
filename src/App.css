@@ -41,3 +41,14 @@ main {
     height: 100%;
   }
 }
+
+label {
+  margin-bottom: 2rem;
+  margin-right: 4rem;
+}
+
+input {
+  margin-bottom: 2rem !important;
+  margin-right: 4rem !important;
+  width: 15rem;
+}
