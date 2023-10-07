@@ -3,13 +3,31 @@ import axios from 'axios';
 
 const baseUrl = 'http://localhost:3000/api/v1';
 
+const token = localStorage.getItem('token');
+
 export const getDoctors = createAsyncThunk(
   'get/doctors',
   async () => {
     const response = await axios.get(
-      `${baseUrl}/doctors}`,
+      `${baseUrl}/doctors`,
     );
     return response.data;
+  },
+);
+
+export const AddDoctor = createAsyncThunk(
+  'api/AddDoctor',
+  async (payload) => {
+    const response = await fetch(`${baseUrl}/doctors`, {
+      method: 'POST',
+      headers: {
+        'Authorization': `Bearer ${token}`,
+        'Content-Type': 'application/json',
+      },
+      body: payload,
+    });
+    const data = await response.json();
+    return data;
   },
 );
 
