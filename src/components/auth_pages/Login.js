@@ -4,7 +4,7 @@ import { toast } from 'react-toastify';
 import { useForm } from 'react-hook-form';
 
 function LogIn() {
-  const { handleSubmit, reset } = useForm();
+  const { reset } = useForm();
   const navigate = useNavigate();
 
   const [data, setData] = useState({
@@ -14,7 +14,7 @@ function LogIn() {
 
   const [error, setError] = useState(null);
 
-  const onSubmit = async (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     try {
       const response = await fetch('http://localhost:3000/users/sign_in', {
@@ -47,7 +47,6 @@ function LogIn() {
         setError(errorData.message);
       }
     } catch (error) {
-      console.error('Error:', error);
       toast.error(
         'An error occured while creating the account, please try again',
       );
@@ -66,7 +65,7 @@ function LogIn() {
   return (
     <div>
       <h2>Sign In with Email and Password</h2>
-      <form onSubmit={handleSubmit(onSubmit)}>
+      <form onSubmit={handleSubmit}>
         <div>
           <input
             placeholder="Email"

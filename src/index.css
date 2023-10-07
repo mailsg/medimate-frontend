@@ -10,7 +10,11 @@ body {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  color: #fff;
+  font-family: 'lato', Arial, Helvetica, sans-serif;
 }
+
+
 
 /* Header style start */
 
