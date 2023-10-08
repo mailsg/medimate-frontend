@@ -1,8 +1,8 @@
-import React, { useState, useEffect } from "react";
-import { useSelector, useDispatch } from "react-redux";
-import { toast } from "react-toastify";
-import { deleteDoctor } from "./redux/doctorSlice";
-import "../css/deletedoctors.css";
+import React, { useState, useEffect } from 'react';
+import { useSelector, useDispatch } from 'react-redux';
+import { toast } from 'react-toastify';
+import { deleteDoctor, addDoctor } from './redux/doctorSlice';
+import '../css/deletedoctors.css';
 
 const DeleteDoctor = () => {
   const dispatch = useDispatch();
@@ -10,23 +10,20 @@ const DeleteDoctor = () => {
   const [error, setError] = useState(null);
 
   useEffect(() => {
-    // Fetch doctors for the logged-in user from your API
-    // For example, fetch doctors associated with the user's ID
-    fetch(`http://localhost:3000/api/v1/doctors/:doctor_id`, {
+    fetch('http://localhost:3000/api/v1/doctors', {
       headers: {
-        Authorization: localStorage.getItem("token"),
+        Authorization: localStorage.getItem('token'),
       },
     })
       .then((response) => response.json())
       .then((data) => {
         if (Array.isArray(data)) {
-          // Ensure data is an array before storing it in state
-          dispatch({ type: "doctor/addDoctors", payload: data });
+          dispatch(addDoctor(data));
         } else {
-          console.error("Doctors data is not an array:", data);
+          console.error('Doctors data is not an array:', data);
         }
       })
-      .catch((error) => console.error("Error fetching doctors:", error));
+      .catch((error) => console.error('Error fetching doctors:', error));
   }, [dispatch]);
 
   const handleDeleteDoctor = async (doctorId) => {
@@ -34,25 +31,23 @@ const DeleteDoctor = () => {
       const response = await fetch(
         `http://localhost:3000/api/v1/doctors/${doctorId}`,
         {
-          method: "DELETE",
+          method: 'DELETE',
           headers: {
-            Authorization: localStorage.getItem("token"),
+            Authorization: localStorage.getItem('token'),
           },
-        }
+        },
       );
 
       if (!response.ok) {
         const data = await response.json();
-        setError(data.error || "Failed to delete doctor");
+        setError(data.error || 'Failed to delete doctor');
       } else {
-        // Remove the deleted doctor from the Redux store
         dispatch(deleteDoctor(doctorId));
 
-        // Show a success message using toast
-        toast.success("Doctor deleted successfully!");
+        toast.success('Doctor deleted successfully!');
       }
     } catch (error) {
-      setError("Error deleting doctor. Please try again.");
+      setError('Error deleting doctor. Please try again.');
     }
   };
 
@@ -70,15 +65,16 @@ const DeleteDoctor = () => {
             <th>Action</th>
           </tr>
         </thead>
-        <tbody>
+        <tbody className="table-body">
           {doctors.map((doctor) => (
-            <tr key={doctor.id}>
+            <tr key={doctor.name}>
               <td>{doctor.name}</td>
               <td>{doctor.time_available_from}</td>
               <td>{doctor.time_available_to}</td>
               <td>{doctor.specialization_id}</td>
               <td>
                 <button
+                  type="submit"
                   className="delete-button"
                   onClick={() => handleDeleteDoctor(doctor.id)}
                 >

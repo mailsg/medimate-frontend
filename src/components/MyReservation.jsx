@@ -1,7 +1,11 @@
 import React, { useEffect, useState } from 'react';
+import { useSelector, useDispatch } from 'react-redux';
+import { setReservations } from './redux/reservationSlice';
+import styles from '../css/MyAppointments.module.css';
 
 function MyAppointments() {
-  const [appointments, setAppointments] = useState([]);
+  const dispatch = useDispatch();
+  const reservations = useSelector((state) => state.reservations);
   const [error, setError] = useState('');
 
   useEffect(() => {
@@ -9,10 +13,19 @@ function MyAppointments() {
       try {
         const response = await fetch(
           'http://localhost:3000/api/v1/appointments',
+          {
+            method: 'GET',
+            headers: {
+              'Content-Type': 'application/json',
+              Authorization: localStorage.getItem('token'),
+            },
+          },
         );
+
         if (response.ok) {
           const data = await response.json();
-          setAppointments(data.appointments);
+          // Assuming that the data returned has a structure like { appointments: [...] }
+          dispatch(setReservations(data.appointments));
         } else {
           setError('Error occurred while listing appointments');
         }
@@ -22,42 +35,39 @@ function MyAppointments() {
     };
 
     fetchAppointments();
-  }, []);
+  }, [dispatch]);
 
   return (
     <div>
-      <h1>My Reservations</h1>
-      {' '}
+      <h1 className={styles.heading}>My Reservations</h1>
       {error ? (
         <p>{error}</p>
       ) : (
-        <ul>
-          {appointments.map(
-            (
-              appointment,
-            ) => (
-              <li key={appointment.id}>
-                Doctor:
-                {' '}
-                {appointment.doctorName}
-                <br />
-                Date:
-                {' '}
-                {appointment.appointmentDate}
-                <br />
-                Time:
-                {' '}
-                {appointment.appointmentTime}
-                <br />
-                Duration:
-                {' '}
-                {appointment.duration}
-                {' '}
-                minutes
-              </li>
-            ),
-          )}
-        </ul>
+        <table className={styles.myAppointments}>
+          {' '}
+          <thead>
+            <tr>
+              <th>Doctor</th>
+              <th>Date</th>
+              <th>Time</th>
+              <th>Duration</th>
+            </tr>
+          </thead>
+          <tbody>
+            {reservations.map((reservation) => (
+              <tr key={reservation.id}>
+                <td>{reservation.doctorName}</td>
+                <td>{reservation.appointmentDate}</td>
+                <td>{reservation.appointmentTime}</td>
+                <td>
+                  {reservation.duration}
+                  {' '}
+                  minutes
+                </td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
       )}
     </div>
   );

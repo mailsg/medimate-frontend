@@ -1,34 +1,45 @@
 import React, { useState } from 'react';
+import { useDispatch } from 'react-redux';
 import { NavLink } from 'react-router-dom';
+import { toast } from 'react-toastify';
+import { addAppointment } from './redux/appointmentsSlice';
 import styles from '../css/reserve-form.module.css';
 
 function ReservationForm() {
+  const dispatch = useDispatch();
+
   const [formData, setFormData] = useState({
+    doctorName: '',
     appointmentDate: '',
     appointmentTime: '',
     duration: '',
-    userId: '',
-    doctorId: '',
   });
 
   const handleSubmit = async (e) => {
     e.preventDefault();
 
     try {
-      const response = await fetch('http://localhost:3000/api/v1/appointments', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
+      const response = await fetch(
+        'http://localhost:3000/api/v1/appointments',
+        {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+            Authorization: localStorage.getItem('token'),
+          },
+          body: JSON.stringify(formData),
         },
-        body: JSON.stringify(formData),
-      });
+      );
 
       if (response.ok) {
-        return <p>Reservation successful!</p>;
+        const data = await response.json();
+        dispatch(addAppointment(data)); // Add the newly created appointment to Redux store
+        toast.success('Reservation successful!');
+      } else {
+        toast.error('Reservation failed!');
       }
-      return <p>Reservation failed!</p>;
     } catch (error) {
-      return <p>Error occured while processing your request!</p>;
+      toast.error('Error occurred while processing your request!');
     }
   };
 
@@ -40,7 +51,10 @@ function ReservationForm() {
   return (
     <div className={[styles.form, styles['reservation-container']].join(' ')}>
       <h1 className={styles['reserve-form-header']}>Reservation Form</h1>
-      <form className={[styles.form, styles['reservation-form']].join(' ')} onSubmit={handleSubmit}>
+      <form
+        className={[styles.form, styles['reservation-form']].join(' ')}
+        onSubmit={handleSubmit}
+      >
         <div className="form-group">
           <input
             className="form"
