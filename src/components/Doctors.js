@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { useSelector } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
 import { Link } from 'react-router-dom';
 import {
   FaFacebookF,
@@ -8,10 +8,13 @@ import {
   FaAngleRight,
   FaAngleLeft,
 } from 'react-icons/fa';
+import { getDoctors } from '../redux/doctorSlice';
 import styles from '../css/doctors.module.css';
 
 function Doctors() {
-  const doctors = useSelector((state) => state.Doctors.doctors);
+  const doctors = useSelector((state) => state.doctor.doctors);
+
+  const dispatch = useDispatch();
 
   const getDisplayCount = () => (window.matchMedia('(max-width: 768px)').matches ? 1 : 3);
 
@@ -23,11 +26,12 @@ function Doctors() {
   };
 
   useEffect(() => {
+    dispatch(getDoctors());
     window.addEventListener('resize', handleResize);
     return () => {
       window.removeEventListener('resize', handleResize);
     };
-  });
+  }, [dispatch]);
 
   const prevSlide = () => {
     setCurrentIndex((prevIndex) => (prevIndex === 0 ? 0 : prevIndex - 1));
@@ -75,11 +79,11 @@ function Doctors() {
                 </span>
                 <span>
                   City:
-                  {doctor.city}
+                  {doctor.location}
                 </span>
                 <span>
                   Specialization:
-                  {doctor.specialization}
+                  {doctor.specialization.name}
                 </span>
               </div>
               <p className={styles['home-paragraph']}>{doctor.bio}</p>
