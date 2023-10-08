@@ -244,3 +244,16 @@ p.error-message {
 }
 
 /* footer end */
+
+.sign-out-btn {
+ color: black;
+ padding: 0;
+ margin: 0;
+ font-size: 13px;
+ font-weight: 800;
+ text-align: start;
+}
+
+.sign-out-btn:hover {
+  color: red;
+}

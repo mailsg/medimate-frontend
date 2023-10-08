@@ -17,7 +17,7 @@ function SignUp() {
     e.preventDefault();
     if (watch('password') !== watch('password_confirmation')) return toast.error('Passwords do not match');
     try {
-      const response = await fetch('http://localhost:3000/users', {
+      const response = await fetch('https://medimate-backend-p22y.onrender.com/users', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
