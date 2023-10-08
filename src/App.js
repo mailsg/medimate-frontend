@@ -32,6 +32,7 @@ const router = createBrowserRouter(
       <Route path="/sign_up" element={<SignUp />} />
       <Route path="/Adddoctor" element={<AddDoctor />} />
       <Route path="/Deletedoctor" element={<DeleteDoctor />} />
+      <Route path="/log_in" element={<Login />} />
     </>,
   ),
 );

@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { useSelector, useDispatch } from 'react-redux';
 import { Link } from 'react-router-dom';
 import {
   FaFacebookF,
@@ -7,71 +8,13 @@ import {
   FaAngleRight,
   FaAngleLeft,
 } from 'react-icons/fa';
+import { getDoctors } from '../redux/doctorSlice';
 import styles from '../css/doctors.module.css';
-import image1 from '../assets/img-1.jpg';
-import image2 from '../assets/img-2.jpg';
-import image3 from '../assets/img-3.jpg';
-import image4 from '../assets/img-4.jpg';
-import image5 from '../assets/img-5.jpg';
-import image6 from '../assets/img-6.jpg';
 
 function Doctors() {
-  const doctors = [
-    {
-      id: 1,
-      name: 'Laura',
-      specialization: 'Cardiology',
-      city: 'Lagos',
-      bio: "I don't need to know (necessarily) which people were involved.",
-      fee_per_appointment: '$145',
-      image: image1,
-    },
-    {
-      id: 2,
-      name: 'Condolezza',
-      specialization: 'Gynaecologist',
-      city: 'New Delhi',
-      bio: "I don't need to know (necessarily) which people were involved.",
-      fee_per_appointment: '$200',
-      image: image2,
-    },
-    {
-      id: 3,
-      name: 'Ruth',
-      specialization: 'Orthopedics',
-      city: 'Johannesburg',
-      bio: "I don't need to know (necessarily) which people were involved.",
-      fee_per_appointment: '$178',
-      image: image3,
-    },
-    {
-      id: 4,
-      name: 'Naomi',
-      specialization: 'doctor',
-      city: 'Buenos Ares',
-      bio: "I don't need to know (necessarily) which people were involved.",
-      fee_per_appointment: '$580',
-      image: image4,
-    },
-    {
-      id: 5,
-      name: 'Isabella',
-      specialization: 'doctor',
-      city: 'Buenos Ares',
-      bio: "I don't need to know (necessarily) which people were involved.",
-      fee_per_appointment: '$580',
-      image: image5,
-    },
-    {
-      id: 6,
-      name: 'Charles',
-      specialization: 'doctor',
-      city: 'Buenos Ares',
-      bio: "I don't need to know (necessarily) which people were involved.",
-      fee_per_appointment: '$580',
-      image: image6,
-    },
-  ];
+  const doctors = useSelector((state) => state.doctor.doctors);
+
+  const dispatch = useDispatch();
 
   const getDisplayCount = () => (window.matchMedia('(max-width: 768px)').matches ? 1 : 3);
 
@@ -83,11 +26,12 @@ function Doctors() {
   };
 
   useEffect(() => {
+    dispatch(getDoctors());
     window.addEventListener('resize', handleResize);
     return () => {
       window.removeEventListener('resize', handleResize);
     };
-  });
+  }, [dispatch]);
 
   const prevSlide = () => {
     setCurrentIndex((prevIndex) => (prevIndex === 0 ? 0 : prevIndex - 1));
@@ -135,11 +79,11 @@ function Doctors() {
                 </span>
                 <span>
                   City:
-                  {doctor.city}
+                  {doctor.location}
                 </span>
                 <span>
                   Specialization:
-                  {doctor.specialization}
+                  {doctor.specialization.name}
                 </span>
               </div>
               <p className={styles['home-paragraph']}>{doctor.bio}</p>

@@ -1,12 +1,15 @@
 import { useState } from 'react';
-import { NavLink } from 'react-router-dom';
+import { NavLink, useNavigate } from 'react-router-dom';
 import {
   BsVimeo, BsFacebook, BsPinterest, BsTwitter,
 } from 'react-icons/bs';
 import { BiLogoGooglePlus } from 'react-icons/bi';
+import { toast } from 'react-toastify';
 import logo from '../images/Medimate-logo.png';
 
 export default function Header() {
+  const navigate = useNavigate();
+
   const [menuVisible, setMenuVisible] = useState(false);
 
   const toggleMenu = () => {
@@ -17,6 +20,30 @@ export default function Header() {
     if (event.key === 'Enter' || event.key === ' ') {
       toggleMenu();
     }
+  };
+
+  const handleSignOut = async () => {
+    try {
+      const response = await fetch('https://medimate-backend-p22y.onrender.com/users/sign_out', {
+        method: 'DELETE',
+        headers: {
+          'Content-Type': 'application/json',
+          Authorization: localStorage.getItem('token'),
+        },
+      });
+      localStorage.removeItem('token');
+
+      if (response.ok) {
+        toast.success('Sign out is succesful');
+        navigate('/log_in');
+      } else {
+        console.error('Sign-out failed.');
+      }
+      return null;
+    } catch (error) {
+      toast.error(`Sign out failed ${error}`);
+    }
+    return null;
   };
 
   return (
@@ -65,6 +92,9 @@ export default function Header() {
         >
           Delete Doctor
         </NavLink>
+        <div>
+          <button className="sign-out-btn" type="button" onClick={handleSignOut}>SIGN OUT</button>
+        </div>
       </nav>
       <footer className="footer">
         <a href="https://twitter.com" target="_blank" rel="noopener noreferrer">

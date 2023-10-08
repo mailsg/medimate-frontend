@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { toast } from 'react-toastify';
 import { useForm } from 'react-hook-form';
+import styles from '../../css/reserve-form.module.css';
 
 function LogIn() {
   const { reset } = useForm();
@@ -17,7 +18,7 @@ function LogIn() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const response = await fetch('http://localhost:3000/users/sign_in', {
+      const response = await fetch('https://medimate-backend-p22y.onrender.com/users/sign_in', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -63,10 +64,10 @@ function LogIn() {
   };
 
   return (
-    <div>
-      <h2>Sign In with Email and Password</h2>
-      <form onSubmit={handleSubmit}>
-        <div>
+    <div className={styles['reservation-container']}>
+      <h1 className={styles['reserve-form-header']}>Sign In with Email and Password</h1>
+      <form onSubmit={handleSubmit} className={styles['reservation-form']}>
+        <div className={styles['form-group']}>
           <input
             placeholder="Email"
             type="email"
@@ -76,7 +77,7 @@ function LogIn() {
             required
           />
         </div>
-        <div>
+        <div className={styles['form-group']}>
           <input
             placeholder="Password"
             type="password"
@@ -88,7 +89,7 @@ function LogIn() {
         </div>
         {error && <p className="error">{error}</p>}
         {' '}
-        <button type="submit">Log In</button>
+        <button className={styles['submit-button']} type="submit">Log In</button>
       </form>
     </div>
   );
