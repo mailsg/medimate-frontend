@@ -1,11 +1,11 @@
 import React, { useState } from 'react';
-import { useDispatch } from 'react-redux';
+// import { useDispatch } from 'react-redux';
 import { NavLink } from 'react-router-dom';
 import { toast } from 'react-toastify';
 import styles from '../css/reserve-form.module.css';
 
 function ReservationForm() {
-  const dispatch = useDispatch();
+  // const dispatch = useDispatch();
 
   const [formData, setFormData] = useState({
     doctorName: '',
@@ -31,8 +31,8 @@ function ReservationForm() {
       );
 
       if (response.ok) {
-        const data = await response.json();
-        dispatch(addAppointment(data)); // Add the newly created appointment to Redux store
+        // const data = await response.json();
+        // dispatch(addAppointment(data)); // Add the newly created appointment to Redux store
         toast.success('Reservation successful!');
       } else {
         toast.error('Reservation failed!');

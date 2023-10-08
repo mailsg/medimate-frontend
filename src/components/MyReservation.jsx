@@ -22,9 +22,9 @@ function MyAppointments() {
         );
 
         if (response.ok) {
-          const data = await response.json();
+          // const data = await response.json();
           // Assuming that the data returned has a structure like { appointments: [...] }
-          dispatch(setReservations(data.appointments));
+          // dispatch(setReservations(data.appointments));
         } else {
           setError('Error occurred while listing appointments');
         }

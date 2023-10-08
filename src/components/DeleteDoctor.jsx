@@ -17,7 +17,7 @@ const DeleteDoctor = () => {
       .then((response) => response.json())
       .then((data) => {
         if (Array.isArray(data)) {
-          dispatch(addDoctor(data));
+          // dispatch(addDoctor(data));
         } else {
           console.error('Doctors data is not an array:', data);
         }
@@ -41,7 +41,7 @@ const DeleteDoctor = () => {
         const data = await response.json();
         setError(data.error || 'Failed to delete doctor');
       } else {
-        dispatch(deleteDoctor(doctorId));
+        // dispatch(deleteDoctor(doctorId));
 
         toast.success('Doctor deleted successfully!');
       }
