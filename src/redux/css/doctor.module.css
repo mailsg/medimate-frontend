@@ -1,0 +1,180 @@
+:root {
+  --grey: #c3b9b9d3;
+  --green: #8db600;
+  --ash: #434b54;
+  --black: #555e77;
+  --white: #fff;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: lato, Arial, Helvetica, sans-serif;
+  font-size: 10px;
+}
+
+.doctor-details,
+.photo {
+  display: flex;
+  padding: 1rem 0.5rem;
+  flex-direction: column;
+  align-items: center;
+}
+
+p,
+h1 {
+  text-align: center;
+}
+
+.photo {
+  width: 50%;
+}
+
+.doctor-img {
+  width: 100%;
+}
+
+.extreme-right {
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  margin-top: 0.5rem;
+}
+
+h1 {
+  font-size: 16px;
+}
+
+.attribute {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  padding: 5px;
+}
+
+.dark-bg {
+  background-color: var(--grey);
+}
+
+.light-bg {
+  background-color: var(--white);
+}
+
+.more-doctors,
+.discount,
+.icon-container {
+  display: none;
+}
+
+.reserve-doctor-btn {
+  border-radius: 20px;
+  color: var(--white);
+  background-color: var(--green);
+  padding: 1rem;
+  border: none;
+  width: 60%;
+  display: flex;
+  gap: 7px;
+  justify-content: center;
+  font-size: 14px;
+  align-self: center;
+}
+
+.reserve-doctor-btn:hover {
+  background-color: var(--white);
+  border: 2px solid var(--green);
+  color: var(--green);
+}
+
+.reserve-btn {
+  margin-top: 2px;
+  font-size: 16px;
+  color: var(--white);
+}
+
+@media screen and (min-width: 768px) {
+  * {
+    font-size: 13px;
+  }
+
+  .doctor-details,
+  .photo {
+    padding: 4rem;
+    flex-direction: row;
+    position: relative;
+  }
+
+  .photo {
+    width: 90%;
+    padding: 0;
+    justify-content: center;
+  }
+
+  .doctor-img {
+    height: 80vh;
+    width: 60%;
+    justify-self: flex-end;
+  }
+
+  .extreme-right,
+  .attributes-ls {
+    display: flex;
+    flex-direction: column;
+    align-self: flex-start;
+    gap: 1.5rem;
+    width: 25%;
+    flex-grow: 1;
+  }
+
+  .small-fonts,
+  .more-doctors,
+  p {
+    font-weight: 800;
+    font-size: 11px;
+    margin-bottom: 1rem;
+    text-align: end;
+  }
+
+  .more-doctors,
+  p {
+    margin-bottom: 0;
+  }
+
+  h1 {
+    font-size: 2rem;
+    text-align: end;
+  }
+
+  .attribute {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    padding: 0.7rem;
+  }
+
+  .more-doctors,
+  .discount,
+  .icon-container {
+    display: block;
+  }
+
+  .icon-container {
+    display: flex;
+    justify-content: flex-end;
+  }
+
+  .icon {
+    width: 150px;
+    justify-self: flex-end;
+  }
+
+  button {
+    align-self: flex-end;
+  }
+
+  strong {
+    margin-right: 10px;
+  }
+}
