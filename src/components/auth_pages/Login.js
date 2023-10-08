@@ -77,7 +77,7 @@ function LogIn() {
             required
           />
         </div>
-        <div>
+        <div className={styles['form-group']}>
           <input
             placeholder="Password"
             type="password"

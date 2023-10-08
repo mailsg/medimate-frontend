@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { toast } from 'react-toastify';
 import { useForm } from 'react-hook-form';
+import styles from '../../css/reserve-form.module.css';
 
 function SignUp() {
   const { reset, watch } = useForm();
@@ -62,11 +63,10 @@ function SignUp() {
   };
 
   return (
-    <div>
-      <h2>Sign Up</h2>
-      <form onSubmit={handleSubmit}>
-        <div>
-          {/* <label>Name:</label> */}
+    <div className={styles['reservation-container']}>
+      <h1 className={styles['reserve-form-header']}>Sign Up</h1>
+      <form onSubmit={handleSubmit} className={styles['reservation-form']}>
+        <div className={styles['form-group']}>
           <input
             type="text"
             name="username"
@@ -75,8 +75,7 @@ function SignUp() {
             onChange={handleInputChange}
           />
         </div>
-        <div>
-          {/* <label>Email:</label> */}
+        <div className={styles['form-group']}>
           <input
             type="email"
             name="email"
@@ -85,8 +84,7 @@ function SignUp() {
             onChange={handleInputChange}
           />
         </div>
-        <div>
-          {/* <label>Password:</label> */}
+        <div className={styles['form-group']}>
           <input
             type="password"
             name="password"
@@ -95,8 +93,7 @@ function SignUp() {
             onChange={handleInputChange}
           />
         </div>
-        <div>
-          {/* <label>Confirm Password:</label> */}
+        <div className={styles['form-group']}>
           <input
             type="password"
             name="password_confirmation"
@@ -105,7 +102,7 @@ function SignUp() {
             onChange={handleInputChange}
           />
         </div>
-        <button type="submit">Sign Up</button>
+        <button className={styles['submit-button']} type="submit">Sign Up</button>
       </form>
     </div>
   );
