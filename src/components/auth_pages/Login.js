@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { toast } from 'react-toastify';
 import { useForm } from 'react-hook-form';
+import styles from '../../css/reserve-form.module.css';
 
 function LogIn() {
   const { reset } = useForm();
@@ -63,10 +64,10 @@ function LogIn() {
   };
 
   return (
-    <div>
-      <h2>Sign In with Email and Password</h2>
-      <form onSubmit={handleSubmit}>
-        <div>
+    <div className={styles['reservation-container']}>
+      <h1 className={styles['reserve-form-header']}>Sign In with Email and Password</h1>
+      <form onSubmit={handleSubmit} className={styles['reservation-form']}>
+        <div className={styles['form-group']}>
           <input
             placeholder="Email"
             type="email"
@@ -88,7 +89,7 @@ function LogIn() {
         </div>
         {error && <p className="error">{error}</p>}
         {' '}
-        <button type="submit">Log In</button>
+        <button className={styles['submit-button']} type="submit">Log In</button>
       </form>
     </div>
   );

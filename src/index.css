@@ -15,7 +15,7 @@ body {
 }
 
 /* LoginForm.css */
-.login-container,
+/* .login-container,
 .signup-container {
   display: flex;
   flex-direction: column;
@@ -68,9 +68,6 @@ button {
   font-size: 20px;
   margin-bottom: 20px;
   margin-right: 20px;
-
-  /* background-color: var(--white);
-  color: var(--green); */
 }
 
 select,
@@ -84,15 +81,12 @@ button {
 button:hover {
   background-color: #ffff;
   color: green;
-
-  /* background: transparent;
-  color: var(--white); */
 }
 
 p.error-message {
   color: red;
   margin-top: 10px;
-}
+} */
 
 /* LoginForm end */
 
