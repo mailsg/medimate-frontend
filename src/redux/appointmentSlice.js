@@ -19,9 +19,9 @@ const AppointmentSlice = createSlice({
   name: 'appointment',
   initialState,
   reducers: {
-  //   setReservations: (state, action) => {
-  //     state.reservations = action.payload;
-  //   },
+    setReservations: (state, action) => {
+      state.reservations = action.payload;
+    },
   },
   extraReducers: (builder) => {
     builder.addCase(getAppointments.fulfilled, (state, action) => {
@@ -31,4 +31,5 @@ const AppointmentSlice = createSlice({
   },
 });
 
+export const { setReservations } = AppointmentSlice.actions;
 export default AppointmentSlice.reducer;
