@@ -1,4 +1,3 @@
-import React from 'react';
 import Doctors from './Doctors';
 import Header from './Header';
 

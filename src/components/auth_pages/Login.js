@@ -39,7 +39,7 @@ function LogIn() {
           );
           reset();
           localStorage.setItem('token', token);
-          navigate('/');
+          navigate('/home');
         } else {
           setError('Authentication failed. Please try again.');
         }
