@@ -2,7 +2,6 @@ import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { NavLink } from 'react-router-dom';
 import { toast } from 'react-toastify';
-import { addAppointment } from './redux/appointmentsSlice';
 import styles from '../css/reserve-form.module.css';
 
 function ReservationForm() {

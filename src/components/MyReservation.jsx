@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { setReservations } from './redux/reservationSlice';
 import styles from '../css/MyAppointments.module.css';
 
 function MyAppointments() {
