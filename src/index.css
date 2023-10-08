@@ -14,82 +14,6 @@ body {
   font-family: 'lato', Arial, Helvetica, sans-serif;
 }
 
-/* LoginForm.css */
-/* .login-container,
-.signup-container {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  height: 100vh;
-  text-align: center;
-  background-color: green;
-}
-
-form {
-  width: 500px;
-  margin: 0 auto;
-  background-color: darkgreen;
-  padding: 20px;
-  border-radius: 5px;
-}
-
-.heading {
-  font-size: 50px;
-}
-
-label {
-  display: block;
-  margin-bottom: 10px;
-  font-size: 20px;
-  font-weight: bold;
-}
-
-input[type="text"],
-input[type='email'],
-input[type='password'] {
-  width: 95%;
-  padding: 10px;
-  margin-bottom: 20px;
-  border-radius: 5px;
-  border: 2px solid #fff;
-  color: #fff;
-  background-color: transparent;
-}
-
-button {
-  background-color: transparent;
-  color: #fff;
-  padding: 10px 20px;
-  cursor: pointer;
-  width: 200px;
-  border: 2px solid #fff;
-  border-radius: 20px;
-  font-size: 20px;
-  margin-bottom: 20px;
-  margin-right: 20px;
-}
-
-select,
-button {
-  background: transparent;
-  padding: 0.5rem 1.5rem;
-  border-radius: 20px;
-  border: 2px solid var(--white);
-}
-
-button:hover {
-  background-color: #ffff;
-  color: green;
-}
-
-p.error-message {
-  color: red;
-  margin-top: 10px;
-} */
-
-/* LoginForm end */
-
 /* Header style start */
 
 .side-panel {
@@ -240,12 +164,12 @@ p.error-message {
 /* footer end */
 
 .sign-out-btn {
- color: black;
- padding: 0;
- margin: 0;
- font-size: 13px;
- font-weight: 800;
- text-align: start;
+  color: black;
+  padding: 0;
+  margin: 0;
+  font-size: 13px;
+  font-weight: 800;
+  text-align: start;
 }
 
 .sign-out-btn:hover {
