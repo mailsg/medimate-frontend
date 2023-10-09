@@ -1,12 +1,16 @@
-import React, { useState } from 'react';
-// import { useDispatch } from 'react-redux';
+import { useEffect, useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
-import { toast, ToastContainer } from 'react-toastify';
-// import { addDoctor } from './redux/doctorSlice';
+import { toast } from 'react-toastify';
+import {
+  addDoctorAsync,
+  fetchSpecializationsAsync,
+} from '../redux/adddoctorSlice';
 import styles from '../css/AddDoctor.module.css';
 
 const AddDoctor = () => {
-  // const dispatch = useDispatch();
+  const dispatch = useDispatch();
+
   const navigate = useNavigate();
 
   const [doctorInfo, setDoctorInfo] = useState({
@@ -21,7 +25,11 @@ const AddDoctor = () => {
   });
 
   const [error, setError] = useState(null);
+  useEffect(() => {
+    dispatch(fetchSpecializationsAsync());
+  }, [dispatch]);
 
+  const specializations = useSelector((state) => state.app.specializations);
   const handleChange = (e) => {
     const { name, value } = e.target;
     setDoctorInfo({ ...doctorInfo, [name]: value });
@@ -29,44 +37,30 @@ const AddDoctor = () => {
 
   const handleAddDoctor = async () => {
     try {
-      const response = await fetch('http://localhost:3000/api/v1/doctors', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-          Authorization: localStorage.getItem('token'),
-        },
-        body: JSON.stringify(doctorInfo),
+      await dispatch(addDoctorAsync(doctorInfo));
+      setDoctorInfo({
+        name: '',
+        time_available_from: '',
+        time_available_to: '',
+        bio: '',
+        fee_per_appointment: '',
+        specialization_id: '',
+        image: '',
+        location: '',
       });
 
-      if (response.ok) {
-        // const data = await response.json();
-        // dispatch(addDoctor(data));
-        // setDoctorInfo({
-        //   name: '',
-        //   time_available_from: '',
-        //   time_available_to: '',
-        //   bio: '',
-        //   fee_per_appointment: '',
-        //   specialization_id: '',
-        //   image: '',
-        //   location: '',
-        // });
-        toast.success('Doctor added successfully!', {
-          position: toast.POSITION.TOP_CENTER,
-        });
-        navigate('/Reserve');
-      } else {
-        const data = await response.json();
-        setError(data.error || 'Failed to add doctor to the database');
-      }
-    } catch (error) {
-      setError('Error adding doctor. Please try again.');
+      toast.success('Doctor added successfully!', {
+        position: toast.POSITION.TOP_CENTER,
+      });
+
+      navigate('/');
+    } catch (err) {
+      setError(err.message || 'Error adding doctor. Please try again.');
     }
   };
 
   return (
     <div className={styles.addDoctorContainer}>
-      <ToastContainer />
       <h2 className={styles.heading}>Add Doctor</h2>
       <div className={styles.addDoctorForm}>
         {error && <p className={styles.errorMessage}>{error}</p>}
@@ -114,15 +108,20 @@ const AddDoctor = () => {
             className={styles.addDoctorInput}
           />
 
-          <label htmlFor="specialization_id">Specialization ID</label>
-          <input
-            type="text"
+          <label htmlFor="specialization_id">Specialization</label>
+          <select
             name="specialization_id"
             value={doctorInfo.specialization_id}
             onChange={handleChange}
             className={styles.addDoctorInput}
-          />
-
+          >
+            <option value="">Select Specialization</option>
+            {specializations.map((spec) => (
+              <option key={spec.id} value={spec.id}>
+                {spec.name}
+              </option>
+            ))}
+          </select>
           <label htmlFor="image">Image URL</label>
           <input
             type="text"
@@ -131,7 +130,6 @@ const AddDoctor = () => {
             onChange={handleChange}
             className={styles.addDoctorInput}
           />
-
           <label htmlFor="location">Location</label>
           <input
             type="text"
@@ -141,7 +139,7 @@ const AddDoctor = () => {
             className={styles.addDoctorInput}
           />
           <button
-            type="submit"
+            type="button"
             onClick={handleAddDoctor}
             className={styles.addDoctorButton}
           >

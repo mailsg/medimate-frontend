@@ -1,18 +1,36 @@
-import React, { useState } from 'react';
-// import { useDispatch } from 'react-redux';
-import { NavLink } from 'react-router-dom';
+import React, { useState, useEffect } from 'react';
+import { useDispatch } from 'react-redux';
+import { NavLink, useNavigate } from 'react-router-dom';
 import { toast } from 'react-toastify';
+import { setReservations } from '../redux/appointmentSlice';
 import styles from '../css/reserve-form.module.css';
 
 function ReservationForm() {
-  // const dispatch = useDispatch();
+  const dispatch = useDispatch();
 
   const [formData, setFormData] = useState({
-    doctorName: '',
-    appointmentDate: '',
-    appointmentTime: '',
+    appointment_date: '',
+    appointment_time: '',
     duration: '',
+    doctor_id: '',
+    location: '',
   });
+
+  const [doctors, setDoctors] = useState([]);
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    fetch('http://localhost:3000/api/v1/doctors', {
+      headers: {
+        Authorization: localStorage.getItem('token'),
+      },
+    })
+      .then((response) => response.json())
+      .then((data) => {
+        setDoctors(data);
+      })
+      .catch((error) => console.error('Error fetching doctors:', error));
+  }, []);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -31,8 +49,8 @@ function ReservationForm() {
       );
 
       if (response.ok) {
-        // const data = await response.json();
-        // dispatch(addAppointment(data)); // Add the newly created appointment to Redux store
+        const data = await response.json();
+        dispatch(setReservations(data.reservations));
         toast.success('Reservation successful!');
       } else {
         toast.error('Reservation failed!');
@@ -40,11 +58,17 @@ function ReservationForm() {
     } catch (error) {
       toast.error('Error occurred while processing your request!');
     }
+    navigate('/Myreservations');
   };
 
-  const handleChange = (e) => {
-    const { name, value } = e.target;
-    setFormData({ ...formData, [name]: value });
+  // const handleDoctorNameChange = (e) => {
+  //   const { value } = e.target;
+  //   setFormData({ ...formData, doctorName: value });
+  // };
+
+  const handleDoctorSelectChange = (e) => {
+    const { value } = e.target;
+    setFormData({ ...formData, doctor_id: value });
   };
 
   return (
@@ -55,16 +79,21 @@ function ReservationForm() {
         onSubmit={handleSubmit}
       >
         <div className="form-group">
-          <input
+          <select
             className="form"
-            placeholder="Name of Doctor"
-            type="text"
-            id="doctorName"
-            name="doctorName"
-            value={formData.doctorName}
-            onChange={handleChange}
+            id="doctorId"
+            name="doctor_id"
+            value={formData.doctor_id}
+            onChange={handleDoctorSelectChange}
             required
-          />
+          >
+            <option value="">Select a Doctor</option>
+            {doctors.map((doctor) => (
+              <option key={doctor.id} value={doctor.id}>
+                {doctor.name}
+              </option>
+            ))}
+          </select>
         </div>
         <div className="form-group">
           <input
@@ -72,9 +101,9 @@ function ReservationForm() {
             placeholder="Date of Appointment"
             type="date"
             id="appointmentDate"
-            name="appointmentDate"
-            value={formData.appointmentDate}
-            onChange={handleChange}
+            name="appointment_date"
+            value={formData.appointment_date}
+            onChange={(e) => setFormData({ ...formData, appointment_date: e.target.value })}
             required
           />
         </div>
@@ -84,26 +113,38 @@ function ReservationForm() {
             placeholder="Time of Appointment"
             type="time"
             id="appointmentTime"
-            name="appointmentTime"
-            value={formData.appointmentTime}
-            onChange={handleChange}
+            name="appointment_time"
+            value={formData.appointment_time}
+            onChange={(e) => setFormData({ ...formData, appointment_time: e.target.value })}
             required
           />
         </div>
         <div className="form-group">
           <input
             className="form"
-            placeholder="Duration"
+            placeholder="Duration (in minutes)"
             type="number"
             id="duration"
             name="duration"
             value={formData.duration}
-            onChange={handleChange}
+            onChange={(e) => setFormData({ ...formData, duration: e.target.value })}
+            required
+          />
+        </div>
+        <div className="form-group">
+          <input
+            className="form"
+            placeholder="Location"
+            type="text"
+            id="location"
+            name="location"
+            value={formData.location}
+            onChange={(e) => setFormData({ ...formData, location: e.target.value })}
             required
           />
         </div>
         <div className={styles['btn-container']}>
-          <NavLink to="/reserve">
+          <NavLink to="/">
             <button type="submit" className={styles['submit-button']}>
               Back
             </button>

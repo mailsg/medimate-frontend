@@ -1,32 +1,31 @@
-
-.delete-doctor-container {
+.deleteDoctorContainer {
   margin: 20px;
 }
 
-.doctor-table {
+.doctorTable {
   width: 100%;
   border-collapse: collapse;
   border: 1px solid #ddd;
 }
 
-.doctor-table th,
-.doctor-table td {
+.doctorTable th,
+.doctorTable td {
   padding: 8px;
   text-align: left;
   border-bottom: 1px solid #ddd;
   color: black;
 }
 
-.doctor-table th {
+.doctorTable th {
   background-color: #f2f2f2;
   font-weight: bold;
 }
 
-.table-body {
+.tableBody {
   color: black;
 }
 
-.delete-button {
+.deleteButton {
   background-color: #f44336;
   color: white;
   border: none;
@@ -34,6 +33,6 @@
   cursor: pointer;
 }
 
-.delete-button:hover {
+.deleteButton:hover {
   background-color: #d32f2f;
 }

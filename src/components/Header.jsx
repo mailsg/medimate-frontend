@@ -24,7 +24,7 @@ export default function Header() {
 
   const handleSignOut = async () => {
     try {
-      const response = await fetch('https://medimate-backend-p22y.onrender.com/users/sign_out', {
+      const response = await fetch('http://localhost:3000/users/sign_out', {
         method: 'DELETE',
         headers: {
           'Content-Type': 'application/json',
@@ -77,7 +77,7 @@ export default function Header() {
         </NavLink>
         <NavLink
           className="link-item3"
-          to="Appointments"
+          to="Myreservations"
           activeClassName="active"
         >
           My Reservations

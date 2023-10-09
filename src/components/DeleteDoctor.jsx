@@ -1,60 +1,107 @@
+// import { useEffect } from 'react';
+// import { useDispatch, useSelector } from 'react-redux';
+// import { Link, useNavigate } from 'react-router-dom';
+// import { FaFacebookF, FaTwitter, FaLinkedinIn } from 'react-icons/fa';
+// import { deleteDoctors, getDoctors } from '../redux/doctorSlice';
+// import styles from '../css/doctors.module.css';
+
+// const DeleteDoctor = () => {
+//   const dispatch = useDispatch();
+
+//   useEffect(() => {
+//     dispatch(deleteDoctors());
+//   });
+//   const doctors = useSelector((state) => state.doctor.doctors);
+//   const navigate = useNavigate();
+
+//   const handleDelete = async (docId) => {
+//     await dispatch(deleteDoctors(docId)).then(() => {
+//       console.log(docId);
+//       dispatch(getDoctors());
+//       navigate('/');
+//     });
+//   };
+
+//   return (
+//     <div>
+//       <h2>Delete doctors you added</h2>
+//       <div>
+//         {doctors.map((e) => (
+//           <div key={e.id}>
+//             <div>
+//               <img
+//                 src={e.image}
+//                 alt={e.name}
+//                 crossOrigin="anonymous | use-credentials"
+//               />
+//             </div>
+//             <Link to={`/doctors/${e.id}`} className="link">
+//               {e.name}
+//             </Link>
+//             <p>
+//               {e.bio.split(' ').slice(0, 15).join(' ')}
+//               . . .
+//             </p>
+//             <div className={styles.socialMedia}>
+//               <FaFacebookF className={styles['sm-icons']} />
+//               <FaTwitter className={styles['sm-icons']} />
+//               <FaLinkedinIn className={styles['sm-icons']} />
+//               <i className="fa fa-heart" />
+//             </div>
+
+//             <div>
+//               <button type="button" onClick={() => handleDelete(e.id)}>
+//                 Delete Doctor
+//               </button>
+//             </div>
+//           </div>
+//         ))}
+//       </div>
+//     </div>
+//   );
+// };
+
+// export default DeleteDoctor;
+
 import React, { useState, useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
+import { useNavigate } from 'react-router-dom';
 import { toast } from 'react-toastify';
-import '../css/deletedoctors.css';
+import { deleteDoctorAsync } from '../redux/deletedoctorSlice';
+import styles from '../css/DeleteDoctor.module.css';
 
 const DeleteDoctor = () => {
   const dispatch = useDispatch();
+  const navigate = useNavigate();
   const doctors = useSelector((state) => state.doctor.doctors);
   const [error, setError] = useState(null);
 
-  useEffect(() => {
-    fetch('http://localhost:3000/api/v1/doctors', {
-      headers: {
-        Authorization: localStorage.getItem('token'),
-      },
-    })
-      .then((response) => response.json())
-      .then((data) => {
-        if (Array.isArray(data)) {
-          // dispatch(addDoctor(data));
-        } else {
-          console.error('Doctors data is not an array:', data);
-        }
-      })
-      .catch((error) => console.error('Error fetching doctors:', error));
-  }, [dispatch]);
-
   const handleDeleteDoctor = async (doctorId) => {
     try {
-      const response = await fetch(
-        `http://localhost:3000/api/v1/doctors/${doctorId}`,
-        {
-          method: 'DELETE',
-          headers: {
-            Authorization: localStorage.getItem('token'),
-          },
-        },
-      );
-
-      if (!response.ok) {
-        const data = await response.json();
-        setError(data.error || 'Failed to delete doctor');
-      } else {
-        // dispatch(deleteDoctor(doctorId));
-
-        toast.success('Doctor deleted successfully!');
-      }
-    } catch (error) {
-      setError('Error deleting doctor. Please try again.');
+      await dispatch(deleteDoctorAsync(doctorId));
+      toast.success('Doctor deleted successfully!');
+      const updatedDoctors = doctors.filter((doctor) => doctor.id !== doctorId);
+      localStorage.setItem('doctors', JSON.stringify(updatedDoctors));
+    } catch (err) {
+      setError(err.message || 'Error deleting doctor. Please try again.');
     }
+    navigate('/');
   };
 
+  useEffect(() => {
+    // Set the initial list of doctors from localStorage
+    const storedDoctors = JSON.parse(localStorage.getItem('doctors'));
+    if (storedDoctors) {
+      // Initialize the doctors state with data from localStorage
+      dispatch({ type: 'initializeDoctors', payload: storedDoctors });
+    }
+  }, [dispatch]);
+
   return (
-    <div className="delete-doctor-container">
+    <div className={styles.deleteDoctorContainer}>
       <h2>Delete Doctor</h2>
-      {error && <p className="error-message">{error}</p>}
-      <table className="doctor-table">
+      {error && <p className={styles.errorMessage}>{error}</p>}
+      <table className={styles.doctorTable}>
         <thead>
           <tr>
             <th>Name</th>
@@ -64,17 +111,17 @@ const DeleteDoctor = () => {
             <th>Action</th>
           </tr>
         </thead>
-        <tbody className="table-body">
+        <tbody className={styles.tableBody}>
           {doctors.map((doctor) => (
-            <tr key={doctor.name}>
+            <tr key={doctor.id}>
               <td>{doctor.name}</td>
               <td>{doctor.time_available_from}</td>
               <td>{doctor.time_available_to}</td>
-              <td>{doctor.specialization_id}</td>
+              <td>{doctor.specialization.name}</td>
               <td>
                 <button
-                  type="submit"
-                  className="delete-button"
+                  type="button"
+                  className={styles.deleteButton}
                   onClick={() => handleDeleteDoctor(doctor.id)}
                 >
                   Delete
