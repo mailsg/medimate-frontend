@@ -121,4 +121,8 @@ textarea {
   textarea {
     width: 50%;
   }
+
+  .flex1 {
+    margin-top: 2.7rem;
+  }
 }

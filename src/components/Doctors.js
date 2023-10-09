@@ -86,7 +86,7 @@ function Doctors() {
                   {doctor.specialization.name}
                 </span>
               </div>
-              <p className={styles['home-paragraph']}>{doctor.bio}</p>
+              <p className={styles['home-paragraph']}>{doctor.bio.split(' ').slice(0, 15).join(' ')}</p>
               <div className={styles.socialMedia}>
                 <FaFacebookF className={styles['sm-icons']} />
                 <FaTwitter className={styles['sm-icons']} />

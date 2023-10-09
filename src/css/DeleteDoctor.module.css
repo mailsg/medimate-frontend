@@ -1,4 +1,4 @@
-.deleteDoctorContainer {
+/* .deleteDoctorContainer {
   margin: 20px;
 }
 
@@ -23,16 +23,94 @@
 
 .tableBody {
   color: black;
+} */
+
+.remove-doc-wrapper, .text-container {
+  width: 80%;
+  padding: 1rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
-.deleteButton {
+.delete-header {
+  text-align: center;
+}
+
+.text-container {
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: flex-end;
+}
+
+.img {
+  width: 200px;
+  height: 200px;
+}
+
+.card {
+  display: flex;
+  justify-content: space-between;
+  flex-direction: row-reverse;
+  margin: 2rem;
+  box-shadow: 0px 0px 5px 5px rgb(198, 192, 192);
+  border: 2px solid rgb(162, 155, 155);
+  padding: 1rem;
+}
+
+.sub-container {
+  display: flex;
+  justify-content: flex-start;
+}
+
+.sub-container div {
+  margin-right: 1rem;
+}
+
+.delete-button {
   background-color: #f44336;
   color: white;
   border: none;
   border-radius: 4px;
   cursor: pointer;
+  width: 50%;
 }
 
-.deleteButton:hover {
+.delete-button:hover {
   background-color: #d32f2f;
+}
+
+@media screen and (min-width: 768px) {
+  * {
+    font-size: 16px;
+  }
+
+  .remove-doc-wrapper {
+    width: 100vw;
+    padding: 4rem 20%;
+    display: block;
+  }
+
+  .sub-container {
+    display: flex;
+    justify-content: flex-start;
+  }
+
+  .card {
+    flex-direction: row;
+    width: 100%;
+  }
+
+  .text-container {
+    align-items: flex-start;
+  }
+
+  .delete-button {
+    align-self: flex-start;
+    width: 20%;
+  }
+
+  h2 {
+    font-size: 24px;
+  }
 }

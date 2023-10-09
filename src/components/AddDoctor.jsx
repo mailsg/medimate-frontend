@@ -65,7 +65,7 @@ const AddDoctor = () => {
       <div className={styles.addDoctorForm}>
         {error && <p className={styles.errorMessage}>{error}</p>}
         <form className={styles['add-doctor-form']}>
-          <div className={styles['flex-item']}>
+          <div className={[styles['flex-item'], styles.flex1].join(' ')}>
             <input
               type="text"
               placeholder="Name"

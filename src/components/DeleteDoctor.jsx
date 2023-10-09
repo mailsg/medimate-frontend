@@ -89,19 +89,50 @@ const DeleteDoctor = () => {
   };
 
   useEffect(() => {
-    // Set the initial list of doctors from localStorage
     const storedDoctors = JSON.parse(localStorage.getItem('doctors'));
     if (storedDoctors) {
-      // Initialize the doctors state with data from localStorage
       dispatch({ type: 'initializeDoctors', payload: storedDoctors });
     }
   }, [dispatch]);
 
   return (
-    <div className={styles.deleteDoctorContainer}>
-      <h2>Delete Doctor</h2>
+    <div className={styles['remove-doc-wrapper']}>
       {error && <p className={styles.errorMessage}>{error}</p>}
-      <table className={styles.doctorTable}>
+      <section>
+        <h1 className={styles['delete-header']}>DELETE DOCTORS</h1>
+        {doctors.map((doctor) => (
+          <div key={doctor.id} className={styles.card}>
+            <div className={styles['text-container']}>
+              <h2>{doctor.name}</h2>
+              <div className={styles['sub-container']}>
+                <div>Time available:</div>
+                <div>
+                  {doctor.time_available_from}
+                  <span>{' - '}</span>
+                  {doctor.time_available_from}
+                </div>
+              </div>
+              <div className={styles['sub-container']}>
+                <div>Specialization:</div>
+                <div>{doctor.specialization}</div>
+              </div>
+              <div className={styles['sub-container']}>
+                <div>City:</div>
+                <div>{doctor.location}</div>
+              </div>
+              <button
+                type="button"
+                className={styles['delete-button']}
+                onClick={() => handleDeleteDoctor(doctor.id)}
+              >
+                Delete
+              </button>
+            </div>
+            <img src={doctor.image} alt={doctor.name} className={styles.img} />
+          </div>
+        ))}
+      </section>
+      {/* <table className={styles.doctorTable}>
         <thead>
           <tr>
             <th>Name</th>
@@ -130,7 +161,7 @@ const DeleteDoctor = () => {
             </tr>
           ))}
         </tbody>
-      </table>
+      </table> */}
     </div>
   );
 };
