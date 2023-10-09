@@ -1,3 +1,4 @@
+
 import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
@@ -10,6 +11,7 @@ import styles from '../css/AddDoctor.module.css';
 
 const AddDoctor = () => {
   const dispatch = useDispatch();
+
   const navigate = useNavigate();
 
   const [doctorInfo, setDoctorInfo] = useState({
@@ -25,11 +27,13 @@ const AddDoctor = () => {
 
   const [error, setError] = useState(null);
 
+
   useEffect(() => {
     dispatch(fetchSpecializationsAsync());
   }, [dispatch]);
 
   const specializations = useSelector((state) => state.app.specializations);
+
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -39,7 +43,6 @@ const AddDoctor = () => {
   const handleAddDoctor = async () => {
     try {
       await dispatch(addDoctorAsync(doctorInfo));
-
       setDoctorInfo({
         name: '',
         time_available_from: '',
@@ -58,6 +61,7 @@ const AddDoctor = () => {
       navigate('/');
     } catch (err) {
       setError(err.message || 'Error adding doctor. Please try again.');
+
     }
   };
 
@@ -76,7 +80,6 @@ const AddDoctor = () => {
             onChange={handleChange}
             className={styles.addDoctorInput}
           />
-
           <label htmlFor="time_available_from">Available From</label>
           <input
             type="text"
@@ -112,6 +115,7 @@ const AddDoctor = () => {
             className={styles.addDoctorInput}
           />
 
+
           <label htmlFor="specialization_id">Specialization</label>
           <select
             name="specialization_id"
@@ -126,7 +130,6 @@ const AddDoctor = () => {
               </option>
             ))}
           </select>
-
           <label htmlFor="image">Image URL</label>
           <input
             type="text"
@@ -135,7 +138,6 @@ const AddDoctor = () => {
             onChange={handleChange}
             className={styles.addDoctorInput}
           />
-
           <label htmlFor="location">Location</label>
           <input
             type="text"
@@ -144,7 +146,6 @@ const AddDoctor = () => {
             onChange={handleChange}
             className={styles.addDoctorInput}
           />
-
           <button
             type="button"
             onClick={handleAddDoctor}

@@ -8,7 +8,9 @@ import styles from '../css/reserve-form.module.css';
 function ReservationForm() {
   const dispatch = useDispatch();
 
+
   const [formData, setFormData] = useState({
+    doctorName: '',
     appointmentDate: '',
     appointmentTime: '',
     duration: '',
