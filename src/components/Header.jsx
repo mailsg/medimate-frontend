@@ -22,9 +22,12 @@ export default function Header() {
     }
   };
 
+  const baseUrl = 'https://medimate-backend-p22y.onrender.com/api/v1';
+  // const localUrl = 'http://localhost:3000/api/v1';
+
   const handleSignOut = async () => {
     try {
-      const response = await fetch('https://medimate-backend-p22y.onrender.com/users/sign_out', {
+      const response = await fetch(`${baseUrl}/users/sign_out`, {
         method: 'DELETE',
         headers: {
           'Content-Type': 'application/json',

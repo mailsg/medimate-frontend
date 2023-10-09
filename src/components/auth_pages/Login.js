@@ -15,10 +15,13 @@ function LogIn() {
 
   const [error, setError] = useState(null);
 
+  const baseUrl = 'https://medimate-backend-p22y.onrender.com/api/v1';
+  // const localUrl = 'http://localhost:3000/api/v1';
+
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const response = await fetch('https://medimate-backend-p22y.onrender.com/users/sign_in', {
+      const response = await fetch(`${baseUrl}/users/sign_in`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

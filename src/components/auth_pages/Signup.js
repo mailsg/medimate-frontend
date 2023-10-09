@@ -14,11 +14,14 @@ function SignUp() {
     password_confirmation: '',
   });
 
+  const baseUrl = 'https://medimate-backend-p22y.onrender.com/api/v1';
+  // const localUrl = 'http://localhost:3000/api/v1';
+
   const handleSubmit = async (e) => {
     e.preventDefault();
     if (watch('password') !== watch('password_confirmation')) return toast.error('Passwords do not match');
     try {
-      const response = await fetch('https://medimate-backend-p22y.onrender.com/users', {
+      const response = await fetch(`${baseUrl}/users`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

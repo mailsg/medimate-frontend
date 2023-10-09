@@ -14,6 +14,8 @@ import Doctor from './components/Doctor';
 import './App.css';
 import SignUp from './components/auth_pages/Signup';
 import Login from './components/auth_pages/Login';
+import DeleteDoctor from './components/DeleteDoctor';
+import NewDoctor from './components/NewDoctorForm';
 
 const router = createBrowserRouter(
   createRoutesFromElements(
@@ -26,6 +28,8 @@ const router = createBrowserRouter(
       <Route path="/doctors/:doctorId" element={<Doctor />} />
       <Route path="/sign_up" element={<SignUp />} />
       <Route path="/log_in" element={<Login />} />
+      <Route path="/delete_doctor" element={<DeleteDoctor />} />
+      <Route path="/add_doctor" element={<NewDoctor />} />
     </>,
   ),
 );

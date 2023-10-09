@@ -2,7 +2,8 @@ import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
 import axios from 'axios';
 
 const token = localStorage.getItem('token');
-const baseUrl = "https://medimate-backend-p22y.onrender.com/api/v1"
+const baseUrl = 'https://medimate-backend-p22y.onrender.com/api/v1';
+// const localUrl = 'http://localhost:3000/api/v1';
 
 export const AddDoctor = createAsyncThunk(
   'api/AddDoctor',
@@ -10,7 +11,7 @@ export const AddDoctor = createAsyncThunk(
     const response = await fetch(`${baseUrl}/doctors`, {
       method: 'POST',
       headers: {
-        'Authorization': `${token}`,
+        Authorization: `${token}`,
         'Content-Type': 'application/json',
       },
       body: payload,
@@ -25,9 +26,17 @@ export const getDoctors = createAsyncThunk(
   async () => {
     const response = await axios.get(`${baseUrl}/doctors`, {
       headers: {
-        Authorization: `${token}`, // Replace with your JWT token
+        Authorization: `${token}`,
       },
     });
+    return response.data;
+  },
+);
+
+export const deleteDoctors = createAsyncThunk(
+  'doctors/Deletedoctors',
+  async (payload) => {
+    const response = await axios.delete(`${baseUrl}/doctors/${payload}`);
     return response.data;
   },
 );
