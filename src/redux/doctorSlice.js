@@ -5,7 +5,7 @@ const token = localStorage.getItem('token');
 export const getDoctors = createAsyncThunk(
   'get/doctors',
   async () => {
-    const response = await axios.get('https://medimate-backend-p22y.onrender.com/api/v1/doctors', {
+    const response = await axios.get('http://localhost:3000/api/v1/doctors', {
       headers: {
         Authorization: `${token}`, // Replace with your JWT token
       },
