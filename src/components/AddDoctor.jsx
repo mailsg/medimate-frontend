@@ -6,7 +6,7 @@ import {
   addDoctorAsync,
   fetchSpecializationsAsync,
 } from '../redux/adddoctorSlice';
-import styles from '../css/AddDoctor.module.css';
+import styles from '../css/reserve-form.module.css';
 
 const AddDoctor = () => {
   const dispatch = useDispatch();
@@ -60,91 +60,91 @@ const AddDoctor = () => {
   };
 
   return (
-    <div className={styles.addDoctorContainer}>
-      <h2 className={styles.heading}>Add Doctor</h2>
+    <div className={styles['reservation-container']}>
+      <h1 className={styles['reserve-form-header']}>Add Doctor</h1>
       <div className={styles.addDoctorForm}>
         {error && <p className={styles.errorMessage}>{error}</p>}
-        <form>
-          <label htmlFor="name">Name</label>
-          <input
-            type="text"
-            name="name"
-            value={doctorInfo.name}
-            onChange={handleChange}
-            className={styles.addDoctorInput}
-          />
-          <label htmlFor="time_available_from">Available From</label>
-          <input
-            type="text"
-            name="time_available_from"
-            value={doctorInfo.time_available_from}
-            onChange={handleChange}
-            className={styles.addDoctorInput}
-          />
-
-          <label htmlFor="time_available_to">Available To</label>
-          <input
-            type="text"
-            name="time_available_to"
-            value={doctorInfo.time_available_to}
-            onChange={handleChange}
-            className={styles.addDoctorInput}
-          />
-
-          <label htmlFor="bio">Bio</label>
-          <textarea
-            name="bio"
-            value={doctorInfo.bio}
-            onChange={handleChange}
-            className={styles.addDoctorInput}
-          />
-
-          <label htmlFor="fee_per_appointment">Fee per Appointment</label>
-          <input
-            type="text"
-            name="fee_per_appointment"
-            value={doctorInfo.fee_per_appointment}
-            onChange={handleChange}
-            className={styles.addDoctorInput}
-          />
-
-          <label htmlFor="specialization_id">Specialization</label>
-          <select
-            name="specialization_id"
-            value={doctorInfo.specialization_id}
-            onChange={handleChange}
-            className={styles.addDoctorInput}
-          >
-            <option value="">Select Specialization</option>
-            {specializations.map((spec) => (
-              <option key={spec.id} value={spec.id}>
-                {spec.name}
-              </option>
-            ))}
-          </select>
-          <label htmlFor="image">Image URL</label>
-          <input
-            type="text"
-            name="image"
-            value={doctorInfo.image}
-            onChange={handleChange}
-            className={styles.addDoctorInput}
-          />
-          <label htmlFor="location">Location</label>
-          <input
-            type="text"
-            name="location"
-            value={doctorInfo.location}
-            onChange={handleChange}
-            className={styles.addDoctorInput}
-          />
-          <button
-            type="button"
-            onClick={handleAddDoctor}
-            className={styles.addDoctorButton}
-          >
-            Add Doctor
-          </button>
+        <form className={styles['add-doctor-form']}>
+          <div className={styles['flex-item']}>
+            <input
+              type="text"
+              placeholder="Name"
+              name="name"
+              value={doctorInfo.name}
+              onChange={handleChange}
+              className={styles.addDoctorInput}
+            />
+            <input
+              type="text"
+              placeholder="Available from"
+              name="time_available_from"
+              value={doctorInfo.time_available_from}
+              onChange={handleChange}
+              className={styles.addDoctorInput}
+            />
+            <input
+              type="text"
+              placeholder="Available to"
+              name="time_available_to"
+              value={doctorInfo.time_available_to}
+              onChange={handleChange}
+              className={styles.addDoctorInput}
+            />
+            <textarea
+              placeholder="Short bio..."
+              name="bio"
+              value={doctorInfo.bio}
+              onChange={handleChange}
+              className={styles.addDoctorInput}
+            />
+          </div>
+          <div className={styles['flex-item']}>
+            <input
+              type="text"
+              placeholder="Fee per appointment"
+              name="fee_per_appointment"
+              value={doctorInfo.fee_per_appointment}
+              onChange={handleChange}
+              className={styles.addDoctorInput}
+            />
+            <select
+              placeholder="Specialization"
+              name="specialization_id"
+              value={doctorInfo.specialization_id}
+              onChange={handleChange}
+              className={styles['select-elm']}
+            >
+              <option value="">Select Specialization</option>
+              {specializations.map((spec) => (
+                <option key={spec.id} value={spec.id}>
+                  {spec.name}
+                </option>
+              ))}
+            </select>
+            <input
+              type="text"
+              placeholder="Image URL"
+              name="image"
+              value={doctorInfo.image}
+              onChange={handleChange}
+              className={styles.addDoctorInput}
+            />
+            <input
+              type="text"
+              placeholder="City"
+              name="location"
+              value={doctorInfo.location}
+              onChange={handleChange}
+              className={styles.addDoctorInput}
+            />
+            <button
+              type="button"
+              onClick={handleAddDoctor}
+              className={styles['submit-button']}
+            >
+              Add Doctor
+            </button>
+          </div>
         </form>
       </div>
     </div>

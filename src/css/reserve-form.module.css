@@ -12,7 +12,6 @@
   background-repeat: no-repeat;
   background-size: cover;
   background-attachment: scroll;
-  height: 100vh;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -20,6 +19,7 @@
   color: var(--white);
   gap: 3rem;
   position: relative;
+  padding: 2rem;
 }
 
 .reserve-form-header {
@@ -87,4 +87,38 @@ input[type="password"],
 .submit-button:hover {
   background-color: transparent;
   color: #fff;
+}
+
+.add-doctor-form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+textarea {
+  width: 80%;
+  height: 8rem;
+  padding: 1rem;
+  font-size: 1.3rem;
+  margin-bottom: 1.5rem;
+}
+
+.flex-item {
+  width: 40%;
+}
+
+@media screen and (min-width: 768px) {
+  .reservation-container {
+    height: 100vh;
+  }
+
+  .add-doctor-form {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+  }
+
+  textarea {
+    width: 50%;
+  }
 }
