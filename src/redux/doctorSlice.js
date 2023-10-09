@@ -1,5 +1,7 @@
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
 import axios from 'axios';
+import image1 from '../assets/img-1.jpg';
+import image2 from '../assets/img-2.jpg';
 
 const token = localStorage.getItem('token');
 // const baseUrl = 'https://medimate-backend-p22y.onrender.com/api/v1';
@@ -49,7 +51,30 @@ export const deleteDoctors = createAsyncThunk(
 );
 
 const initialState = {
-  doctors: [],
+  doctors: [
+    {
+      id: 1,
+      name: 'Dr. laura',
+      time_available_from: '12:00',
+      time_available_to: '4:00',
+      bio: 'fdsfdfjhdsfh,dwfewhrvewcaasfass',
+      fee_per_appointment: 23,
+      specialization: 'cardio',
+      image: image1,
+      location: 'lagos',
+    },
+    {
+      id: 2,
+      name: 'Dr. Grace',
+      time_available_from: '10:00',
+      time_available_to: '3:00',
+      bio: 'fdsfdfjhdsiuioiphuiuiopihophopihoopokjlj',
+      fee_per_appointment: 29,
+      specialization: 'physio',
+      image: image2,
+      location: 'Accra',
+    },
+  ],
   doctor: '',
 };
 
