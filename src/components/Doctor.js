@@ -1,12 +1,11 @@
 import React from 'react';
-import {
-  FaAngleRight,
-} from 'react-icons/fa';
+import { FaAngleRight } from 'react-icons/fa';
 import { GoGear } from 'react-icons/go';
 import { Link } from 'react-router-dom';
 import styles from '../css/doctor.module.css';
 import image1 from '../assets/doc-details.png';
 import icon from '../assets/icon.png';
+import back from '../assets/back.png';
 
 const Doctor = () => (
   <section className={styles['doctor-details']}>
@@ -52,6 +51,11 @@ const Doctor = () => (
         </button>
       </Link>
     </article>
+    <Link to="/">
+      <div className={styles['back-btn-container']}>
+        <img src={back} alt="back button" className={styles['back-home']} />
+      </div>
+    </Link>
   </section>
 );
 
