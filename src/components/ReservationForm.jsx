@@ -12,14 +12,13 @@ function ReservationForm() {
     appointmentDate: '',
     appointmentTime: '',
     duration: '',
-    doctorId: '', // Selected doctor ID
-    doctorName: '', // User-entered doctor name
+    doctorId: '',
+    doctorName: '',
   });
 
-  const [doctors, setDoctors] = useState([]); // Store available doctors
+  const [doctors, setDoctors] = useState([]);
 
   useEffect(() => {
-    // Fetch available doctors and populate the dropdown
     fetch('http://localhost:3000/api/v1/doctors', {
       headers: {
         Authorization: localStorage.getItem('token'),
@@ -27,7 +26,7 @@ function ReservationForm() {
     })
       .then((response) => response.json())
       .then((data) => {
-        setDoctors(data); // Update the available doctors list
+        setDoctors(data);
       })
       .catch((error) => console.error('Error fetching doctors:', error));
   }, []);

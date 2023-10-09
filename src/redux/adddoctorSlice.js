@@ -1,15 +1,34 @@
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 import axios from 'axios';
 
-// Define an initial state
 const initialState = {
-  addingDoctor: false, // Indicates if a doctor is being added
-  error: null, // Stores any error that occurs during the operation
+  specializations: [],
+  addingDoctor: false,
+  error: null,
 };
 
-// Create an async thunk action for adding a doctor
+export const fetchSpecializationsAsync = createAsyncThunk(
+  'specializations/fetchSpecializationsAsync',
+  async () => {
+    try {
+      const token = localStorage.getItem('token'); // Get the token from localStorage
+      const response = await axios.get(
+        'http://localhost:3000/api/v1/specializations',
+        {
+          headers: {
+            Authorization: token, // Include the token in the request headers
+          },
+        },
+      );
+      return response.data;
+    } catch (error) {
+      throw new Error('Failed to fetch specializations');
+    }
+  },
+);
+
 export const addDoctorAsync = createAsyncThunk(
-  'addDoctor',
+  'addDoctor/addDoctorAsync',
   async (doctorInfo) => {
     try {
       const token = localStorage.getItem('token');
@@ -30,20 +49,27 @@ export const addDoctorAsync = createAsyncThunk(
   },
 );
 
-// Create a slice for the "add doctor" operation
-const addDoctorSlice = createSlice({
-  name: 'addDoctor',
+const appSlice = createSlice({
+  name: 'app',
   initialState,
   reducers: {},
   extraReducers: (builder) => {
     builder
+      .addCase(fetchSpecializationsAsync.pending, (state) => {
+        state.error = null;
+      })
+      .addCase(fetchSpecializationsAsync.fulfilled, (state, action) => {
+        state.specializations = action.payload;
+      })
+      .addCase(fetchSpecializationsAsync.rejected, (state, action) => {
+        state.error = action.error.message || 'Failed to fetch specializations';
+      })
       .addCase(addDoctorAsync.pending, (state) => {
         state.addingDoctor = true;
         state.error = null;
       })
       .addCase(addDoctorAsync.fulfilled, (state) => {
         state.addingDoctor = false;
-        state.error = null;
       })
       .addCase(addDoctorAsync.rejected, (state, action) => {
         state.addingDoctor = false;
@@ -52,4 +78,4 @@ const addDoctorSlice = createSlice({
   },
 });
 
-export default addDoctorSlice.reducer;
+export default appSlice.reducer;

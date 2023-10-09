@@ -1,8 +1,11 @@
-import React, { useState } from 'react';
-import { useDispatch } from 'react-redux';
+import { useEffect, useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import { toast, ToastContainer } from 'react-toastify';
-import { addDoctorAsync } from '../redux/adddoctorSlice'; // Import the thunk action
+import {
+  addDoctorAsync,
+  fetchSpecializationsAsync,
+} from '../redux/adddoctorSlice';
 import styles from '../css/AddDoctor.module.css';
 
 const AddDoctor = () => {
@@ -22,6 +25,12 @@ const AddDoctor = () => {
 
   const [error, setError] = useState(null);
 
+  useEffect(() => {
+    dispatch(fetchSpecializationsAsync());
+  }, [dispatch]);
+
+  const specializations = useSelector((state) => state.app.specializations);
+
   const handleChange = (e) => {
     const { name, value } = e.target;
     setDoctorInfo({ ...doctorInfo, [name]: value });
@@ -29,10 +38,8 @@ const AddDoctor = () => {
 
   const handleAddDoctor = async () => {
     try {
-      // Dispatch the thunk action to add a doctor
       await dispatch(addDoctorAsync(doctorInfo));
 
-      // Clear the form fields and show a success message
       setDoctorInfo({
         name: '',
         time_available_from: '',
@@ -105,14 +112,20 @@ const AddDoctor = () => {
             className={styles.addDoctorInput}
           />
 
-          <label htmlFor="specialization_id">Specialization ID</label>
-          <input
-            type="text"
+          <label htmlFor="specialization_id">Specialization</label>
+          <select
             name="specialization_id"
             value={doctorInfo.specialization_id}
             onChange={handleChange}
             className={styles.addDoctorInput}
-          />
+          >
+            <option value="">Select Specialization</option>
+            {specializations.map((spec) => (
+              <option key={spec.id} value={spec.id}>
+                {spec.name}
+              </option>
+            ))}
+          </select>
 
           <label htmlFor="image">Image URL</label>
           <input
