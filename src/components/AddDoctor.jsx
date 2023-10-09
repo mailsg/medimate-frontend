@@ -1,4 +1,3 @@
-
 import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
@@ -26,15 +25,11 @@ const AddDoctor = () => {
   });
 
   const [error, setError] = useState(null);
-
-
   useEffect(() => {
     dispatch(fetchSpecializationsAsync());
   }, [dispatch]);
 
   const specializations = useSelector((state) => state.app.specializations);
-
-
   const handleChange = (e) => {
     const { name, value } = e.target;
     setDoctorInfo({ ...doctorInfo, [name]: value });
@@ -61,7 +56,6 @@ const AddDoctor = () => {
       navigate('/');
     } catch (err) {
       setError(err.message || 'Error adding doctor. Please try again.');
-
     }
   };
 
@@ -114,7 +108,6 @@ const AddDoctor = () => {
             onChange={handleChange}
             className={styles.addDoctorInput}
           />
-
 
           <label htmlFor="specialization_id">Specialization</label>
           <select

@@ -77,7 +77,7 @@ export default function Header() {
         </NavLink>
         <NavLink
           className="link-item3"
-          to="Appointments"
+          to="Myreservations"
           activeClassName="active"
         >
           My Reservations

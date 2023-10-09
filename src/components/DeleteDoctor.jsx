@@ -4,7 +4,6 @@ import { toast } from 'react-toastify';
 import { deleteDoctorAsync } from '../redux/deletedoctorSlice';
 import styles from '../css/DeleteDoctor.module.css';
 
-
 const DeleteDoctor = () => {
   const dispatch = useDispatch();
   const doctors = useSelector((state) => state.doctor.doctors);
@@ -57,7 +56,6 @@ const DeleteDoctor = () => {
                 <button
                   type="button"
                   className={styles.deleteButton}
-
                   onClick={() => handleDeleteDoctor(doctor.id)}
                 >
                   Delete
