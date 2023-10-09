@@ -21,7 +21,8 @@ import DeleteDoctor from './components/DeleteDoctor';
 const router = createBrowserRouter(
   createRoutesFromElements(
     <>
-      <Route path="/" element={<Home />} />
+      <Route path="/" element={<Login />} />
+      <Route path="/home" element={<Home />} />
       <Route path="/header" element={<Header />} />
       <Route path="Reserve" element={<Reserve />} />
       <Route path="Adddoctor" element={<AddDoctor />} />
@@ -31,6 +32,8 @@ const router = createBrowserRouter(
       <Route path="/doctors" element={<Doctors />} />
       <Route path="/doctors/:doctorId" element={<Doctor />} />
       <Route path="/sign_up" element={<SignUp />} />
+      <Route path="/Adddoctor" element={<AddDoctor />} />
+      <Route path="/Deletedoctor" element={<DeleteDoctor />} />
       <Route path="/log_in" element={<Login />} />
     </>,
   ),
