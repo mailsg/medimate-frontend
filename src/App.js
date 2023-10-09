@@ -16,6 +16,7 @@ import SignUp from './components/auth_pages/Signup';
 import Login from './components/auth_pages/Login';
 import MyReservations from './components/MyReservations';
 import AddDoctor from './components/AddDoctor';
+import DeleteDoctor from './components/DeleteDoctor';
 
 const router = createBrowserRouter(
   createRoutesFromElements(
@@ -24,6 +25,7 @@ const router = createBrowserRouter(
       <Route path="/header" element={<Header />} />
       <Route path="Reserve" element={<Reserve />} />
       <Route path="Adddoctor" element={<AddDoctor />} />
+      <Route path="Deletedoctor" element={<DeleteDoctor />} />
       <Route path="Myreservations" element={<MyReservations />} />
       <Route path="Reservation" element={<ReservationForm />} />
       <Route path="/doctors" element={<Doctors />} />

@@ -11,12 +11,12 @@ export const fetchSpecializationsAsync = createAsyncThunk(
   'specializations/fetchSpecializationsAsync',
   async () => {
     try {
-      const token = localStorage.getItem('token'); // Get the token from localStorage
+      const token = localStorage.getItem('token');
       const response = await axios.get(
         'http://localhost:3000/api/v1/specializations',
         {
           headers: {
-            Authorization: token, // Include the token in the request headers
+            Authorization: token,
           },
         },
       );

@@ -1,0 +1,38 @@
+.deleteDoctorContainer {
+  margin: 20px;
+}
+
+.doctorTable {
+  width: 100%;
+  border-collapse: collapse;
+  border: 1px solid #ddd;
+}
+
+.doctorTable th,
+.doctorTable td {
+  padding: 8px;
+  text-align: left;
+  border-bottom: 1px solid #ddd;
+  color: black;
+}
+
+.doctorTable th {
+  background-color: #f2f2f2;
+  font-weight: bold;
+}
+
+.tableBody {
+  color: black;
+}
+
+.deleteButton {
+  background-color: #f44336;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.deleteButton:hover {
+  background-color: #d32f2f;
+}
