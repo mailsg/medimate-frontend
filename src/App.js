@@ -4,6 +4,7 @@ import {
   Route,
   createRoutesFromElements,
 } from 'react-router-dom';
+// import { ToastContainer } from 'react-toastify';
 
 import Header from './components/Header';
 import Reserve from './components/Reserve';
@@ -42,6 +43,7 @@ function App() {
   return (
     <main className="App">
       <RouterProvider router={router} />
+      {/* <ToastContainer /> */}
     </main>
   );
 }

@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useDispatch } from 'react-redux';
-import { NavLink } from 'react-router-dom';
+import { NavLink, useNavigate } from 'react-router-dom';
 import { toast } from 'react-toastify';
 import { setReservations } from '../redux/appointmentSlice';
 import styles from '../css/reserve-form.module.css';
@@ -9,13 +9,15 @@ function ReservationForm() {
   const dispatch = useDispatch();
 
   const [formData, setFormData] = useState({
-    appointmentDate: '',
-    appointmentTime: '',
+    appointment_date: '',
+    appointment_time: '',
     duration: '',
-    doctorId: '',
+    doctor_id: '',
+    location: '',
   });
 
   const [doctors, setDoctors] = useState([]);
+  const navigate = useNavigate();
 
   useEffect(() => {
     fetch('http://localhost:3000/api/v1/doctors', {
@@ -56,6 +58,7 @@ function ReservationForm() {
     } catch (error) {
       toast.error('Error occurred while processing your request!');
     }
+    navigate('/Myreservations');
   };
 
   // const handleDoctorNameChange = (e) => {
@@ -65,7 +68,7 @@ function ReservationForm() {
 
   const handleDoctorSelectChange = (e) => {
     const { value } = e.target;
-    setFormData({ ...formData, doctorId: value });
+    setFormData({ ...formData, doctor_id: value });
   };
 
   return (
@@ -75,24 +78,12 @@ function ReservationForm() {
         className={[styles.form, styles['reservation-form']].join(' ')}
         onSubmit={handleSubmit}
       >
-        {/* <div className="form-group">
-          <input
-            className="form"
-            placeholder="Name of Doctor"
-            type="text"
-            id="doctorName"
-            name="doctorName"
-            value={formData.doctorName}
-            onChange={handleDoctorNameChange}
-            required
-          />
-        </div> */}
         <div className="form-group">
           <select
             className="form"
             id="doctorId"
-            name="doctorId"
-            value={formData.doctorId}
+            name="doctor_id"
+            value={formData.doctor_id}
             onChange={handleDoctorSelectChange}
             required
           >
@@ -110,9 +101,9 @@ function ReservationForm() {
             placeholder="Date of Appointment"
             type="date"
             id="appointmentDate"
-            name="appointmentDate"
-            value={formData.appointmentDate}
-            onChange={(e) => setFormData({ ...formData, appointmentDate: e.target.value })}
+            name="appointment_date"
+            value={formData.appointment_date}
+            onChange={(e) => setFormData({ ...formData, appointment_date: e.target.value })}
             required
           />
         </div>
@@ -122,9 +113,9 @@ function ReservationForm() {
             placeholder="Time of Appointment"
             type="time"
             id="appointmentTime"
-            name="appointmentTime"
-            value={formData.appointmentTime}
-            onChange={(e) => setFormData({ ...formData, appointmentTime: e.target.value })}
+            name="appointment_time"
+            value={formData.appointment_time}
+            onChange={(e) => setFormData({ ...formData, appointment_time: e.target.value })}
             required
           />
         </div>
@@ -140,8 +131,20 @@ function ReservationForm() {
             required
           />
         </div>
+        <div className="form-group">
+          <input
+            className="form"
+            placeholder="Location"
+            type="text"
+            id="location"
+            name="location"
+            value={formData.location}
+            onChange={(e) => setFormData({ ...formData, location: e.target.value })}
+            required
+          />
+        </div>
         <div className={styles['btn-container']}>
-          <NavLink to="/r">
+          <NavLink to="/">
             <button type="submit" className={styles['submit-button']}>
               Back
             </button>

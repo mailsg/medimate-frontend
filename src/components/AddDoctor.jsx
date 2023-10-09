@@ -61,7 +61,6 @@ const AddDoctor = () => {
 
   return (
     <div className={styles.addDoctorContainer}>
-      <ToastContainer />
       <h2 className={styles.heading}>Add Doctor</h2>
       <div className={styles.addDoctorForm}>
         {error && <p className={styles.errorMessage}>{error}</p>}

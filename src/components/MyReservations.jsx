@@ -26,6 +26,7 @@ function MyAppointments() {
               <th>Date</th>
               <th>Time</th>
               <th>Duration</th>
+              <th>Location</th>
             </tr>
           </thead>
           <tbody>
@@ -42,6 +43,7 @@ function MyAppointments() {
                       {' '}
                       minutes
                     </td>
+                    <td>{appointment.location}</td>
                   </tr>
                 ))
               ) : (

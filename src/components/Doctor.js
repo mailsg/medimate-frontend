@@ -3,6 +3,7 @@ import {
   FaAngleRight,
 } from 'react-icons/fa';
 import { GoGear } from 'react-icons/go';
+import { Link } from 'react-router-dom';
 import styles from '../css/doctor.module.css';
 import image1 from '../assets/doc-details.png';
 import icon from '../assets/icon.png';
@@ -43,11 +44,13 @@ const Doctor = () => (
       <div className={styles['icon-container']}>
         <img className={styles.icon} src={icon} alt="laura" />
       </div>
-      <button className={styles['reserve-doctor-btn']} type="button">
-        <GoGear className={styles['reserve-btn']} />
-        Reserve
-        <FaAngleRight className={styles['reserve-btn']} />
-      </button>
+      <Link to="/Reservation">
+        <button className={styles['reserve-doctor-btn']} type="button">
+          <GoGear className={styles['reserve-btn']} />
+          Reserve
+          <FaAngleRight className={styles['reserve-btn']} />
+        </button>
+      </Link>
     </article>
   </section>
 );
