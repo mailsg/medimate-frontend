@@ -61,11 +61,6 @@ function ReservationForm() {
     navigate('/Myreservations');
   };
 
-  // const handleDoctorNameChange = (e) => {
-  //   const { value } = e.target;
-  //   setFormData({ ...formData, doctorName: value });
-  // };
-
   const handleDoctorSelectChange = (e) => {
     const { value } = e.target;
     setFormData({ ...formData, doctor_id: value });
@@ -80,7 +75,7 @@ function ReservationForm() {
       >
         <div className="form-group">
           <select
-            className="form"
+            className={styles['select-elm']}
             id="doctorId"
             name="doctor_id"
             value={formData.doctor_id}

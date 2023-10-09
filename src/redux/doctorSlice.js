@@ -2,6 +2,7 @@ import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
 import axios from 'axios';
 import image1 from '../assets/img-1.jpg';
 import image2 from '../assets/img-2.jpg';
+import image3 from '../assets/doc-details.png';
 
 const token = localStorage.getItem('token');
 // const baseUrl = 'https://medimate-backend-p22y.onrender.com/api/v1';
@@ -72,6 +73,17 @@ const initialState = {
       fee_per_appointment: 29,
       specialization: 'physio',
       image: image2,
+      location: 'Accra',
+    },
+    {
+      id: 3,
+      name: 'Dr. Harrison',
+      time_available_from: '8:00',
+      time_available_to: '3:00',
+      bio: 'fdsfdfjhdsiuioiphuiuiopihophopihoopokjlj',
+      fee_per_appointment: 29,
+      specialization: 'physio',
+      image: image3,
       location: 'Accra',
     },
   ],
