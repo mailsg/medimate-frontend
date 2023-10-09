@@ -4,7 +4,6 @@ import axios from 'axios';
 const token = localStorage.getItem('token');
 // const baseUrl = 'https://medimate-backend-p22y.onrender.com/api/v1';
 const localUrl = 'http://localhost:3000/api/v1';
-http://localhost:3000/api/v1/doctors/:doctor_id
 
 export const AddDoctor = createAsyncThunk('api/AddDoctor', async (payload) => {
   const response = await fetch(`${localUrl}/doctors`, {
@@ -28,7 +27,7 @@ export const getDoctors = createAsyncThunk('get/doctors', async () => {
   return response.data;
 });
 
-export const getDoctor = createAsyncThunk("get/doctor", async (payload) => {
+export const getDoctor = createAsyncThunk('get/doctor', async (payload) => {
   const response = await axios.get(`${localUrl}/doctors/${payload}`, {
     headers: {
       Authorization: `${token}`,
@@ -65,9 +64,9 @@ const DoctorSlice = createSlice({
       return { ...state, doctors: receivedData };
     });
     builder.addCase(getDoctor.fulfilled, (state, action) => {
-      // const receivedData = action.payload; 
+      // const receivedData = action.payload;
       // return { ...state, doctor: receivedData };
-      state.doctor = action.payload
+      state.doctor = action.payload;
     });
     builder.addCase(deleteDoctors.fulfilled, (state, action) => {
       state.status = 'succeeded';
