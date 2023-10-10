@@ -39,7 +39,7 @@ function SignUp() {
         );
         localStorage.setItem('token', response.headers.get('Authorization'));
         reset();
-        navigate('/log_in');
+        navigate('/');
       } else {
         console.log('Unable to fetch');
       }
