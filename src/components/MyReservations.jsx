@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { getAppointments } from '../redux/appointmentSlice';
 import styles from '../css/DeleteDoctor.module.css';
+import convertTime from './utilities/time_converter';
 
 function MyAppointments() {
   const dispatch = useDispatch();
@@ -29,7 +30,7 @@ function MyAppointments() {
               </div>
               <div className={styles['sub-container']}>
                 <div>Time:</div>
-                <div>{appointment.appointment_time}</div>
+                <div>{convertTime(appointment.appointment_time)}</div>
               </div>
               <div className={styles['sub-container']}>
                 <div>Location:</div>
