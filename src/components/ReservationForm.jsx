@@ -58,7 +58,7 @@ function ReservationForm() {
     } catch (error) {
       toast.error('Error occurred while processing your request!');
     }
-    navigate('/Myreservations');
+    navigate('/home/Myreservations');
   };
 
   const handleDoctorSelectChange = (e) => {

@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { getAppointments } from '../redux/appointmentSlice';
-import styles from '../css/MyAppointments.module.css';
+import styles from '../css/DeleteDoctor.module.css';
 
 function MyAppointments() {
   const dispatch = useDispatch();
@@ -13,47 +13,40 @@ function MyAppointments() {
   }, [dispatch]);
 
   return (
-    <div>
-      <h1 className={styles.heading}>My Reservations</h1>
-      {error ? (
-        <p>error</p>
-      ) : (
-        <table className={styles.myAppointments}>
-          {' '}
-          <thead>
-            <tr>
-              <th>Doctor</th>
-              <th>Date</th>
-              <th>Time</th>
-              <th>Duration</th>
-              <th>Location</th>
-            </tr>
-          </thead>
-          <tbody>
-            {appointments
-            && Array.isArray(appointments)
-            && appointments.length > 0 ? (
-                appointments.map((appointment) => (
-                  <tr key={appointment.id}>
-                    <td>{appointment.doctor.name}</td>
-                    <td>{appointment.appointment_date}</td>
-                    <td>{appointment.appointment_time}</td>
-                    <td>
-                      {appointment.duration}
-                      {' '}
-                      minutes
-                    </td>
-                    <td>{appointment.location}</td>
-                  </tr>
-                ))
-              ) : (
-                <tr>
-                  <td colSpan="4">No reservations available</td>
-                </tr>
-              )}
-          </tbody>
-        </table>
-      )}
+    <div className={styles['remove-doc-wrapper']}>
+      {error && <p className={styles.errorMessage}>{error}</p>}
+      <section>
+        <h1 className={styles['delete-header']}>APPOINTMENTS</h1>
+        {appointments.map((appointment) => (
+          <div key={appointment.id} className={styles.card}>
+            <div className={styles['text-container']}>
+              <h2>{appointment.doctor.name}</h2>
+              <div className={styles['sub-container']}>
+                <div>Date:</div>
+                <div>
+                  {appointment.appointment_date}
+                </div>
+              </div>
+              <div className={styles['sub-container']}>
+                <div>Time:</div>
+                <div>{appointment.appointment_time}</div>
+              </div>
+              <div className={styles['sub-container']}>
+                <div>Location:</div>
+                <div>{appointment.location}</div>
+              </div>
+              <button
+                type="button"
+                className={styles['delete-button']}
+                // onClick={() => handleDeleteDoctor(appointment.id)}
+              >
+                Cancel Appointment
+              </button>
+            </div>
+            <img src={appointment.doctor.image} alt={appointment.duration} className={styles.img} />
+          </div>
+        ))}
+      </section>
     </div>
   );
 }
