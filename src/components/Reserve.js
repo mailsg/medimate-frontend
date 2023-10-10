@@ -13,11 +13,6 @@ const Reserve = () => (
         and how they helped you work better as a team.
       </p>
       <div className={styles['booking-btns']}>
-        <select>
-          <option>London</option>
-          <option>Mumbai</option>
-        </select>
-
         <Link to="/Reservation">
           <button type="button">Book now</button>
         </Link>

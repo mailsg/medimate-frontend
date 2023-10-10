@@ -51,64 +51,65 @@ function Doctors() {
       currentIndex === doctors.length - displayCount ? '#c3b9b9d3' : '#8DB600',
   };
 
-  return (
-    <div className={styles['slideshow-container']}>
-      <header>
-        <h1>AVAILABLE DOCTORS</h1>
-        <p className={styles['home-paragraph']}>
-          Please select from our list of doctors
-        </p>
-      </header>
-      <div className={styles.slides}>
-        {doctors
-          .slice(currentIndex, currentIndex + displayCount)
-          .map((doctor) => (
-            <div key={doctor.id}>
-              <img
-                src={doctor.image}
-                alt={doctor.name}
-                className={styles['doctor-images']}
-              />
-              <Link to={`/doctors/${doctor.id}`}>
-                <h2>{doctor.name}</h2>
-              </Link>
-              <div>
-                <span>
-                  Fee:
-                  {doctor.fee_per_appointment}
-                </span>
-                <span>
-                  City:
-                  {doctor.location}
-                </span>
-                <span>
-                  Specialization:
-                  {doctor.specialization.name}
-                </span>
+  if (doctors.length !== 0) {
+    return (
+      <div className={styles['slideshow-container']}>
+        <header>
+          <h1>AVAILABLE DOCTORS</h1>
+          <p className={styles['home-paragraph']}>
+            Select from your list of doctors
+          </p>
+        </header>
+        <div className={styles.slides}>
+          {doctors
+            .slice(currentIndex, currentIndex + displayCount)
+            .map((doctor) => (
+              <div key={doctor.id}>
+                <img
+                  src={doctor.image}
+                  alt={doctor.name}
+                  className={styles['doctor-images']}
+                />
+                <Link to={`/doctors/${doctor.id}`} className={styles['name-link']}>
+                  <h2>{doctor.name}</h2>
+                </Link>
+                <div>
+                  <span>
+                    Fee:
+                    {' '}
+                    {doctor.fee_per_appointment}
+                  </span>
+                  <span>
+                    City:
+                    {' '}
+                    {doctor.location}
+                  </span>
+                </div>
+                <p className={styles['home-paragraph']}>{doctor.specialization.name}</p>
+                <div className={styles.socialMedia}>
+                  <FaFacebookF className={styles['sm-icons']} />
+                  <FaTwitter className={styles['sm-icons']} />
+                  <FaLinkedinIn className={styles['sm-icons']} />
+                  <i className="fa fa-heart" />
+                </div>
               </div>
-              <p className={styles['home-paragraph']}>{doctor.bio.split(' ').slice(0, 15).join(' ')}</p>
-              <div className={styles.socialMedia}>
-                <FaFacebookF className={styles['sm-icons']} />
-                <FaTwitter className={styles['sm-icons']} />
-                <FaLinkedinIn className={styles['sm-icons']} />
-                <i className="fa fa-heart" />
-              </div>
-            </div>
-          ))}
-      </div>
+            ))}
+        </div>
 
-      <FaAngleLeft
-        onClick={prevSlide}
-        className={styles['slide-icon-left']}
-        style={prevButtonStyle}
-      />
-      <FaAngleRight
-        onClick={nextSlide}
-        className={styles['slide-icon-right']}
-        style={nextButtonStyle}
-      />
-    </div>
-  );
+        <FaAngleLeft
+          onClick={prevSlide}
+          className={styles['slide-icon-left']}
+          style={prevButtonStyle}
+        />
+        <FaAngleRight
+          onClick={nextSlide}
+          className={styles['slide-icon-right']}
+          style={nextButtonStyle}
+        />
+      </div>
+    );
+  }
+  return <h3 className={styles['no-doctors']}>YOU HAVE NOT ADDED ANY DOCTORS YET...</h3>;
 }
 
 export default Doctors;

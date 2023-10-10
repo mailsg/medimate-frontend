@@ -70,6 +70,12 @@ h1 {
   display: none;
 }
 
+.reserve-doctor-btn-con {
+  display: flex;
+  justify-content: center;
+  text-decoration: none;
+}
+
 .reserve-doctor-btn {
   border-radius: 20px;
   color: var(--white);
@@ -206,5 +212,9 @@ h1 {
   .back-home {
    width: 20px;
    height: 20px;
+  }
+
+  .reserve-doctor-btn-con {
+    justify-content: flex-end;
   }
 }

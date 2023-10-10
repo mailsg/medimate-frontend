@@ -9,10 +9,12 @@ import back from '../assets/back.png';
 
 const Doctor = () => {
   const { doctorId } = useParams();
+  console.log(doctorId);
 
   const { doctors } = useSelector((state) => state.doctor);
   const doctorIdInt = parseInt(doctorId, 10);
   const doctor = doctors.find((doctor) => doctorIdInt === doctor.id);
+  console.log(doctor);
 
   if (doctor) {
     return (
@@ -36,7 +38,7 @@ const Doctor = () => {
             </div>
             <div className={[styles.attribute, styles['light-bg']].join(' ')}>
               <p>Specialization:</p>
-              <p>{doctor.specialization}</p>
+              <p>{doctor.specialization.name}</p>
             </div>
             <div className={[styles.attribute, styles['dark-bg']].join(' ')}>
               <p>Time available</p>
@@ -59,7 +61,7 @@ const Doctor = () => {
           <div className={styles['icon-container']}>
             <img className={styles.icon} src={icon} alt="laura" />
           </div>
-          <Link to="/Reservation">
+          <Link to="/Reservation" className={styles['reserve-doctor-btn-con']}>
             <button className={styles['reserve-doctor-btn']} type="button">
               <GoGear className={styles['reserve-btn']} />
               Reserve
@@ -67,7 +69,7 @@ const Doctor = () => {
             </button>
           </Link>
         </article>
-        <Link to="/">
+        <Link to="/home">
           <div className={styles['back-btn-container']}>
             <img src={back} alt="back button" className={styles['back-home']} />
           </div>

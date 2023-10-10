@@ -114,7 +114,7 @@ const DeleteDoctor = () => {
               </div>
               <div className={styles['sub-container']}>
                 <div>Specialization:</div>
-                <div>{doctor.specialization}</div>
+                <div>{doctor.specialization.name}</div>
               </div>
               <div className={styles['sub-container']}>
                 <div>City:</div>

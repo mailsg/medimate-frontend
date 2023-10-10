@@ -139,7 +139,7 @@ function ReservationForm() {
           />
         </div>
         <div className={styles['btn-container']}>
-          <NavLink to="/">
+          <NavLink to="/home">
             <button type="submit" className={styles['submit-button']}>
               Back
             </button>

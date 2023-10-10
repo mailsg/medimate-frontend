@@ -25,12 +25,16 @@
   color: black;
 } */
 
-.remove-doc-wrapper, .text-container {
-  width: 80%;
+* {
+  font-size: 10px;
+}
+
+.remove-doc-wrapper {
   padding: 1rem;
   display: flex;
   justify-content: center;
   align-items: center;
+  gap: 0.5rem;
 }
 
 .delete-header {
@@ -38,13 +42,15 @@
 }
 
 .text-container {
+  display: flex;
   flex-direction: column;
-  justify-content: space-between;
+  justify-content: flex-start;
   align-items: flex-end;
+  gap: 1rem;
 }
 
 .img {
-  width: 200px;
+  width: 50%;
   height: 200px;
 }
 
@@ -61,10 +67,15 @@
 .sub-container {
   display: flex;
   justify-content: flex-start;
+  gap: 1rem;
 }
 
 .sub-container div {
-  margin-right: 1rem;
+  font-weight: 800;
+}
+
+h2 {
+  font-size: 18px;
 }
 
 .delete-button {
@@ -87,7 +98,7 @@
 
   .remove-doc-wrapper {
     width: 100vw;
-    padding: 4rem 20%;
+    padding: 6rem 20%;
     display: block;
   }
 
@@ -107,10 +118,14 @@
 
   .delete-button {
     align-self: flex-start;
-    width: 20%;
+    width: 70%;
   }
 
   h2 {
     font-size: 24px;
+  }
+
+  .img {
+    width: 200px;
   }
 }
