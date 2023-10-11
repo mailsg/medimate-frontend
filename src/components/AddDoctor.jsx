@@ -53,7 +53,7 @@ const AddDoctor = () => {
         position: toast.POSITION.TOP_CENTER,
       });
 
-      navigate('/home');
+      navigate('/');
     } catch (err) {
       setError(err.message || 'Error adding doctor. Please try again.');
     }
