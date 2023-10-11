@@ -70,7 +70,7 @@ const Doctor = () => {
             </button>
           </Link>
         </article>
-        <Link to="/home">
+        <Link to="/">
           <div className={styles['back-btn-container']}>
             <img src={back} alt="back button" className={styles['back-home']} />
           </div>

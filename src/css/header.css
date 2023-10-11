@@ -17,7 +17,8 @@
   background-color: white;
 }
 
-.logo, footer {
+.logo,
+footer {
   display: none;
 }
 
@@ -121,6 +122,7 @@
   }
 
   .logo {
+    display: block;
     width: 100px;
     height: 100px;
     border-radius: 50%;
@@ -157,10 +159,6 @@
   .logo-container {
     display: flex;
     justify-content: center;
-  }
-
-  .logo {
-    display: block;
   }
 
   .sign-out {

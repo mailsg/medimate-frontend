@@ -13,7 +13,7 @@ const Reserve = () => (
         and how they helped you work better as a team.
       </p>
       <div className={styles['booking-btns']}>
-        <Link to="/Reservation">
+        <Link to="/reservation">
           <button type="button">Book now</button>
         </Link>
 

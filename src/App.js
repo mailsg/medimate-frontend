@@ -15,6 +15,7 @@ import MyReservations from './components/MyReservations';
 import AddDoctor from './components/AddDoctor';
 import DeleteDoctor from './components/DeleteDoctor';
 import Root from './components/Root';
+import ReservationForm from './components/ReservationForm';
 
 const router = createBrowserRouter(
   createRoutesFromElements(
@@ -25,6 +26,7 @@ const router = createBrowserRouter(
         <Route path="/doctors/:doctorId" element={<Doctor />} />
         <Route path="/delete" element={<DeleteDoctor />} />
         <Route path="/reserve" element={<Reserve />} />
+        <Route path="/reservation" element={<ReservationForm />} />
         <Route path="/reservations" element={<MyReservations />} />
       </Route>
       <Route path="/log_in" element={<Login />} />

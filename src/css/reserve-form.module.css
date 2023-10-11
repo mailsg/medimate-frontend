@@ -81,7 +81,7 @@ input[type="password"],
 
 .btn-container {
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
 }
 
 .submit-button:hover {

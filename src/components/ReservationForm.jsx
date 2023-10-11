@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useDispatch } from 'react-redux';
-import { NavLink, useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import { toast } from 'react-toastify';
 import { setReservations } from '../redux/appointmentSlice';
 import styles from '../css/reserve-form.module.css';
@@ -139,11 +139,6 @@ function ReservationForm() {
           />
         </div>
         <div className={styles['btn-container']}>
-          <NavLink to="/home">
-            <button type="submit" className={styles['submit-button']}>
-              Back
-            </button>
-          </NavLink>
           <button type="submit" className={styles['submit-button']}>
             Make Reservation
           </button>
