@@ -6,6 +6,7 @@ import { useSelector } from 'react-redux';
 import styles from '../css/doctor.module.css';
 import icon from '../assets/icon.png';
 import back from '../assets/back.png';
+import convertTime from './utilities/time_converter';
 
 const Doctor = () => {
   const { doctorId } = useParams();
@@ -43,9 +44,9 @@ const Doctor = () => {
             <div className={[styles.attribute, styles['dark-bg']].join(' ')}>
               <p>Time available</p>
               <p>
-                {doctor.time_available_from}
+                {convertTime(doctor.time_available_from)}
                 <span>{' - '}</span>
-                {doctor.time_available_to}
+                {convertTime(doctor.time_available_to)}
               </p>
             </div>
             <div className={[styles.attribute, styles['light-bg']].join(' ')}>
@@ -69,7 +70,7 @@ const Doctor = () => {
             </button>
           </Link>
         </article>
-        <Link to="/home">
+        <Link to="/">
           <div className={styles['back-btn-container']}>
             <img src={back} alt="back button" className={styles['back-home']} />
           </div>

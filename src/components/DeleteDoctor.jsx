@@ -69,6 +69,7 @@ import { useNavigate } from 'react-router-dom';
 import { toast } from 'react-toastify';
 import { deleteDoctorAsync } from '../redux/deletedoctorSlice';
 import styles from '../css/DeleteDoctor.module.css';
+import convertTime from './utilities/time_converter';
 
 const DeleteDoctor = () => {
   const dispatch = useDispatch();
@@ -107,9 +108,9 @@ const DeleteDoctor = () => {
               <div className={styles['sub-container']}>
                 <div>Time available:</div>
                 <div>
-                  {doctor.time_available_from}
+                  {convertTime(doctor.time_available_from)}
                   <span>{' - '}</span>
-                  {doctor.time_available_from}
+                  {convertTime(doctor.time_available_to)}
                 </div>
               </div>
               <div className={styles['sub-container']}>
