@@ -13,7 +13,6 @@
   font-family: lato, Arial, Helvetica, sans-serif;
 }
 
-/* ............. */
 body {
   min-height: 100vh;
   min-width: 100vw;
@@ -31,23 +30,11 @@ body {
   overflow-y: auto;
 }
 
-
-/* body {
-  display: flex;
-  justify-content: center;
-} */
-
 main {
   width: 400px;
   background-color: var(--white);
   height: 100vh;
 }
-
-/* .home {
-  display: flex;
-  margin: 0;
-  padding: 0;
-} */
 
 @media screen and (min-width: 768px) {
   body {
