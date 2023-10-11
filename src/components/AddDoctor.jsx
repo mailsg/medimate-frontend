@@ -35,7 +35,20 @@ const AddDoctor = () => {
     setDoctorInfo({ ...doctorInfo, [name]: value });
   };
 
-  const handleAddDoctor = async () => {
+  const handleAddDoctor = async (e) => {
+    e.preventDefault();
+    if (!doctorInfo.name
+        || !doctorInfo.time_available_from
+        || !doctorInfo.time_available_to
+        || !doctorInfo.bio
+        || !doctorInfo.fee_per_appointment
+        || !doctorInfo.specialization_id
+        || !doctorInfo.image
+        || !doctorInfo.location
+    ) {
+      toast.warn('Please fill in all fields');
+      return;
+    }
     try {
       await dispatch(addDoctorAsync(doctorInfo));
       setDoctorInfo({

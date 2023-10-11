@@ -5,7 +5,7 @@ import { useForm } from 'react-hook-form';
 import styles from '../../css/reserve-form.module.css';
 
 function SignUp() {
-  const { reset, watch } = useForm();
+  const { reset } = useForm();
   const navigate = useNavigate();
   const [data, setData] = useState({
     username: '',
@@ -16,7 +16,10 @@ function SignUp() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    if (watch('password') !== watch('password_confirmation')) return toast.error('Passwords do not match');
+    if (!data.username || !data.email || !data.password || !data.password_confirmation) {
+      toast.warn('Please fill in all fields');
+    }
+    if (data.password !== data.password_confirmation) return toast.error('Passwords do not match');
     try {
       const response = await fetch('http://localhost:3000/users', {
         method: 'POST',

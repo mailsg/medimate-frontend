@@ -17,6 +17,9 @@ function LogIn() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    if (!data.email || !data.password) {
+      toast.warn('Please fill in all fields');
+    }
     try {
       const response = await fetch('http://localhost:3000/users/sign_in', {
         method: 'POST',
@@ -74,7 +77,7 @@ function LogIn() {
             name="email"
             value={data.email}
             onChange={handleInputChange}
-            required
+            // required
           />
         </div>
         <div className={styles['form-group']}>
@@ -84,7 +87,7 @@ function LogIn() {
             name="password"
             value={data.password}
             onChange={handleInputChange}
-            required
+            // required
           />
         </div>
         {error && <p className="error">{error}</p>}

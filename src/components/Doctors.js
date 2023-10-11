@@ -51,6 +51,11 @@ function Doctors() {
       currentIndex === doctors.length - displayCount ? '#c3b9b9d3' : '#8DB600',
   };
 
+  const isAuthenticated = localStorage.getItem('token') !== null;
+  if (!isAuthenticated) {
+    return <h3 className={styles['no-doctors']}>Sign Up or Login to continue...</h3>;
+  }
+
   if (doctors.length !== 0) {
     return (
       <div className={styles['slideshow-container']}>
