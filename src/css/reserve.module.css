@@ -15,7 +15,7 @@
 }
 
 .container {
-  background: linear-gradient(rgba(73, 95, 0, 0.8), rgba(156, 203, 2, 0.8)), url('../assets/img-6.jpg');
+  background: linear-gradient(rgba(164, 213, 3, 0.8), rgba(57, 73, 2, 0.8)), url('../assets/img-6.jpg');
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;

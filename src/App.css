@@ -13,10 +13,29 @@
   font-family: lato, Arial, Helvetica, sans-serif;
 }
 
+/* ............. */
 body {
+min-height: 100vh;
+min-width: 100vw;
+}
+
+#root {
+width: 100%;
+height: 100vh;
+display: flex;
+position: relative;
+}
+
+#pages-content {
+width: 100%;
+overflow-y: auto;
+}
+
+
+/* body {
   display: flex;
   justify-content: center;
-}
+} */
 
 main {
   width: 400px;
@@ -24,11 +43,11 @@ main {
   height: 100vh;
 }
 
-.home {
+/* .home {
   display: flex;
   margin: 0;
   padding: 0;
-}
+} */
 
 @media screen and (min-width: 768px) {
   body {
