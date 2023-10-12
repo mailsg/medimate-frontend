@@ -1,0 +1,38 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Booking Component renders Booking component 1`] = `
+<div>
+  <section
+    class="container"
+  >
+    <article>
+      <h1
+        class="reserve-header"
+      >
+        BOOK AN APPOINTMENT WITH OUR DOCTORS
+      </h1>
+      <div
+        class="thematic"
+      />
+      <p
+        class="reserve-body"
+      >
+        Tell us about a time when you used the working agreements (or the roles) that you set up at the beginning of the project, and how they helped you work better as a team.
+      </p>
+      <div
+        class="booking-btns"
+      >
+        <a
+          href="/reservation"
+        >
+          <button
+            type="button"
+          >
+            Book now
+          </button>
+        </a>
+      </div>
+    </article>
+  </section>
+</div>
+`;

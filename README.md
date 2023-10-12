@@ -1,6 +1,6 @@
 <div align="center">
   <!-- You are encouraged to replace this logo with your own! Otherwise you can also remove it. -->
-  <img src="murple_logo.png" alt="logo" width="140"  height="auto" />
+  <img src="logo.jpg" alt="logo" width="140"  height="auto" />
   <br/>
 
   <h3><b>MediMate</b></h3>
@@ -15,47 +15,40 @@
   - [🛠 Built With](#built-with)
     - [Tech Stack](#tech-stack)
     - [Key Features](#key-features)
-  - [🚀 Live Demo](#live-demo)
 - [💻 Getting Started](#getting-started)
   - [Setup](#setup)
   - [Prerequisites](#prerequisites)
   - [Install](#install)
   - [Usage](#usage)
   - [Run tests](#run-tests)
-  - [Deployment](#triangular_flag_on_post-deployment)
 - [👥 Authors](#authors)
 - [🔭 Future Features](#future-features)
 - [🤝 Contributing](#contributing)
 - [⭐️ Show your support](#support)
 - [🙏 Acknowledgements](#acknowledgements)
-- [❓ FAQ (OPTIONAL)](#faq)
 - [📝 License](#license)
 
 <!-- PROJECT DESCRIPTION -->
 
-# 📖 [your_project_name] <a name="about-project"></a>
+# MediMate <a name="about-project"></a>
 
-> Describe your project in 1 or 2 sentences.
-
-**[your_project__name]** is a...
+**MediMate** is an app to book an appointment with a doctor. It is built as a two part app. This is the frontend part of the app. The back end part of this app can be found [here](https://github.com/mailsg/medimate-backend).
 
 ## 🛠 Built With <a name="built-with"></a>
 
 ### Tech Stack <a name="tech-stack"></a>
 
-> Describe the tech stack and include only the relevant sections that apply to your project.
-
 <details>
   <summary>Client</summary>
   <ul>
-    <li><a href="https://reactjs.org/">React.js</a></li>
+    <li><a href="https://react.dev/">React</a></li>
   </ul>
 </details>
 
 <details>
   <summary>Server</summary>
   <ul>
-    <li><a href="https://expressjs.com/">Express.js</a></li>
+    <li><a href="https://rubyonrails.org/">Ruby on Rails</a></li>
   </ul>
 </details>
 
@@ -70,21 +63,9 @@
 
 ### Key Features <a name="key-features"></a>
 
-> Describe between 1-3 key features of the application.
-
-- **[key_feature_1]**
-- **[key_feature_2]**
-- **[key_feature_3]**
-
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
-
-<!-- LIVE DEMO -->
-
-## 🚀 Live Demo <a name="live-demo"></a>
-
-> Add a link to your deployed project.
-
-- [Live Demo Link](https://google.com)
+- **API Endpoints to login a user**
+- **API Endpoints to book appointments**
+- **Simple User Interface**
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -92,83 +73,66 @@
 
 ## 💻 Getting Started <a name="getting-started"></a>
 
-> Describe how a new developer could make use of your project.
-
 To get a local copy up and running, follow these steps.
 
 ### Prerequisites
 
 In order to run this project you need:
 
-<!--
-Example command:
-
 ```sh
- gem install rails
+ npm start
 ```
- -->
 
 ### Setup
 
 Clone this repository to your desired folder:
 
-<!--
-Example commands:
-
 ```sh
-  cd my-folder
-  git clone git@github.com:myaccount/my-project.git
+  git clone git@github.com:mailsg/medimate-frontend.git
+  cd medimate-frontend
 ```
---->
 
 ### Install
 
 Install this project with:
 
-<!--
-Example command:
-
 ```sh
-  cd my-project
-  gem install
+  cd medimate-frontend
+  npm install
 ```
---->
 
 ### Usage
 
 To run the project, execute the following command:
 
-<!--
-Example command:
-
 ```sh
-  rails server
+Please follow the extra procedures below for a great user experience:
+
+  1. npm start
+
+  2. When the app opens, click the log_in button on the navigation panel
+
+  3. If you are a registered user, log_in. If not, click the sign_up button on the top right to register before you log_in with the same credentials.
+
+  4. If you are using the app for the first time, you will have to add doctors using the add doctors form in the navigation panel before accessing any page
+
+  5. From the navigation panel:
+   a. add doctors you want
+   b. delete doctors you dont want
+   c. reserve a doctor
+   d. delete a reservation
+   e. click on doctor name to see details
+   f. log_out
+
 ```
---->
 
 ### Run tests
 
 To run tests, run the following command:
 
-<!--
-Example command:
-
 ```sh
-  bin/rails test test/models/article_test.rb
+  npm test
 ```
---->
-
-### Deployment
-
-You can deploy this project using:
-
-<!--
-Example:
-
-```sh
-
-```
- -->
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -176,19 +140,20 @@ Example:
 
 ## 👥 Authors <a name="authors"></a>
 
-> Mention all of the collaborators of this project.
+👤 **Charles Andrews**
 
-👤 **Author1**
+- GitHub: [@forloop94](https://github.com/forloop94)
+- LinkedIn: [LinkedIn](https://linkedin.com/in/andrewsCharlesUwem)
 
-- GitHub: [@githubhandle](https://github.com/githubhandle)
-- Twitter: [@twitterhandle](https://twitter.com/twitterhandle)
-- LinkedIn: [LinkedIn](https://linkedin.com/in/linkedinhandle)
+👤 **Emmanuel Tofa**
 
-👤 **Author2**
+- GitHub: [@uno36](https://github.com/uno36)
+- LinkedIn: [LinkedIn](https://linkedin.com/in/emmanuel-tofa-673b2516a)
 
-- GitHub: [@githubhandle](https://github.com/githubhandle)
-- Twitter: [@twitterhandle](https://twitter.com/twitterhandle)
-- LinkedIn: [LinkedIn](https://linkedin.com/in/linkedinhandle)
+👤 **Sandeep Ghosh**
+
+- GitHub: [@mailsg](https://github.com/mailsg)
+- LinkedIn: [LinkedIn](https://linkedin.com/in/sandeep0912)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -196,11 +161,9 @@ Example:
 
 ## 🔭 Future Features <a name="future-features"></a>
 
-> Describe 1 - 3 features you will add to the project.
-
-- [ ] **[new_feature_1]**
-- [ ] **[new_feature_2]**
-- [ ] **[new_feature_3]**
+- **Booking Fee Payment**
+- **Medical Records Storage**
+- **Online Consultations**
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -218,9 +181,7 @@ Feel free to check the [issues page](../../issues/).
 
 ## ⭐️ Show your support <a name="support"></a>
 
-> Write a message to encourage readers to support your project
-
-If you like this project...
+If you like this project consider leaving a star to the repository.
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -228,25 +189,7 @@ If you like this project...
 
 ## 🙏 Acknowledgments <a name="acknowledgements"></a>
 
-> Give credit to everyone who inspired your codebase.
-
-I would like to thank...
-
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
-
-<!-- FAQ (optional) -->
-
-## ❓ FAQ (OPTIONAL) <a name="faq"></a>
-
-> Add at least 2 questions new developers would ask when they decide to use your project.
-
-- **[Question_1]**
-
-  - [Answer_1]
-
-- **[Question_2]**
-
-  - [Answer_2]
+We would like to thank **Microverse** for giving us this opportunity to showcase our skills as a full stack developer. We would also like to thank **Murat Korkmaz** for providing the wonderful design of the app on **Behance**. Last but not the least a big thanks to the **Open Source** ecosystem for providing free to use resources without which the project would not have taken the shape. Thank you all.
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
