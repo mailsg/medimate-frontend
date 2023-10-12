@@ -10,7 +10,6 @@ import convertTime from './utilities/time_converter';
 
 const Doctor = () => {
   const { doctorId } = useParams();
-
   const { doctors } = useSelector((state) => state.doctor);
   const doctorIdInt = parseInt(doctorId, 10);
   const doctor = doctors.find((doctor) => doctorIdInt === doctor.id);

@@ -1,0 +1,11 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Doctors Component renders doctors 1`] = `
+<div>
+  <h3
+    class="no-doctors"
+  >
+    YOU HAVE NOT ADDED ANY DOCTORS YET...
+  </h3>
+</div>
+`;
