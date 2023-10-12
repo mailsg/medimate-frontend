@@ -15,7 +15,6 @@
   - [🛠 Built With](#built-with)
     - [Tech Stack](#tech-stack)
     - [Key Features](#key-features)
-  - [🚀 Live Demo](#live-demo)
 - [💻 Getting Started](#getting-started)
   - [Setup](#setup)
   - [Prerequisites](#prerequisites)
@@ -67,18 +66,6 @@
 - **API Endpoints to login a user**
 - **API Endpoints to book appointments**
 - **Simple User Interface**
-
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
-
-<!-- LIVE DEMO -->
-
-## 🚀 Live Demo <a name="live-demo"></a>
-
-- [Live Demo Link](https://google.com)
-
-## 🚀 Presentation <a name="live-demo"></a>
-
-- [Presentation](https://google.com)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
