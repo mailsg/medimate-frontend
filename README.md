@@ -87,9 +87,9 @@ In order to run this project you need:
 
 Clone this repository to your desired folder:
 
-```sh  
+```sh
   git clone git@github.com:mailsg/medimate-frontend.git
-  cd medimate-frontend  
+  cd medimate-frontend
 ```
 
 ### Install
@@ -106,7 +106,24 @@ Install this project with:
 To run the project, execute the following command:
 
 ```sh
-  npm start
+Please follow the extra procedures below for a great user experience:
+
+  1. npm start
+
+  2. When the app opens, click the log_in button on the navigation panel
+
+  3. If you are a registered user, log_in. If not, click the sign_up button on the top right to register before you log_in with the same credentials.
+
+  4. If you are using the app for the first time, you will have to add doctors using the add doctors form in the navigation panel before accessing any page
+
+  5. From the navigation panel:
+   a. add doctors you want
+   b. delete doctors you dont want
+   c. reserve a doctor
+   d. delete a reservation
+   e. click on doctor name to see details
+   f. log_out
+
 ```
 
 ### Run tests
@@ -172,7 +189,7 @@ If you like this project consider leaving a star to the repository.
 
 ## 🙏 Acknowledgments <a name="acknowledgements"></a>
 
-We would like to thank **Microverse** for giving us this opportunity to showcase our skills as a full stack developer. We would also like to thank **Murat Korkmaz** for providing the wonderful design of the app on **Behance**. Last but not the least a big thanks to the **Open Source** ecosystem for providing free to use resources without which the project would not have taken the shape. Thank you all.   
+We would like to thank **Microverse** for giving us this opportunity to showcase our skills as a full stack developer. We would also like to thank **Murat Korkmaz** for providing the wonderful design of the app on **Behance**. Last but not the least a big thanks to the **Open Source** ecosystem for providing free to use resources without which the project would not have taken the shape. Thank you all.
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 

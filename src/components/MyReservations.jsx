@@ -4,7 +4,7 @@ import { deleteAppointmentThunk, getAppointments } from '../redux/appointmentSli
 import styles from '../css/DeleteDoctor.module.css';
 import convertTime from './utilities/time_converter';
 
-function MyAppointments() {
+const MyAppointments = () => {
   const dispatch = useDispatch();
   const appointments = useSelector((state) => state.appointment.appointments);
   const [error] = useState('');
@@ -54,6 +54,6 @@ function MyAppointments() {
       </section>
     </div>
   );
-}
+};
 
 export default MyAppointments;

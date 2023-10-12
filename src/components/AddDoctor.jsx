@@ -89,7 +89,7 @@ const AddDoctor = () => {
           />
           <input
             type="text"
-            placeholder="Available from"
+            placeholder="Available from [hh:mm]"
             name="time_available_from"
             value={doctorInfo.time_available_from}
             onChange={handleChange}
@@ -97,7 +97,7 @@ const AddDoctor = () => {
           />
           <input
             type="text"
-            placeholder="Available to"
+            placeholder="Available to [hh:mm]"
             name="time_available_to"
             value={doctorInfo.time_available_to}
             onChange={handleChange}
