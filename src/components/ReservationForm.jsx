@@ -29,12 +29,21 @@ function ReservationForm() {
       .then((data) => {
         setDoctors(data);
       })
-      .catch((error) => console.error('Error fetching doctors:', error));
+      .catch((error) => `Error fetching doctors: ${error}`);
   }, []);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-
+    if (
+      !formData.appointment_date
+      || !formData.appointment_time
+      || !formData.duration
+      || !formData.doctor_id
+      || !formData.location
+    ) {
+      toast.warn('Please fill in all fields');
+      return;
+    }
     try {
       const response = await fetch(
         'http://localhost:3000/api/v1/appointments',
@@ -80,7 +89,6 @@ function ReservationForm() {
             name="doctor_id"
             value={formData.doctor_id}
             onChange={handleDoctorSelectChange}
-            required
           >
             <option value="">Select a Doctor</option>
             {doctors.map((doctor) => (
@@ -99,7 +107,6 @@ function ReservationForm() {
             name="appointment_date"
             value={formData.appointment_date}
             onChange={(e) => setFormData({ ...formData, appointment_date: e.target.value })}
-            required
           />
         </div>
         <div className="form-group">
@@ -111,7 +118,6 @@ function ReservationForm() {
             name="appointment_time"
             value={formData.appointment_time}
             onChange={(e) => setFormData({ ...formData, appointment_time: e.target.value })}
-            required
           />
         </div>
         <div className="form-group">
@@ -123,7 +129,6 @@ function ReservationForm() {
             name="duration"
             value={formData.duration}
             onChange={(e) => setFormData({ ...formData, duration: e.target.value })}
-            required
           />
         </div>
         <div className="form-group">
@@ -135,7 +140,6 @@ function ReservationForm() {
             name="location"
             value={formData.location}
             onChange={(e) => setFormData({ ...formData, location: e.target.value })}
-            required
           />
         </div>
         <div className={styles['btn-container']}>

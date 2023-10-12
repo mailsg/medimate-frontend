@@ -37,8 +37,6 @@ const Header = () => {
       if (response.ok) {
         toast.success('Sign out is succesful');
         navigate('/log_in');
-      } else {
-        console.error('Sign-out failed.');
       }
       return null;
     } catch (error) {
@@ -46,6 +44,8 @@ const Header = () => {
     }
     return null;
   };
+
+  const isAuthenticated = localStorage.getItem('token') !== null;
 
   return (
     <>
@@ -104,15 +104,27 @@ const Header = () => {
             <li style={setSidePanelBg('/delete')}>
               <Link className={setSidePanelClass('/delete')} to="delete">Delete Doctor</Link>
             </li>
-            <li>
-              <button
-                type="button"
-                onClick={handleSignOut}
-                className="sign-out"
-              >
-                SIGN OUT
-              </button>
-            </li>
+            {isAuthenticated ? (
+              <li>
+                <button
+                  type="button"
+                  onClick={handleSignOut}
+                  className="sign-out"
+                >
+                  SIGN OUT
+                </button>
+              </li>
+            ) : (
+              <li>
+                <button
+                  type="button"
+                  onClick={navigate('/log_in')}
+                  className="sign-out"
+                >
+                  LOGIN
+                </button>
+              </li>
+            )}
           </ul>
         </div>
         <footer className="footer">
@@ -153,7 +165,7 @@ const Header = () => {
               <BsPinterest />
             </a>
           </div>
-          <p>© 1989 Medimate - All Rights Reserved</p>
+          <p>© 2023 MediMate - All Rights Reserved</p>
         </footer>
         <div
           className="mobile close"

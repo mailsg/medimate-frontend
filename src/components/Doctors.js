@@ -31,7 +31,7 @@ function Doctors() {
     return () => {
       window.removeEventListener('resize', handleResize);
     };
-  }, [dispatch]);
+  }, [dispatch, doctors]);
 
   const prevSlide = () => {
     setCurrentIndex((prevIndex) => (prevIndex === 0 ? 0 : prevIndex - 1));
@@ -50,6 +50,11 @@ function Doctors() {
     backgroundColor:
       currentIndex === doctors.length - displayCount ? '#c3b9b9d3' : '#8DB600',
   };
+
+  const isAuthenticated = localStorage.getItem('token') !== null;
+  if (!isAuthenticated) {
+    return <h3 className={styles['no-doctors']}>Sign Up or Login to continue...</h3>;
+  }
 
   if (doctors.length !== 0) {
     return (

@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { toast } from 'react-toastify';
 import { useForm } from 'react-hook-form';
 import styles from '../../css/reserve-form.module.css';
@@ -17,6 +17,9 @@ function LogIn() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    if (!data.email || !data.password) {
+      toast.warn('Please fill in all fields');
+    }
     try {
       const response = await fetch('http://localhost:3000/users/sign_in', {
         method: 'POST',
@@ -74,7 +77,7 @@ function LogIn() {
             name="email"
             value={data.email}
             onChange={handleInputChange}
-            required
+            // required
           />
         </div>
         <div className={styles['form-group']}>
@@ -84,13 +87,23 @@ function LogIn() {
             name="password"
             value={data.password}
             onChange={handleInputChange}
-            required
+            // required
           />
         </div>
         {error && <p className="error">{error}</p>}
         {' '}
-        <button className={styles['submit-button']} type="submit">Log In</button>
+        <div className={styles['btn-container']}>
+          <button type="submit" className={styles['submit-button']}>
+            Log in
+          </button>
+        </div>
       </form>
+      <div className={styles['float-btn-container']}>
+        <p>Not registered?</p>
+        <Link to="/sign_up">
+          <button className={[styles['float-btn'], styles['submit-button']].join(' ')} type="submit">Sign up</button>
+        </Link>
+      </div>
     </div>
   );
 }
