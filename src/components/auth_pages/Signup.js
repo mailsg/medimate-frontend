@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { toast } from 'react-toastify';
 import { useForm } from 'react-hook-form';
 import styles from '../../css/reserve-form.module.css';
@@ -105,8 +105,18 @@ function SignUp() {
             onChange={handleInputChange}
           />
         </div>
-        <button className={styles['submit-button']} type="submit">Sign Up</button>
+        <div className={styles['btn-container']}>
+          <button type="submit" className={styles['submit-button']}>
+            Sign up
+          </button>
+        </div>
       </form>
+      <div className={styles['float-btn-container']}>
+        <p>Already have an account?</p>
+        <Link to="/log_in">
+          <button className={[styles['float-btn'], styles['submit-button']].join(' ')} type="submit">Log in</button>
+        </Link>
+      </div>
     </div>
   );
 }

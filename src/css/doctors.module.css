@@ -58,6 +58,7 @@ h3 {
 }
 
 .slides {
+  margin-top: 3rem;
   display: block;
   text-align: center;
   gap: 1rem;

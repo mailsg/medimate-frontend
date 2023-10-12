@@ -19,7 +19,7 @@ import ReservationForm from './components/ReservationForm';
 
 const router = createBrowserRouter(
   createRoutesFromElements(
-    <>
+    <Route>
       <Route path="/" element={<Root />}>
         <Route path="/" element={<Doctors />} />
         <Route path="/add" element={<AddDoctor />} />
@@ -31,7 +31,7 @@ const router = createBrowserRouter(
       </Route>
       <Route path="/log_in" element={<Login />} />
       <Route path="/sign_up" element={<SignUp />} />
-    </>,
+    </Route>,
   ),
 );
 

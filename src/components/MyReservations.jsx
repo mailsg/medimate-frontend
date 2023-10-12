@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { getAppointments } from '../redux/appointmentSlice';
+import { deleteAppointmentThunk, getAppointments } from '../redux/appointmentSlice';
 import styles from '../css/DeleteDoctor.module.css';
 import convertTime from './utilities/time_converter';
 
@@ -11,7 +11,12 @@ function MyAppointments() {
 
   useEffect(() => {
     dispatch(getAppointments());
-  }, [dispatch]);
+  }, [dispatch, appointments]);
+
+  const handleDeleteApp = (appId) => {
+    dispatch(deleteAppointmentThunk(appId));
+    console.log(appId);
+  };
 
   return (
     <div className={styles['remove-doc-wrapper']}>
@@ -39,9 +44,9 @@ function MyAppointments() {
               <button
                 type="button"
                 className={styles['delete-button']}
-                // onClick={() => handleDeleteDoctor(appointment.id)}
+                onClick={() => handleDeleteApp(appointment.id)}
               >
-                Cancel Appointment
+                Cancel
               </button>
             </div>
             <img src={appointment.doctor.image} alt={appointment.duration} className={styles.img} />
