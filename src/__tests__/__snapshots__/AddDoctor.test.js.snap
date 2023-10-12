@@ -1,0 +1,95 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Add Doctor Form Component renders Add Doctor Form component 1`] = `
+<div>
+  <div
+    class="reservation-container"
+  >
+    <h1
+      class="reserve-form-header"
+    >
+      Add Doctor
+    </h1>
+    <div
+      class="addDoctorForm"
+    >
+      <form
+        class="add-doctor-form"
+      >
+        <div
+          class="flex-item flex1"
+        >
+          <input
+            class="addDoctorInput"
+            name="name"
+            placeholder="Name"
+            type="text"
+            value=""
+          />
+          <input
+            class="addDoctorInput"
+            name="time_available_from"
+            placeholder="Available from"
+            type="text"
+            value=""
+          />
+          <input
+            class="addDoctorInput"
+            name="time_available_to"
+            placeholder="Available to"
+            type="text"
+            value=""
+          />
+          <textarea
+            class="addDoctorInput"
+            name="bio"
+            placeholder="Short bio..."
+          />
+        </div>
+        <div
+          class="flex-item"
+        >
+          <input
+            class="addDoctorInput"
+            name="fee_per_appointment"
+            placeholder="Fee per appointment"
+            type="text"
+            value=""
+          />
+          <select
+            class="select-elm"
+            name="specialization_id"
+            placeholder="Specialization"
+          >
+            <option
+              value=""
+            >
+              Select Specialization
+            </option>
+          </select>
+          <input
+            class="addDoctorInput"
+            name="image"
+            placeholder="Image URL"
+            type="text"
+            value=""
+          />
+          <input
+            class="addDoctorInput"
+            name="location"
+            placeholder="City"
+            type="text"
+            value=""
+          />
+          <button
+            class="submit-button"
+            type="button"
+          >
+            Add Doctor
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+`;
