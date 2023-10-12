@@ -5,7 +5,7 @@ import { toast } from 'react-toastify';
 import { setReservations } from '../redux/appointmentSlice';
 import styles from '../css/reserve-form.module.css';
 
-function ReservationForm() {
+const ReservationForm = () => {
   const dispatch = useDispatch();
 
   const [formData, setFormData] = useState({
@@ -150,6 +150,6 @@ function ReservationForm() {
       </form>
     </div>
   );
-}
+};
 
 export default ReservationForm;

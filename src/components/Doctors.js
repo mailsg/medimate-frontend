@@ -11,7 +11,7 @@ import {
 import { getDoctors } from '../redux/doctorSlice';
 import styles from '../css/doctors.module.css';
 
-function Doctors() {
+const Doctors = () => {
   const doctors = useSelector((state) => state.doctor.doctors);
 
   const dispatch = useDispatch();
@@ -115,6 +115,6 @@ function Doctors() {
     );
   }
   return <h3 className={styles['no-doctors']}>YOU HAVE NOT ADDED ANY DOCTORS YET...</h3>;
-}
+};
 
 export default Doctors;

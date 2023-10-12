@@ -4,7 +4,7 @@ import { toast } from 'react-toastify';
 import { useForm } from 'react-hook-form';
 import styles from '../../css/reserve-form.module.css';
 
-function LogIn() {
+const LogIn = () => {
   const { reset } = useForm();
   const navigate = useNavigate();
 
@@ -106,6 +106,6 @@ function LogIn() {
       </div>
     </div>
   );
-}
+};
 
 export default LogIn;
