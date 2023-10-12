@@ -31,7 +31,7 @@ const Doctors = () => {
     return () => {
       window.removeEventListener('resize', handleResize);
     };
-  }, [dispatch, doctors]);
+  }, [dispatch]);
 
   const prevSlide = () => {
     setCurrentIndex((prevIndex) => (prevIndex === 0 ? 0 : prevIndex - 1));
