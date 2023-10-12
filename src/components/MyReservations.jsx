@@ -11,7 +11,7 @@ const MyAppointments = () => {
 
   useEffect(() => {
     dispatch(getAppointments());
-  }, [dispatch, appointments]);
+  }, [dispatch]);
 
   const handleDeleteApp = (appId) => {
     dispatch(deleteAppointmentThunk(appId));

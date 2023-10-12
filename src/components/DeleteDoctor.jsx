@@ -14,7 +14,7 @@ const DeleteDoctor = () => {
 
   useEffect(() => {
     dispatch(getDoctors());
-  }, [dispatch, doctors]);
+  }, [dispatch]);
   const [error, setError] = useState(null);
 
   const handleDeleteDoctor = async (doctorId) => {
