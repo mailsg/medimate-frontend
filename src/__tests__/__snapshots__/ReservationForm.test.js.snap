@@ -1,0 +1,97 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Reservation Form Component renders Reservation Form component 1`] = `
+<div>
+  <div
+    class="form reservation-container"
+  >
+    <h1
+      class="reserve-form-header"
+    >
+      Reservation Form
+    </h1>
+    <form
+      class="form reservation-form"
+    >
+      <div
+        class="form-group"
+      >
+        <select
+          class="select-elm"
+          id="doctorId"
+          name="doctor_id"
+          required=""
+        >
+          <option
+            value=""
+          >
+            Select a Doctor
+          </option>
+        </select>
+      </div>
+      <div
+        class="form-group"
+      >
+        <input
+          class="form"
+          id="appointmentDate"
+          name="appointment_date"
+          placeholder="Date of Appointment"
+          required=""
+          type="date"
+          value=""
+        />
+      </div>
+      <div
+        class="form-group"
+      >
+        <input
+          class="form"
+          id="appointmentTime"
+          name="appointment_time"
+          placeholder="Time of Appointment"
+          required=""
+          type="time"
+          value=""
+        />
+      </div>
+      <div
+        class="form-group"
+      >
+        <input
+          class="form"
+          id="duration"
+          name="duration"
+          placeholder="Duration (in minutes)"
+          required=""
+          type="number"
+          value=""
+        />
+      </div>
+      <div
+        class="form-group"
+      >
+        <input
+          class="form"
+          id="location"
+          name="location"
+          placeholder="Location"
+          required=""
+          type="text"
+          value=""
+        />
+      </div>
+      <div
+        class="btn-container"
+      >
+        <button
+          class="submit-button"
+          type="submit"
+        >
+          Make Reservation
+        </button>
+      </div>
+    </form>
+  </div>
+</div>
+`;
