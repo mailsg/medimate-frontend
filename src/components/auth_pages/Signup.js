@@ -43,16 +43,14 @@ function SignUp() {
         localStorage.setItem('token', response.headers.get('Authorization'));
         reset();
         navigate('/log_in');
-      } else {
-        console.log('Unable to fetch');
       }
+
       return null;
     } catch (error) {
       toast.error(
         'An error occured while creating the account, please try again',
       );
       reset();
-      console.error('Error:', error);
     }
     return null;
   };

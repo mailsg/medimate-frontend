@@ -15,7 +15,6 @@ function MyAppointments() {
 
   const handleDeleteApp = (appId) => {
     dispatch(deleteAppointmentThunk(appId));
-    console.log(appId);
   };
 
   return (

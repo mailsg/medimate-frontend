@@ -29,12 +29,13 @@ function ReservationForm() {
       .then((data) => {
         setDoctors(data);
       })
-      .catch((error) => console.error('Error fetching doctors:', error));
+      .catch((error) => `Error fetching doctors: ${error}`);
   }, []);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    if (!formData.appointment_date
+    if (
+      !formData.appointment_date
       || !formData.appointment_time
       || !formData.duration
       || !formData.doctor_id

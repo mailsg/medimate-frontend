@@ -37,8 +37,6 @@ const Header = () => {
       if (response.ok) {
         toast.success('Sign out is succesful');
         navigate('/log_in');
-      } else {
-        console.error('Sign-out failed.');
       }
       return null;
     } catch (error) {
