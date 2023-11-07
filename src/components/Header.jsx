@@ -45,8 +45,6 @@ const Header = () => {
     return null;
   };
 
-  const isAuthenticated = localStorage.getItem('token') !== null;
-
   return (
     <>
       <div className="mobile-nav">
@@ -102,29 +100,19 @@ const Header = () => {
               </Link>
             </li>
             <li style={setSidePanelBg('/delete')}>
-              <Link className={setSidePanelClass('/delete')} to="delete">Delete Doctor</Link>
+              <Link className={setSidePanelClass('/delete')} to="delete">
+                Delete Doctor
+              </Link>
             </li>
-            {isAuthenticated ? (
-              <li>
-                <button
-                  type="button"
-                  onClick={handleSignOut}
-                  className="sign-out"
-                >
-                  SIGN OUT
-                </button>
-              </li>
-            ) : (
-              <li>
-                <button
-                  type="button"
-                  onClick={navigate('/log_in')}
-                  className="sign-out"
-                >
-                  LOGIN
-                </button>
-              </li>
-            )}
+            <li>
+              <button
+                type="button"
+                onClick={handleSignOut}
+                className="sign-out"
+              >
+                SIGN OUT
+              </button>
+            </li>
           </ul>
         </div>
         <footer className="footer">
