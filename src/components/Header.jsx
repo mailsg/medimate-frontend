@@ -53,6 +53,7 @@ const Header = () => {
           onClick={() => setPanel(!panel)}
           onKeyDown={() => setPanel(!panel)}
           tabIndex={0}
+          aria-label="Toggle Panel"
         >
           <BsList className="bars" />
         </span>
@@ -121,6 +122,7 @@ const Header = () => {
               href="https://twitter.com"
               target="_blank"
               rel="noopener noreferrer"
+              aria-label="Twitter Icon"
             >
               <BsTwitter />
             </a>
@@ -128,6 +130,7 @@ const Header = () => {
               href="https://www.facebook.com"
               target="_blank"
               rel="noopener noreferrer"
+              aria-label="Facebook Icon"
             >
               <BsFacebook />
             </a>
@@ -135,6 +138,7 @@ const Header = () => {
               href="https://plus.google.com"
               target="_blank"
               rel="noopener noreferrer"
+              aria-label="Google Icon"
             >
               <BiLogoGooglePlus />
             </a>
@@ -142,6 +146,7 @@ const Header = () => {
               href="https://vimeo.com"
               target="_blank"
               rel="noopener noreferrer"
+              aria-label="Vimeo Icon"
             >
               <BsVimeo />
             </a>
@@ -149,6 +154,7 @@ const Header = () => {
               href="https://www.pinterest.com"
               target="_blank"
               rel="noopener noreferrer"
+              aria-label="Pinterest icon"
             >
               <BsPinterest />
             </a>
@@ -161,6 +167,7 @@ const Header = () => {
           onClick={() => setPanel(!panel)}
           onKeyDown={() => setPanel(!panel)}
           tabIndex={0}
+          aria-label="close button"
         >
           <i className="fa fa-solid fa-xmark" />
         </div>
