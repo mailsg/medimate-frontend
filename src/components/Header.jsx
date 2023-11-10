@@ -45,8 +45,6 @@ const Header = () => {
     return null;
   };
 
-  const isAuthenticated = localStorage.getItem('token') !== null;
-
   return (
     <>
       <div className="mobile-nav">
@@ -55,6 +53,7 @@ const Header = () => {
           onClick={() => setPanel(!panel)}
           onKeyDown={() => setPanel(!panel)}
           tabIndex={0}
+          aria-label="Toggle Panel"
         >
           <BsList className="bars" />
         </span>
@@ -102,29 +101,19 @@ const Header = () => {
               </Link>
             </li>
             <li style={setSidePanelBg('/delete')}>
-              <Link className={setSidePanelClass('/delete')} to="delete">Delete Doctor</Link>
+              <Link className={setSidePanelClass('/delete')} to="delete">
+                Delete Doctor
+              </Link>
             </li>
-            {isAuthenticated ? (
-              <li>
-                <button
-                  type="button"
-                  onClick={handleSignOut}
-                  className="sign-out"
-                >
-                  SIGN OUT
-                </button>
-              </li>
-            ) : (
-              <li>
-                <button
-                  type="button"
-                  onClick={navigate('/log_in')}
-                  className="sign-out"
-                >
-                  LOGIN
-                </button>
-              </li>
-            )}
+            <li>
+              <button
+                type="button"
+                onClick={handleSignOut}
+                className="sign-out"
+              >
+                SIGN OUT
+              </button>
+            </li>
           </ul>
         </div>
         <footer className="footer">
@@ -133,6 +122,7 @@ const Header = () => {
               href="https://twitter.com"
               target="_blank"
               rel="noopener noreferrer"
+              aria-label="Twitter Icon"
             >
               <BsTwitter />
             </a>
@@ -140,6 +130,7 @@ const Header = () => {
               href="https://www.facebook.com"
               target="_blank"
               rel="noopener noreferrer"
+              aria-label="Facebook Icon"
             >
               <BsFacebook />
             </a>
@@ -147,6 +138,7 @@ const Header = () => {
               href="https://plus.google.com"
               target="_blank"
               rel="noopener noreferrer"
+              aria-label="Google Icon"
             >
               <BiLogoGooglePlus />
             </a>
@@ -154,6 +146,7 @@ const Header = () => {
               href="https://vimeo.com"
               target="_blank"
               rel="noopener noreferrer"
+              aria-label="Vimeo Icon"
             >
               <BsVimeo />
             </a>
@@ -161,6 +154,7 @@ const Header = () => {
               href="https://www.pinterest.com"
               target="_blank"
               rel="noopener noreferrer"
+              aria-label="Pinterest icon"
             >
               <BsPinterest />
             </a>
@@ -173,6 +167,7 @@ const Header = () => {
           onClick={() => setPanel(!panel)}
           onKeyDown={() => setPanel(!panel)}
           tabIndex={0}
+          aria-label="close button"
         >
           <i className="fa fa-solid fa-xmark" />
         </div>
