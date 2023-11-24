@@ -1,10 +1,10 @@
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
 import axios from 'axios';
 
-const token = localStorage.getItem('token');
 export const getAppointments = createAsyncThunk(
   'get/appointments',
   async () => {
+    const token = localStorage.getItem('token');
     const response = await axios.get(
       'http://localhost:3000/api/v1/appointments',
       {
@@ -20,13 +20,13 @@ export const getAppointments = createAsyncThunk(
 export const deleteAppointmentThunk = createAsyncThunk(
   'deleteAppointment/deleteAppointmentAsync',
   async (appId) => {
+    const token = localStorage.getItem('token');
     try {
-      const token = localStorage.getItem('token');
       const response = await axios.delete(
         `http://localhost:3000/api/v1/appointments/${appId}`,
         {
           headers: {
-            Authorization: token,
+            Authorization: `${token}`,
           },
         },
       );

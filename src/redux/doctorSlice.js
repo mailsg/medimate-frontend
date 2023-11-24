@@ -1,11 +1,12 @@
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
 import axios from 'axios';
 
-const token = localStorage.getItem('token');
 // const baseUrl = 'https://medimate-backend-p22y.onrender.com/api/v1';
 const localUrl = 'http://localhost:3000/api/v1';
 
 export const AddDoctor = createAsyncThunk('api/AddDoctor', async (payload) => {
+  const token = localStorage.getItem('token');
+
   const response = await fetch(`${localUrl}/doctors`, {
     method: 'POST',
     headers: {
@@ -19,6 +20,7 @@ export const AddDoctor = createAsyncThunk('api/AddDoctor', async (payload) => {
 });
 
 export const getDoctors = createAsyncThunk('get/doctors', async () => {
+  const token = localStorage.getItem('token');
   const response = await axios.get(`${localUrl}/doctors`, {
     headers: {
       Authorization: `${token}`,
@@ -28,6 +30,7 @@ export const getDoctors = createAsyncThunk('get/doctors', async () => {
 });
 
 export const getDoctor = createAsyncThunk('get/doctor', async (payload) => {
+  const token = localStorage.getItem('token');
   const response = await axios.get(`${localUrl}/doctors/${payload}`, {
     headers: {
       Authorization: `${token}`,
@@ -39,6 +42,7 @@ export const getDoctor = createAsyncThunk('get/doctor', async (payload) => {
 export const deleteDoctors = createAsyncThunk(
   'doctors/Deletedoctors',
   async (payload) => {
+    const token = localStorage.getItem('token');
     const response = await axios.delete(`${localUrl}/doctors/${payload}`, {
       headers: {
         Authorization: `${token}`,
